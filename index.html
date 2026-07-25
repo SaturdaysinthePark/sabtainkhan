@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sabtain Khan — Group Product Manager</title>
 <meta name="description" content="Building AI products for enterprises and leading product organizations.">
+<link rel="canonical" href="https://sabtainkhan.com/">
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -64,6 +65,7 @@
     [data-workrow] > div:last-child{text-align:left!important}
     .app-row{grid-template-columns:1fr!important;row-gap:4px!important}
     .app-row > span:last-child{text-align:left!important}
+    #proc-loop{display:none!important}
   }
 </style>
 <script src="./site-fx.js?v=5"></script>
@@ -74,22 +76,22 @@
   <div style="position:sticky;top:0;z-index:50">
     <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
     <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(22px,5vw,80px);background:#CDF34E">
-      <a href="index.html" style="font-family:&#39;Anton&#39;,sans-serif;font-size:27px;line-height:.84;text-transform:uppercase;letter-spacing:0.015em;white-space:nowrap;flex-shrink:0;color:#101012;transform:skewX(-9deg)">Sabtain Khan</a>
+      <a href="/" style="font-family:&#39;Anton&#39;,sans-serif;font-size:27px;line-height:.84;text-transform:uppercase;letter-spacing:0.015em;white-space:nowrap;flex-shrink:0;color:#101012;transform:skewX(-9deg)">Sabtain Khan</a>
       <div style="display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)">
         <div id="nav-pill" onMouseLeave="{{ navLeave }}" style="position:relative;display:flex;align-items:center;gap:2px">
           <div id="nav-ind" style="{{ navIndStyle }}"></div>
-          <a href="work.html" data-pill onMouseEnter="{{ navEnter0 }}" style="{{ navPill0 }}">Work</a>
-          <a href="talks.html" data-pill onMouseEnter="{{ navEnter1 }}" style="{{ navPill1 }}">Appearances</a>
-          <a href="about.html" data-pill onMouseEnter="{{ navEnter2 }}" style="{{ navPill2 }}">About</a>
+          <a href="/work" data-pill onMouseEnter="{{ navEnter0 }}" style="{{ navPill0 }}">Work</a>
+          <a href="/talks" data-pill onMouseEnter="{{ navEnter1 }}" style="{{ navPill1 }}">Appearances</a>
+          <a href="/about" data-pill onMouseEnter="{{ navEnter2 }}" style="{{ navPill2 }}">About</a>
         </div>
         <a id="cta-nav" href="mailto:sabtain.a.khan@gmail.com" style="padding:9px 18px;background:#101012;color:#CDF34E;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-size:13.5px;font-weight:700;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch</a>
       </div>
       <label for="nav-toggle" class="nav-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></label>
     </nav>
     <div id="mobile-menu">
-      <a href="work.html">Work</a>
-      <a href="talks.html">Appearances</a>
-      <a href="about.html">About</a>
+      <a href="/work">Work</a>
+      <a href="/talks">Appearances</a>
+      <a href="/about">About</a>
       <a href="mailto:sabtain.a.khan@gmail.com">Get in touch →</a>
     </div>
     <div id="wave" style="height:34px;background:#CDF34E;margin-top:-1px"></div>
@@ -230,7 +232,7 @@
                 <div data-label style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:10.5px;color:#7C8466;transition:color .3s;white-space:nowrap">Learn</div>
               </div>
             </div>
-            <div aria-hidden="true" style="position:relative;height:50px;margin-top:8px">
+            <div id="proc-loop" aria-hidden="true" style="position:relative;height:50px;margin-top:8px">
               <svg viewBox="0 0 300 50" preserveAspectRatio="none" style="width:100%;height:50px;display:block;overflow:visible">
                 <path d="M262,8 L262,34 Q262,42 254,42 L48,42 Q40,42 40,34 L40,15" fill="none" stroke="rgba(205,243,78,0.55)" stroke-width="2" stroke-linecap="round" stroke-dasharray="0.5 8"></path>
                 <polygon points="40,4 34,15 46,15" fill="#CDF34E"></polygon>
@@ -249,7 +251,7 @@
     <div style="max-width:1340px;margin:0 auto">
       <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(24px,4vh,40px)">
         <h2 style="margin:0;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(28px,4vw,54px);letter-spacing:-0.04em;line-height:1.0">Selected <span style="color:#B7BAC4">work.</span></h2>
-        <a href="work.html" style="font-weight:600;font-size:14px;padding:11px 22px;border:1.5px solid rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));white-space:nowrap;transition:background .2s,border-color .2s" style-hover="background:#CDF34E;border-color:#CDF34E">All work →</a>
+        <a href="/work" style="font-weight:600;font-size:14px;padding:11px 22px;border:1.5px solid rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));white-space:nowrap;transition:background .2s,border-color .2s" style-hover="background:#CDF34E;border-color:#CDF34E">All work →</a>
       </div>
 
       <a data-workrow href="work.html#orchestrate" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
@@ -298,14 +300,14 @@
     <div style="max-width:1340px;margin:0 auto">
       <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(20px,3vh,32px)">
         <h2 style="margin:0;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(28px,4vw,54px);letter-spacing:-0.04em;line-height:1.0">Recent <span style="color:#B7BAC4">appearances.</span></h2>
-        <a href="talks.html" style="font-weight:600;font-size:14px;padding:11px 22px;border:1.5px solid rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));white-space:nowrap;transition:background .2s,border-color .2s" style-hover="background:#CDF34E;border-color:#CDF34E">All appearances →</a>
+        <a href="/talks" style="font-weight:600;font-size:14px;padding:11px 22px;border:1.5px solid rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));white-space:nowrap;transition:background .2s,border-color .2s" style-hover="background:#CDF34E;border-color:#CDF34E">All appearances →</a>
       </div>
       <a href="https://www.linkedin.com/posts/nikavagner_last-night-i-was-at-elevenlabsbrand-new-activity-7468696127215775744-x2E0" target="_blank" rel="noopener" class="app-row" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Tech Week @ ElevenLabs</span>
         <span style="color:#5C6470;font-size:15px">Speaker — building AI agents people actually trust ↗</span>
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2026</span>
       </a>
-      <a href="talks.html" class="app-row" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
+      <a href="/talks" class="app-row" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">NYU Wagner</span>
         <span style="color:#5C6470;font-size:15px">Guest lecturer — AI &amp; design thinking (recurring class)</span>
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2022—26</span>
@@ -332,7 +334,7 @@
         <div style="display:flex;gap:22px;font-size:14px;font-weight:500">
           <a href="https://linkedin.com/in/sabtain" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">LinkedIn ↗</a>
           <a href="https://github.com/SaturdaysinthePark" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">GitHub ↗</a>
-          <a href="resume.html" target="_blank" style="color:#AEB4C2" style-hover="color:#CDF34E">Résumé</a>
+          <a href="/resume" target="_blank" style="color:#AEB4C2" style-hover="color:#CDF34E">Résumé</a>
         </div>
       </div>
     </div>
