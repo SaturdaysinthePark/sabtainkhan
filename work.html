@@ -39,12 +39,30 @@
   ::selection{background:#CDF34E;color:#101012}
   @keyframes spin{to{transform:rotate(360deg)}}
   @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+  .nav-toggle-checkbox{display:none}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:30px;height:30px;cursor:pointer;flex-shrink:0;background:none;border:none;padding:0}
+  .nav-hamburger span{display:block;height:2px;width:100%;background:#101012;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  #mobile-menu{display:none;flex-direction:column;background:#CDF34E;padding:0 clamp(22px,5vw,80px) 16px;gap:2px}
+  #mobile-menu a{padding:12px 0;font-size:16px;font-weight:600;border-top:1px solid rgba(16,16,18,0.12)}
+  #mobile-menu a:first-child{border-top:none}
+  @media(max-width:760px){
+    #nav-pill,#cta-nav{display:none!important}
+    .nav-hamburger{display:flex}
+    .nav-toggle-checkbox:checked ~ #mobile-menu{display:flex}
+    .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(2){opacity:0}
+    .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  }
+  @media(max-width:560px){
+    .wk-text,.wk-media{flex:1 1 100%!important}
+  }
 </style>
 </helmet>
 <div style="position:relative;overflow-x:clip">
 
   <!-- ACID HEADER + FLOWING WAVE -->
   <div style="position:sticky;top:0;z-index:50">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
     <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(22px,5vw,80px);background:#CDF34E">
       <a href="index.html" style="font-family:&#39;Anton&#39;,sans-serif;font-size:27px;line-height:.84;text-transform:uppercase;letter-spacing:0.015em;white-space:nowrap;flex-shrink:0;color:#101012;transform:skewX(-9deg)">Sabtain Khan</a>
       <div style="display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)">
@@ -56,7 +74,14 @@
         </div>
         <a id="cta-nav" href="mailto:sabtain.a.khan@gmail.com" style="padding:9px 18px;background:#101012;color:#CDF34E;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-size:13.5px;font-weight:700;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch</a>
       </div>
+      <label for="nav-toggle" class="nav-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></label>
     </nav>
+    <div id="mobile-menu">
+      <a href="work.html">Work</a>
+      <a href="talks.html">Talks</a>
+      <a href="about.html">About</a>
+      <a href="mailto:sabtain.a.khan@gmail.com">Get in touch →</a>
+    </div>
     <div id="wave" style="height:34px;background:#CDF34E;margin-top:-1px"></div>
   </div>
 
@@ -88,7 +113,7 @@
       <!-- Orchestrate -->
       <article id="orchestrate" data-reveal style="padding:clamp(28px,3.6vh,44px) 0 0;margin-top:clamp(18px,2.6vh,28px);scroll-margin-top:140px">
         <div style="{{ cardStyle0 }};display:flex;flex-wrap:wrap;gap:34px 56px;align-items:center">
-        <div style="flex:1 1 330px;min-width:0">
+        <div class="wk-text" style="flex:1 1 330px;min-width:0">
         <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:16px">watsonx Orchestrate · IBM · 2025 — present</div>
         <h3 style="margin:0 0 14px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,42px);line-height:1.08;letter-spacing:-0.03em">AI agent builder and platform with multi-agent orchestration</h3>
         <p style="margin:0 0 22px;color:#444A56;font-size:16px;line-height:1.65">Providing enterprises the platform to build AI agents that can orchestrate across many agents, MCP servers, knowledge bases and more. Out of the box comes with governance features for control enforcement, agent development lifecycle experiences, and the observability to debug and improve enterprise agents.</p>
@@ -98,7 +123,7 @@
           <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">Enterprise integrations</span>
         </div>
         </div>
-        <div style="flex:1.5 1 480px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
+        <div class="wk-media" style="flex:1.5 1 480px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
           <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#8A9270;padding:20px;text-align:center">Loading demo clip…</span>
           <video src="uploads/wxo-demo-web.mp4" muted loop playsinline autoplay controls preload="metadata" style="position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;background:transparent"></video>
         </div>
@@ -108,7 +133,7 @@
       <!-- Assistant Builder -->
       <article id="assistant" data-reveal style="padding:clamp(28px,3.6vh,44px) 0 0;border-top:1.5px solid rgba(16,16,18,0.14);margin-top:clamp(18px,2.6vh,28px);scroll-margin-top:140px">
         <div style="{{ cardStyle1 }};display:flex;flex-wrap:wrap;gap:34px 56px;align-items:center">
-        <div style="flex:1 1 330px;min-width:0">
+        <div class="wk-text" style="flex:1 1 330px;min-width:0">
         <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:16px">watsonx Assistant · IBM · 2021 — 2024</div>
         <h3 style="margin:0 0 14px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,42px);line-height:1.08;letter-spacing:-0.03em">A no-code way to build production AI assistants</h3>
         <p style="margin:0 0 22px;color:#444A56;font-size:16px;line-height:1.65">Launched the conversation-building canvas so non-technical teams could design, test and ship assistants without writing code, plus the analytics that closed the loop between what customers asked and what the assistant should do next. This is the most adopted IBM AI product, handling millions of conversations per month for enterprises with customer care use cases.</p>
@@ -119,7 +144,7 @@
           <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.02em;color:#101012;background:#CDF34E;padding:7px 13px;border-radius:100px;white-space:nowrap">Gartner Leader · Enterprise Conversational AI, 2021</span>
         </div>
         </div>
-        <div style="flex:1.5 1 480px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
+        <div class="wk-media" style="flex:1.5 1 480px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
           <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#8A9270;padding:20px;text-align:center">Loading demo clip…</span>
           <video src="uploads/watsonxAssistantnocode.mp4" muted loop playsinline autoplay controls preload="metadata" style="position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;background:transparent"></video>
         </div>
@@ -129,7 +154,7 @@
       <!-- Visual inspection -->
       <article id="vision" data-reveal style="padding:clamp(28px,3.6vh,44px) 0 0;border-top:1.5px solid rgba(16,16,18,0.14);margin-top:clamp(18px,2.6vh,28px);scroll-margin-top:140px">
         <div style="{{ cardStyle2 }};display:flex;flex-wrap:wrap;gap:34px 56px;align-items:center">
-        <div style="flex:1 1 330px;min-width:0">
+        <div class="wk-text" style="flex:1 1 330px;min-width:0">
         <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:16px">Computer vision · IBM · 2018 — 2021</div>
         <h3 style="margin:0 0 14px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,42px);line-height:1.08;letter-spacing:-0.03em">Computer vision that catches defects on assembly lines and on the edge</h3>
         <p style="margin:0 0 22px;color:#444A56;font-size:16px;line-height:1.65">Led product for a visual inspection capability that let teams train custom object detection models to identify defects or problems in assembly lines and on the field. Deployable locally on iPhones and Android phones for instant and offline inference.</p>
@@ -139,7 +164,7 @@
           <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">Edge deployment</span>
         </div>
         </div>
-        <div style="flex:1.5 1 480px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
+        <div class="wk-media" style="flex:1.5 1 480px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
           <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#8A9270;padding:20px;text-align:center">Loading demo clip…</span>
           <video src="uploads/visinspect2.mp4" muted loop playsinline autoplay controls preload="metadata" style="position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;background:transparent"></video>
         </div>
@@ -163,13 +188,13 @@
 
       <article id="siab" data-reveal style="padding:clamp(26px,3.4vh,40px) 0 0;border-top:1.5px solid rgba(16,16,18,0.14);margin-top:clamp(18px,2.4vh,26px);scroll-margin-top:140px">
         <div style="{{ cardStyle3 }};display:flex;flex-wrap:wrap;gap:30px 52px;align-items:center">
-        <div style="flex:1 1 300px;min-width:0">
+        <div class="wk-text" style="flex:1 1 300px;min-width:0">
         <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:14px">Personal project · Ongoing</div>
         <h3 style="margin:0 0 12px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(24px,2.8vw,34px);line-height:1.1;letter-spacing:-0.03em">Saturdays in a Book</h3>
         <p style="margin:0;color:#444A56;font-size:15.5px;line-height:1.6">My book blog showcasing my personal book reviews and recommendations.</p>
         <a href="https://saturdaysinabook.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:11px 20px;background:#101012;color:#CDF34E;font-weight:700;font-size:14.5px;white-space:nowrap;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));transition:background .2s" style-hover="background:#232327">Visit site &#8599;</a>
         </div>
-        <div style="flex:1.5 1 460px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
+        <div class="wk-media" style="flex:1.5 1 460px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
           <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#8A9270;padding:20px;text-align:center">Loading demo clip…</span>
           <video src="uploads/siab.mp4" muted loop playsinline autoplay controls preload="metadata" style="position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;background:transparent"></video>
         </div>
@@ -178,13 +203,13 @@
 
       <article id="bookjumpr" data-reveal style="padding:clamp(26px,3.4vh,40px) 0 0;border-top:1.5px solid rgba(16,16,18,0.14);margin-top:clamp(18px,2.4vh,26px);scroll-margin-top:140px">
         <div style="{{ cardStyle4 }};display:flex;flex-wrap:wrap;gap:30px 52px;align-items:center">
-        <div style="flex:1 1 300px;min-width:0">
+        <div class="wk-text" style="flex:1 1 300px;min-width:0">
         <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:14px">Personal project · Ongoing</div>
         <h3 style="margin:0 0 12px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(24px,2.8vw,34px);line-height:1.1;letter-spacing:-0.03em">BookJumpr</h3>
         <p style="margin:0;color:#444A56;font-size:15.5px;line-height:1.6">A passion project that maps all the explicit book mentions across books. Pick a book, browse which books it mentions or which books mention it. View the graph and explore more!</p>
         <a href="https://bookjumpr.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:11px 20px;background:#101012;color:#CDF34E;font-weight:700;font-size:14.5px;white-space:nowrap;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));transition:background .2s" style-hover="background:#232327">Visit site &#8599;</a>
         </div>
-        <div style="flex:1.5 1 460px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
+        <div class="wk-media" style="flex:1.5 1 460px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
           <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#8A9270;padding:20px;text-align:center">Loading demo clip…</span>
           <video src="uploads/bookjumpr-web.mp4" muted loop playsinline autoplay controls preload="metadata" style="position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;background:transparent"></video>
         </div>

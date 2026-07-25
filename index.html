@@ -12,13 +12,13 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sabtainkhan.com/">
-<meta property="og:title" content="Sabtain Khan — Group Product Manager">
+<meta property="og:title" content="Sabtain Khan">
 <meta property="og:description" content="Building AI products for enterprises and leading product organizations.">
 <meta property="og:image" content="https://sabtainkhan.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sabtain Khan — Group Product Manager">
+<meta name="twitter:title" content="Sabtain Khan">
 <meta name="twitter:description" content="Building AI products for enterprises and leading product organizations.">
 <meta name="twitter:image" content="https://sabtainkhan.com/og-image.png">
 <script src="./support.js"></script>
@@ -43,6 +43,28 @@
   @keyframes decTwirl{to{transform:rotate(360deg)}}
   @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
   @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+  .nav-toggle-checkbox{display:none}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:30px;height:30px;cursor:pointer;flex-shrink:0;background:none;border:none;padding:0}
+  .nav-hamburger span{display:block;height:2px;width:100%;background:#101012;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  #mobile-menu{display:none;flex-direction:column;background:#CDF34E;padding:0 clamp(22px,5vw,80px) 16px;gap:2px}
+  #mobile-menu a{padding:12px 0;font-size:16px;font-weight:600;border-top:1px solid rgba(16,16,18,0.12)}
+  #mobile-menu a:first-child{border-top:none}
+  @media(max-width:760px){
+    #nav-pill,#cta-nav{display:none!important}
+    .nav-hamburger{display:flex}
+    .nav-toggle-checkbox:checked ~ #mobile-menu{display:flex}
+    .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(2){opacity:0}
+    .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  }
+  @media(max-width:700px){
+    #hero-grid{grid-template-columns:1fr!important}
+    [data-workrow]{grid-template-columns:1fr!important;row-gap:4px!important}
+    [data-workrow] div[data-chip]{display:none!important}
+    [data-workrow] > div:last-child{text-align:left!important}
+    .app-row{grid-template-columns:1fr!important;row-gap:4px!important}
+    .app-row > span:last-child{text-align:left!important}
+  }
 </style>
 <script src="./site-fx.js?v=5"></script>
 </helmet>
@@ -50,6 +72,7 @@
 
   <!-- STICKY ACID HEADER + FLOWING WAVE -->
   <div style="position:sticky;top:0;z-index:50">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
     <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(22px,5vw,80px);background:#CDF34E">
       <a href="index.html" style="font-family:&#39;Anton&#39;,sans-serif;font-size:27px;line-height:.84;text-transform:uppercase;letter-spacing:0.015em;white-space:nowrap;flex-shrink:0;color:#101012;transform:skewX(-9deg)">Sabtain Khan</a>
       <div style="display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)">
@@ -61,7 +84,14 @@
         </div>
         <a id="cta-nav" href="mailto:sabtain.a.khan@gmail.com" style="padding:9px 18px;background:#101012;color:#CDF34E;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-size:13.5px;font-weight:700;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch</a>
       </div>
+      <label for="nav-toggle" class="nav-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></label>
     </nav>
+    <div id="mobile-menu">
+      <a href="work.html">Work</a>
+      <a href="talks.html">Appearances</a>
+      <a href="about.html">About</a>
+      <a href="mailto:sabtain.a.khan@gmail.com">Get in touch →</a>
+    </div>
     <div id="wave" style="height:34px;background:#CDF34E;margin-top:-1px"></div>
   </div>
 
@@ -71,7 +101,7 @@
     <svg id="dec-h1" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1.2vw,22px);top:clamp(40px,7vh,96px);z-index:1;width:clamp(38px,4.4vw,60px);height:auto;opacity:0.85;transform:rotate(18deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-0.0s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
     <svg id="dec-h2" aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(30px,6vw,110px);bottom:clamp(26px,5vh,74px);z-index:1;width:19px;height:auto;opacity:0.5;transform:rotate(-11deg);pointer-events:none"><g style="animation:decTwirl 32s linear infinite;animation-delay:-1.7s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
     <svg id="dec-h3" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(6px,1.6vw,26px);bottom:clamp(120px,19vh,220px);z-index:1;width:12px;height:auto;opacity:0.35;transform:rotate(20deg);pointer-events:none"><g style="animation:decPulse 13.0s ease-in-out infinite alternate;animation-delay:-3.4s;transform-box:fill-box;transform-origin:center"><rect x="42" y="6" width="16" height="88" fill="#101012"/><rect x="6" y="42" width="88" height="16" fill="#101012"/></g></svg>
-    <div style="position:relative;z-index:2;max-width:1340px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center">
+    <div id="hero-grid" style="position:relative;z-index:2;max-width:1340px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center">
       <div>
         <p style="margin:0 0 24px;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:13px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7A8192">Group Product Manager — New York</p>
         <h1 id="hero-head" style="margin:0 0 26px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(34px,5.4vw,78px);line-height:1.02;letter-spacing:-0.045em">I build and lead <span style="background:#CDF34E;padding:0 10px;box-decoration-break:clone;-webkit-box-decoration-break:clone">product teams.</span></h1>
@@ -270,17 +300,17 @@
         <h2 style="margin:0;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(28px,4vw,54px);letter-spacing:-0.04em;line-height:1.0">Recent <span style="color:#B7BAC4">appearances.</span></h2>
         <a href="talks.html" style="font-weight:600;font-size:14px;padding:11px 22px;border:1.5px solid rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));white-space:nowrap;transition:background .2s,border-color .2s" style-hover="background:#CDF34E;border-color:#CDF34E">All appearances →</a>
       </div>
-      <a href="https://www.linkedin.com/posts/nikavagner_last-night-i-was-at-elevenlabsbrand-new-activity-7468696127215775744-x2E0" target="_blank" rel="noopener" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
+      <a href="https://www.linkedin.com/posts/nikavagner_last-night-i-was-at-elevenlabsbrand-new-activity-7468696127215775744-x2E0" target="_blank" rel="noopener" class="app-row" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Tech Week @ ElevenLabs</span>
         <span style="color:#5C6470;font-size:15px">Speaker — building AI agents people actually trust ↗</span>
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2026</span>
       </a>
-      <a href="talks.html" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
+      <a href="talks.html" class="app-row" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">NYU Wagner</span>
         <span style="color:#5C6470;font-size:15px">Guest lecturer — AI &amp; design thinking (recurring class)</span>
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2022—26</span>
       </a>
-      <a href="https://qatar.websummit.com/summaries/qat25/work-smarter-not-harder-build-an-ai-agent-in-5-minutes-hosted-by-ibm/" target="_blank" rel="noopener" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);border-bottom:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
+      <a href="https://qatar.websummit.com/summaries/qat25/work-smarter-not-harder-build-an-ai-agent-in-5-minutes-hosted-by-ibm/" target="_blank" rel="noopener" class="app-row" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);border-bottom:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Web Summit Qatar</span>
         <span style="color:#5C6470;font-size:15px">Speaker — build an AI agent in 5 minutes, hosted by IBM ↗</span>
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2025</span>

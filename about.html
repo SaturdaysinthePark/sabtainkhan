@@ -38,12 +38,32 @@
   ::selection{background:#CDF34E;color:#101012}
   @keyframes spin{to{transform:rotate(360deg)}}
   @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+  .nav-toggle-checkbox{display:none}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:30px;height:30px;cursor:pointer;flex-shrink:0;background:none;border:none;padding:0}
+  .nav-hamburger span{display:block;height:2px;width:100%;background:#101012;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+  #mobile-menu{display:none;flex-direction:column;background:#CDF34E;padding:0 clamp(22px,5vw,80px) 16px;gap:2px}
+  #mobile-menu a{padding:12px 0;font-size:16px;font-weight:600;border-top:1px solid rgba(16,16,18,0.12)}
+  #mobile-menu a:first-child{border-top:none}
+  @media(max-width:760px){
+    #nav-pill,#cta-nav{display:none!important}
+    .nav-hamburger{display:flex}
+    .nav-toggle-checkbox:checked ~ #mobile-menu{display:flex}
+    .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(2){opacity:0}
+    .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  }
+  @media(max-width:700px){
+    #about-hero{grid-template-columns:1fr!important}
+    #about-hero .about-photo{width:min(220px,60vw)!important;justify-self:center!important;order:-1!important}
+    .two-col-section{grid-template-columns:1fr!important}
+  }
 </style>
 </helmet>
 <div style="position:relative;overflow-x:clip">
 
   <!-- ACID HEADER + FLOWING WAVE -->
   <div style="position:sticky;top:0;z-index:50">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
     <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(22px,5vw,80px);background:#CDF34E">
       <a href="index.html" style="font-family:&#39;Anton&#39;,sans-serif;font-size:27px;line-height:.84;text-transform:uppercase;letter-spacing:0.015em;white-space:nowrap;flex-shrink:0;color:#101012;transform:skewX(-9deg)">Sabtain Khan</a>
       <div style="display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)">
@@ -55,7 +75,14 @@
         </div>
         <a id="cta-nav" href="mailto:sabtain.a.khan@gmail.com" style="padding:9px 18px;background:#101012;color:#CDF34E;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-size:13.5px;font-weight:700;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch</a>
       </div>
+      <label for="nav-toggle" class="nav-hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></label>
     </nav>
+    <div id="mobile-menu">
+      <a href="work.html">Work</a>
+      <a href="talks.html">Talks</a>
+      <a href="about.html">About</a>
+      <a href="mailto:sabtain.a.khan@gmail.com">Get in touch →</a>
+    </div>
     <div id="wave" style="height:34px;background:#CDF34E;margin-top:-1px"></div>
   </div>
 
@@ -64,12 +91,12 @@
     <svg id="dec-a1" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(24px,14vw,240px);top:clamp(30px,5vh,78px);width:clamp(38px,4.6vw,62px);height:auto;opacity:0.85;transform:rotate(16deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-0.0s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
     <svg id="dec-a2" aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(120px,26vw,420px);top:clamp(110px,17vh,200px);width:17px;height:auto;opacity:0.55;transform:rotate(-12deg);pointer-events:none"><g style="animation:decTwirl 32s linear infinite;animation-delay:-1.7s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
     <svg id="dec-a3" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;right:clamp(8px,2.4vw,44px);top:clamp(56px,9vh,120px);width:14px;height:auto;opacity:0.8;transform:rotate(22deg);pointer-events:none"><g style="animation:decPulse 13.0s ease-in-out infinite alternate;animation-delay:-3.4s;transform-box:fill-box;transform-origin:center"><rect x="42" y="6" width="16" height="88" fill="#CDF34E"/><rect x="6" y="42" width="88" height="16" fill="#CDF34E"/></g></svg>
-    <div style="position:relative;max-width:1340px;margin:0 auto;display:grid;grid-template-columns:1fr 220px;gap:clamp(32px,5vw,72px);align-items:end">
+    <div id="about-hero" style="position:relative;max-width:1340px;margin:0 auto;display:grid;grid-template-columns:1fr 220px;gap:clamp(32px,5vw,72px);align-items:end">
       <div>
         <p id="hero-head" style="margin:0 0 22px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(34px,5.4vw,76px);line-height:1.05;letter-spacing:-0.04em">About <span style="background:#CDF34E;padding:0 10px">me.</span></p>
         <p style="margin:0;color:#5C6470;font-size:clamp(16px,1.8vw,21px);line-height:1.55;max-width:50ch">Product Manager, obsessed with UX, always building and experimenting, slightly addicted to AI.</p>
       </div>
-      <div style="aspect-ratio:4/5;width:220px;border-radius:14px;overflow:hidden;justify-self:end">
+      <div class="about-photo" style="aspect-ratio:4/5;width:220px;border-radius:14px;overflow:hidden;justify-self:end">
         <img src="uploads/pasted-1784915822589-0.png" alt="Sabtain Khan" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
     </div>
@@ -78,7 +105,7 @@
   <!-- BIO -->
   <section data-screen-label="Bio" style="position:relative;padding:clamp(28px,4vh,52px) clamp(22px,5vw,80px)">
     <svg aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(4px,1.4vw,22px);top:clamp(90px,14vh,180px);width:20px;height:auto;opacity:0.8;transform:rotate(11deg);pointer-events:none"><g style="animation:decTwirl 44s linear infinite;animation-delay:-0.1s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#CDF34E"/></g></svg>
-    <div style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:0.55fr 1.45fr;gap:clamp(24px,4vw,64px);border-top:2px solid #101012;padding-top:30px">
+    <div class="two-col-section" style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:0.55fr 1.45fr;gap:clamp(24px,4vw,64px);border-top:2px solid #101012;padding-top:30px">
       <h2 style="margin:0;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#101012;font-weight:600">The story</h2>
       <div style="max-width:60ch">
         <p style="margin:0 0 20px;font-size:clamp(18px,2vw,24px);line-height:1.5;letter-spacing:-0.015em;font-weight:500">I've spent the last decade building AI products for enterprises, helping them transform experiences for customers and improve employee productivity.</p>
@@ -94,7 +121,7 @@
     <svg aria-hidden="true" viewBox="0 0 90 70" style="position:absolute;right:clamp(2px,1vw,18px);top:clamp(48px,7vh,110px);width:clamp(28px,3.2vw,44px);height:auto;opacity:0.45;transform:rotate(-20deg);pointer-events:none"><g style="animation:decSway 28.0s ease-in-out infinite alternate;animation-delay:-1.8s;transform-box:fill-box;transform-origin:center"><path d="M44 6 C62 2 82 16 80 36 C78 54 62 66 42 64 C22 62 6 48 8 28 C10 12 26 9 44 6 Z" fill="none" stroke="#101012" stroke-width="2.6"/></g></svg>
     <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1vw,16px);bottom:clamp(24px,4vh,70px);width:clamp(28px,3.2vw,42px);height:auto;opacity:0.6;transform:rotate(-14deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-3.5s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
     <svg aria-hidden="true" viewBox="0 0 100 40" style="position:absolute;right:clamp(10px,2.4vw,36px);bottom:clamp(10px,2vh,40px);width:34px;height:auto;opacity:0.35;transform:rotate(-10deg);pointer-events:none"><g style="animation:decBob 11.0s ease-in-out infinite alternate;animation-delay:-0.2s;transform-box:fill-box;transform-origin:center"><circle cx="12" cy="20" r="8" fill="#101012"/><circle cx="46" cy="20" r="6" fill="#101012"/><circle cx="76" cy="20" r="4" fill="#101012"/></g></svg>
-    <div style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:0.55fr 1.45fr;gap:clamp(24px,4vw,64px);border-top:2px solid #101012;padding-top:30px">
+    <div class="two-col-section" style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:0.55fr 1.45fr;gap:clamp(24px,4vw,64px);border-top:2px solid #101012;padding-top:30px">
       <h2 style="margin:0;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#101012;font-weight:600">At a glance</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px 40px">
         <div><div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:7px">Now</div><div style="font-size:17px;font-weight:500;letter-spacing:-0.01em">Group Product Manager,<br>watsonx Orchestrate</div></div>
