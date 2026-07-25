@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="./site-fx.js?v=5"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#FFFFFF;color:#101012;font-family:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:#CDF34E;color:#101012}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</helmet>
+<div style="position:relative;overflow-x:clip">
+
+  <!-- ACID HEADER + FLOWING WAVE (wave bites into the dark hero band) -->
+  <div style="position:sticky;top:0;z-index:50">
+    <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(22px,5vw,80px);background:#CDF34E">
+      <a href="index.html" style="font-family:'Anton',sans-serif;font-size:27px;line-height:.84;text-transform:uppercase;letter-spacing:0.015em;white-space:nowrap;flex-shrink:0;color:#101012;transform:skewX(-9deg)">Sabtain Khan</a>
+      <div style="display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)">
+        <div id="nav-pill" onMouseLeave="{{ navLeave }}" style="position:relative;display:flex;align-items:center;gap:2px">
+          <div id="nav-ind" style="{{ navIndStyle }}"></div>
+          <a href="work.html" data-pill onMouseEnter="{{ navEnter0 }}" style="{{ navPill0 }}">Work</a>
+          <a href="talks.html" data-pill data-active="1" onMouseEnter="{{ navEnter1 }}" style="{{ navPill1 }}">Talks</a>
+          <a href="about.html" data-pill onMouseEnter="{{ navEnter2 }}" style="{{ navPill2 }}">About</a>
+        </div>
+        <a id="cta-nav" href="mailto:sabtain.a.khan@gmail.com" style="padding:9px 18px;background:#101012;color:#CDF34E;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-size:13.5px;font-weight:700;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch</a>
+      </div>
+    </nav>
+    <div id="wave" style="height:34px;background:#CDF34E;margin-top:-1px"></div>
+  </div>
+
+  <!-- DARK HERO BAND -->
+  <header data-screen-label="Speaking header" style="position:relative;margin-top:-34px;background:#101012;color:#fff;overflow:hidden;padding:clamp(78px,8vh,134px) clamp(22px,5vw,80px) clamp(48px,8vh,96px)">
+    <svg id="dec-s1" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;right:clamp(26px,7vw,120px);top:clamp(36px,7vh,86px);width:clamp(40px,5vw,66px);height:auto;opacity:0.95;transform:rotate(-16deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-0.0s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
+    <svg id="dec-s2" aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;right:clamp(160px,26vw,420px);top:clamp(120px,20vh,230px);width:16px;height:auto;opacity:0.6;transform:rotate(13deg);pointer-events:none"><g style="animation:decTwirl 32s linear infinite;animation-delay:-1.7s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#CDF34E"/></g></svg>
+    <svg id="dec-s3" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(6px,1.6vw,26px);bottom:clamp(60px,10vh,130px);width:13px;height:auto;opacity:0.5;transform:rotate(18deg);pointer-events:none"><g style="animation:decPulse 13.0s ease-in-out infinite alternate;animation-delay:-3.4s;transform-box:fill-box;transform-origin:center"><rect x="42" y="6" width="16" height="88" fill="#CDF34E"/><rect x="6" y="42" width="88" height="16" fill="#CDF34E"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 80 80" style="position:absolute;right:clamp(28px,6vw,90px);bottom:clamp(20px,4vh,52px);width:clamp(54px,7vw,88px);height:auto;opacity:.9;animation:spin 16s linear infinite"><path d="M40 4 C58 4 76 22 76 40 C76 58 58 76 40 76 C22 76 4 58 4 40 C4 22 22 4 40 4 Z M40 18 C28 18 18 28 18 40 C18 52 28 62 40 62 C52 62 62 52 62 40 C62 28 52 18 40 18 Z" fill="#CDF34E"/></svg>
+    <div style="position:relative;max-width:1340px;margin:0 auto">
+      <p style="margin:0 0 22px;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#CDF34E">Talks · Panels · Teaching</p>
+      <p id="hero-head" style="margin:0 0 26px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(42px,7vw,104px);line-height:0.98;letter-spacing:-0.045em;max-width:16ch">On stages, <span style="color:#CDF34E">panels &amp; in classrooms.</span></p>
+      <p style="margin:0 0 32px;color:rgba(255,255,255,0.78);font-size:clamp(16px,1.8vw,21px);line-height:1.55;max-width:54ch">A decade spent making AI make sense — keynotes, panels, and the occasional lecture hall. A selection below.</p>
+      <a href="mailto:sabtain.a.khan@gmail.com" style="display:inline-flex;align-items:center;gap:9px;padding:14px 26px;background:#CDF34E;color:#101012;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:700;font-size:14.5px;white-space:nowrap;transition:transform .2s" style-hover="transform:translateY(-2px)">Want me to speak or guest-lecture? →</a>
+    </div>
+  </header>
+
+  <!-- LIST -->
+  <section data-screen-label="Speaking list" style="position:relative;padding:clamp(36px,5vh,64px) clamp(22px,5vw,80px) clamp(44px,6vh,72px)">
+    <svg aria-hidden="true" viewBox="0 0 90 70" style="position:absolute;right:clamp(2px,1vw,18px);top:clamp(150px,22vh,290px);width:clamp(30px,3.6vw,48px);height:auto;opacity:0.45;transform:rotate(-19deg);pointer-events:none"><g style="animation:decSway 24.5s ease-in-out infinite alternate;animation-delay:-0.1s;transform-box:fill-box;transform-origin:center"><path d="M44 6 C62 2 82 16 80 36 C78 54 62 66 42 64 C22 62 6 48 8 28 C10 12 26 9 44 6 Z" fill="none" stroke="#101012" stroke-width="2.6"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1vw,16px);top:clamp(70px,11vh,150px);width:clamp(30px,3.4vw,44px);height:auto;opacity:0.65;transform:rotate(22deg);pointer-events:none"><g style="animation:decBob 28.0s ease-in-out infinite alternate;animation-delay:-1.8s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(8px,2vw,30px);bottom:clamp(90px,14vh,200px);width:16px;height:auto;opacity:0.45;transform:rotate(-9deg);pointer-events:none"><g style="animation:decTwirl 32s linear infinite;animation-delay:-3.5s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 40" style="position:absolute;right:clamp(8px,2vw,30px);bottom:clamp(40px,7vh,110px);width:36px;height:auto;opacity:0.35;transform:rotate(8deg);pointer-events:none"><g style="animation:decBob 11.0s ease-in-out infinite alternate;animation-delay:-0.2s;transform-box:fill-box;transform-origin:center"><circle cx="12" cy="20" r="8" fill="#101012"/><circle cx="46" cy="20" r="6" fill="#101012"/><circle cx="76" cy="20" r="4" fill="#101012"/></g></svg>
+    <div style="max-width:1340px;margin:0 auto">
+
+      <a href="https://www.linkedin.com/posts/nikavagner_last-night-i-was-at-elevenlabsbrand-new-activity-7468696127215775744-x2E0" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Tech Week @ ElevenLabs</span>
+        <span style="color:#5C6470;font-size:15px">Speaker — building AI agents people actually trust <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2026</span>
+      </a>
+
+      <a href="#" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">NYU Wagner</span>
+        <span style="color:#5C6470;font-size:15px">Guest lecturer — AI &amp; design thinking (recurring class)</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2022—26</span>
+      </a>
+
+      <a href="https://qatar.websummit.com/summaries/qat25/work-smarter-not-harder-build-an-ai-agent-in-5-minutes-hosted-by-ibm/" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Web Summit Qatar</span>
+        <span style="color:#5C6470;font-size:15px">Speaker — build an AI agent in 5 minutes, hosted by IBM <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2025</span>
+      </a>
+
+      <a href="#" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">The AI Summit</span>
+        <span style="color:#5C6470;font-size:15px">Speaker — putting enterprise AI agents into production</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2025</span>
+      </a>
+
+      <a href="#" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Tech Week @ IBM</span>
+        <span style="color:#5C6470;font-size:15px">Speaker — the road to enterprise AI agents</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2025</span>
+      </a>
+
+      <a href="https://mentorstudents.org/q/sabtain#5f68aa024426b56e1c0541fb" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">University of Utah</span>
+        <span style="color:#5C6470;font-size:15px">Mentor talk — breaking into product management <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Sep 2020</span>
+      </a>
+
+      <a href="https://www.prnewswire.com/news-releases/knowits-2020-live-stream-kicks-off-in-just-7-days-301051488.html" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">KnowIt 2020</span>
+        <span style="color:#5C6470;font-size:15px">Panel on AI — live stream <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">May 2020</span>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=6z9X9C4HA2E" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">DMLA</span>
+        <span style="color:#5C6470;font-size:15px">Panel on AI in media &amp; licensing <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Oct 2019</span>
+      </a>
+
+      <a href="https://www.linkedin.com/posts/murshedchowdhury_thank-you-to-everyone-who-came-out-last-week-activity-6548981876973940736-CHRr" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Tech Duels</span>
+        <span style="color:#5C6470;font-size:15px">Debating AI ethics &amp; bias <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Jun 2019</span>
+      </a>
+
+      <a href="https://www.linkedin.com/pulse/watson-visual-recognition-object-detection-action-5-minutes-perrin/" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">IBM THINK</span>
+        <span style="color:#5C6470;font-size:15px">Panel on visual inspection &amp; computer vision <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Feb 2019</span>
+      </a>
+
+      <a href="#" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Federated AI Panel</span>
+        <span style="color:#5C6470;font-size:15px">Panel on federated AI on edge devices</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Nov 2018</span>
+      </a>
+
+      <a href="https://www.linkedin.com/posts/ibm_ai-is-transforming-the-way-you-watch-tennis-activity-6572509364593262592-z_x0" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">US Open · VivaTech · CES</span>
+        <span style="color:#5C6470;font-size:15px">Live Watson AI demos on the show floor <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2016—19</span>
+      </a>
+
+      <a href="https://spectrum.ieee.org/ibm-and-linux-ask-developers-to-build-tech-that-makes-natural-disasters-less-deadly" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);border-bottom:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Watson Workshops &amp; Hackathons <span style="color:#101012">↗</span></span>
+        <span style="color:#5C6470;font-size:15px">Led hands-on sessions for teams building with AI</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2016—19</span>
+      </a>
+
+
+    </div>
+  </section>
+
+  <!-- MENTIONS -->
+  <section data-screen-label="Mentions" style="position:relative;padding:clamp(20px,3vh,40px) clamp(22px,5vw,80px) clamp(44px,6vh,72px)">
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(6px,1.6vw,26px);top:clamp(50px,8vh,120px);width:12px;height:auto;opacity:0.4;transform:rotate(15deg);pointer-events:none"><g style="animation:decPulse 11.0s ease-in-out infinite alternate;animation-delay:-0.3s;transform-box:fill-box;transform-origin:center"><polygon points="50,4 96,50 50,96 4,50" fill="#101012"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;right:clamp(2px,1vw,18px);bottom:clamp(60px,10vh,150px);width:clamp(26px,3vw,40px);height:auto;opacity:0.4;transform:rotate(-24deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-2.0s;transform-box:fill-box;transform-origin:center"><circle cx="48" cy="52" r="24" fill="none" stroke="#101012" stroke-width="3"/><circle cx="82" cy="26" r="7" fill="#101012"/><circle cx="18" cy="24" r="4.5" fill="#101012"/><circle cx="30" cy="86" r="5.5" fill="#101012"/></g></svg>
+    <div style="max-width:1340px;margin:0 auto">
+      <h2 style="margin:0 0 4px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,3.2vw,40px);letter-spacing:-0.035em">Mentions <span style="color:#B7BAC4">press &amp; posts.</span></h2>
+      <p style="margin:0 0 22px;color:#9AA0AB;font-size:14.5px">Things written by me or others that reference my work.</p>
+
+      <a href="https://aimagazine.com/news/ibm-and-elevenlabs-enterprise-ai-finds-its-voice" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">AI Magazine</span>
+        <span style="color:#5C6470;font-size:15px">IBM &amp; ElevenLabs: enterprise AI finds its voice <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2026</span>
+      </a>
+
+      <a href="https://deepgram.com/partners/IBM" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Deepgram</span>
+        <span style="color:#5C6470;font-size:15px">IBM × Deepgram enterprise voice partnership <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2026</span>
+      </a>
+
+      <a href="https://medium.com/ibm-watson/watson-assistant-and-segment-combine-forces-for-seriously-powerful-analytics-350340e28de0" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">IBM Watson Blog</span>
+        <span style="color:#5C6470;font-size:15px">Watson Assistant × Segment: powerful analytics <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2022</span>
+      </a>
+
+      <a href="https://spectrum.ieee.org/ibm-and-linux-ask-developers-to-build-tech-that-makes-natural-disasters-less-deadly" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">IEEE Spectrum</span>
+        <span style="color:#5C6470;font-size:15px">IBM &amp; Linux: building tech for natural disasters <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2019</span>
+      </a>
+
+      <a href="https://www.linkedin.com/pulse/watson-visual-recognition-object-detection-action-5-minutes-perrin/" target="_blank" rel="noopener" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);border-bottom:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">LinkedIn</span>
+        <span style="color:#5C6470;font-size:15px">Watson Visual Recognition: object detection in 5 min <span style="color:#101012">↗</span></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2019</span>
+      </a>
+
+      <p style="margin:22px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;letter-spacing:0.03em">Got an article, post or podcast that mentions my work? Send it over and I'll add it here.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer data-screen-label="Footer" style="margin-top:clamp(20px,3vh,40px);background:#101012;color:#EEF0F5;padding:clamp(26px,3vh,34px) clamp(22px,5vw,80px) 22px">
+    <div style="max-width:1340px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-end;padding-bottom:20px;border-bottom:1px solid rgba(238,240,245,0.14)">
+        <div>
+          <p style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(17px,1.7vw,21px);line-height:1.4;letter-spacing:-0.015em;color:#EEF0F5;max-width:34ch"><span style="color:#CDF34E">Inbox open</span> — love to talk product, AI, tech, books, career and more...</p>
+        </div>
+        <a id="cta-footer" href="mailto:sabtain.a.khan@gmail.com" style="display:inline-flex;align-items:center;gap:9px;padding:11px 20px;background:#CDF34E;color:#101012;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:700;font-size:14.5px;letter-spacing:-0.01em;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch →</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:18px 28px;justify-content:space-between;align-items:center;padding-top:18px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.03em;color:#79808E">© 2026 Sabtain Khan · New York</span>
+        <div style="display:flex;gap:22px;font-size:14px;font-weight:500">
+          <a href="https://linkedin.com/in/sabtain" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">LinkedIn ↗</a>
+          <a href="https://github.com/SaturdaysinthePark" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">GitHub ↗</a>
+          <a href="resume.html" target="_blank" style="color:#AEB4C2" style-hover="color:#CDF34E">Résumé</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { navGeos: [], navHover: -1, navActive: -1 };
+  componentDidMount() {
+    if (window.SiteFX) window.SiteFX.initSiteFx(this, { scramble: ['#hero-head'], parallax: [['#dec-s1', -0.15], ['#dec-s2', 0.09], ['#dec-s3', -0.05]] });
+    const reduceM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.measureNav();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.measureNav());
+    this._onNavResize = () => this.measureNav();
+    window.addEventListener('resize', this._onNavResize);
+    const wireMagnet = (el, strength) => {
+      if (!el || reduceM) return;
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
+        el.style.transform = 'translate(' + (dx * strength).toFixed(1) + 'px,' + (dy * strength).toFixed(1) + 'px)';
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = 'translate(0,0)'; });
+    };
+    wireMagnet(document.getElementById('cta-nav'), 0.4);
+    wireMagnet(document.getElementById('cta-footer'), 0.3);
+
+    const wave = document.getElementById('wave');
+    if (!wave) return;
+    const L = 220, H = 34, mid = 15, amp = 11;
+    const y = (x) => mid - amp * Math.cos((2 * Math.PI * x) / L);
+    let d = 'M0,0 H' + L + ' V' + y(L).toFixed(2);
+    for (let x = L; x >= 0; x -= 2) d += ' L' + x + ',' + y(x).toFixed(2);
+    d += ' Z';
+    const svg = "<svg xmlns='http://www.w3.org/2000/svg' width='" + L + "' height='" + H + "' viewBox='0 0 " + L + " " + H + "'><path d='" + d + "' fill='black'/></svg>";
+    const uri = "url(\"data:image/svg+xml," + encodeURIComponent(svg) + "\")";
+    wave.style.webkitMaskImage = uri; wave.style.maskImage = uri;
+    wave.style.webkitMaskRepeat = 'repeat-x'; wave.style.maskRepeat = 'repeat-x';
+    wave.style.webkitMaskSize = L + 'px ' + H + 'px'; wave.style.maskSize = L + 'px ' + H + 'px';
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const getY = () => window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    let last = -1;
+    const loop = () => {
+      const yy = getY();
+      if (yy !== last) { last = yy; const x = (yy * 0.32) + 'px'; wave.style.webkitMaskPositionX = x; wave.style.maskPositionX = x; }
+      if (!reduce) this._raf = requestAnimationFrame(loop);
+    };
+    loop();
+  }
+  measureNav() {
+    const wrap = document.getElementById('nav-pill');
+    if (!wrap) return;
+    const pills = Array.from(wrap.querySelectorAll('[data-pill]'));
+    const navGeos = pills.map((p) => ({ left: p.offsetLeft, width: p.offsetWidth }));
+    const navActive = pills.findIndex((p) => p.hasAttribute('data-active'));
+    this.setState({ navGeos: navGeos, navActive: navActive });
+  }
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); if (this._onNavResize) window.removeEventListener('resize', this._onNavResize); }
+  renderVals() {
+    const st = this.state || {};
+    const geos = st.navGeos || [];
+    const active = (st.navActive == null ? -1 : st.navActive);
+    const hover = (st.navHover == null ? -1 : st.navHover);
+    const cur = hover >= 0 ? hover : active;
+    const g = geos[cur];
+    const navIndStyle = {
+      position: 'absolute', top: 0, height: '100%', background: '#101012',
+      borderRadius: '100px', zIndex: 0, pointerEvents: 'none',
+      transition: 'left .3s cubic-bezier(.5,1.2,.5,1),width .3s cubic-bezier(.5,1.2,.5,1),opacity .2s',
+      left: (g ? g.left : 0) + 'px', width: (g ? g.width : 0) + 'px', opacity: g ? 1 : 0
+    };
+    const mkPill = (i) => ({
+      position: 'relative', zIndex: 1, padding: '8px 16px', fontSize: '14.5px',
+      fontWeight: 600, transition: 'color .25s', color: cur === i ? '#CDF34E' : '#101012'
+    });
+    const enter = (i) => () => this.setState({ navHover: i });
+    return {
+      navIndStyle: navIndStyle,
+      navPill0: mkPill(0), navPill1: mkPill(1), navPill2: mkPill(2),
+      navEnter0: enter(0), navEnter1: enter(1), navEnter2: enter(2),
+      navLeave: () => this.setState({ navHover: -1 })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="./site-fx.js?v=5"></script>
+<script src="./image-slot.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#FFFFFF;color:#101012;font-family:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:#CDF34E;color:#101012}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</helmet>
+<div style="position:relative;overflow-x:clip">
+
+  <!-- ACID HEADER + FLOWING WAVE -->
+  <div style="position:sticky;top:0;z-index:50">
+    <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(22px,5vw,80px);background:#CDF34E">
+      <a href="index.html" style="font-family:'Anton',sans-serif;font-size:27px;line-height:.84;text-transform:uppercase;letter-spacing:0.015em;white-space:nowrap;flex-shrink:0;color:#101012;transform:skewX(-9deg)">Sabtain Khan</a>
+      <div style="display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)">
+        <div id="nav-pill" onMouseLeave="{{ navLeave }}" style="position:relative;display:flex;align-items:center;gap:2px">
+          <div id="nav-ind" style="{{ navIndStyle }}"></div>
+          <a href="work.html" data-pill data-active="1" onMouseEnter="{{ navEnter0 }}" style="{{ navPill0 }}">Work</a>
+          <a href="talks.html" data-pill onMouseEnter="{{ navEnter1 }}" style="{{ navPill1 }}">Talks</a>
+          <a href="about.html" data-pill onMouseEnter="{{ navEnter2 }}" style="{{ navPill2 }}">About</a>
+        </div>
+        <a id="cta-nav" href="mailto:sabtain.a.khan@gmail.com" style="padding:9px 18px;background:#101012;color:#CDF34E;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-size:13.5px;font-weight:700;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch</a>
+      </div>
+    </nav>
+    <div id="wave" style="height:34px;background:#CDF34E;margin-top:-1px"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header data-screen-label="Work header" style="position:relative;padding:clamp(42px,6.5vh,80px) clamp(22px,5vw,80px) clamp(22px,3vh,36px)">
+    <svg id="dec-w1" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;right:clamp(26px,7vw,120px);top:clamp(34px,6vh,72px);width:clamp(44px,5.4vw,74px);height:auto;opacity:0.9;transform:rotate(-14deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-0.0s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
+    <svg id="dec-w2" aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;right:clamp(150px,24vw,392px);top:clamp(96px,17vh,196px);width:17px;height:auto;opacity:0.55;transform:rotate(12deg);pointer-events:none"><g style="animation:decTwirl 32s linear infinite;animation-delay:-1.7s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
+    <svg id="dec-w3" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(4px,1.4vw,24px);top:clamp(150px,22vh,220px);width:13px;height:auto;opacity:0.8;transform:rotate(16deg);pointer-events:none"><g style="animation:decPulse 13.0s ease-in-out infinite alternate;animation-delay:-3.4s;transform-box:fill-box;transform-origin:center"><rect x="42" y="6" width="16" height="88" fill="#CDF34E"/><rect x="6" y="42" width="88" height="16" fill="#CDF34E"/></g></svg>
+    <div style="position:relative;max-width:1340px;margin:0 auto">
+      <p id="hero-head" style="margin:0 0 22px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,5.4vw,76px);line-height:1.05;letter-spacing:-0.04em;max-width:16ch">Things <span style="background:#CDF34E;padding:0 10px;box-decoration-break:clone;-webkit-box-decoration-break:clone">I've shipped.</span></p>
+      <p style="margin:0;color:#5C6470;font-size:clamp(16px,1.8vw,20px);line-height:1.55;max-width:56ch">Featuring products and experiences I've shipped that I'm proud of, both personal and professional. <a href="about.html" style="color:#101012;border-bottom:2px solid #CDF34E">My r&eacute;sum&eacute; has the formal version &rarr;</a></p>
+    </div>
+  </header>
+
+  <!-- IBM -->
+  <section data-screen-label="IBM work" style="position:relative;padding:clamp(28px,4vh,52px) clamp(22px,5vw,80px)">
+    <svg aria-hidden="true" viewBox="0 0 90 70" style="position:absolute;right:clamp(2px,1vw,18px);top:clamp(88px,13vh,168px);width:clamp(30px,3.4vw,46px);height:auto;opacity:0.45;transform:rotate(-21deg);pointer-events:none"><g style="animation:decSway 24.5s ease-in-out infinite alternate;animation-delay:-0.1s;transform-box:fill-box;transform-origin:center"><path d="M44 6 C62 2 82 16 80 36 C78 54 62 66 42 64 C22 62 6 48 8 28 C10 12 26 9 44 6 Z" fill="none" stroke="#101012" stroke-width="2.6"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(8px,2vw,30px);top:clamp(232px,34vh,430px);width:16px;height:auto;opacity:0.45;transform:rotate(-8deg);pointer-events:none"><g style="animation:decTwirl 26s linear infinite;animation-delay:-1.8s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1vw,16px);top:clamp(560px,64vh,760px);width:clamp(30px,3.4vw,44px);height:auto;opacity:0.7;transform:rotate(24deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-3.5s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1vw,16px);top:46%;width:clamp(30px,3.4vw,44px);height:auto;opacity:0.7;transform:rotate(24deg);pointer-events:none"><g style="animation:decBob 15.5s ease-in-out infinite alternate;animation-delay:-2.5s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;right:clamp(8px,2vw,30px);top:56%;width:13px;height:auto;opacity:0.4;transform:rotate(12deg);pointer-events:none"><g style="animation:decPulse 9.5s ease-in-out infinite alternate;animation-delay:-3.5s;transform-box:fill-box;transform-origin:center"><polygon points="50,4 96,50 50,96 4,50" fill="#101012"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(6px,1.8vw,26px);top:68%;width:19px;height:auto;opacity:0.5;transform:rotate(-14deg);pointer-events:none"><g style="animation:decTwirl 30s linear infinite;animation-delay:-2s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 90 70" style="position:absolute;right:clamp(2px,1vw,18px);top:76%;width:clamp(28px,3.2vw,44px);height:auto;opacity:0.45;transform:rotate(-24deg);pointer-events:none"><g style="animation:decSway 21s ease-in-out infinite alternate;animation-delay:-3s;transform-box:fill-box;transform-origin:center"><path d="M44 6 C62 2 82 16 80 36 C78 54 62 66 42 64 C22 62 6 48 8 28 C10 12 26 9 44 6 Z" fill="none" stroke="#101012" stroke-width="2.6"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(4px,1.4vw,22px);bottom:6%;width:13px;height:auto;opacity:0.7;transform:rotate(18deg);pointer-events:none"><g style="animation:decPulse 11s ease-in-out infinite alternate;animation-delay:-1s;transform-box:fill-box;transform-origin:center"><rect x="42" y="6" width="16" height="88" fill="#CDF34E"/><rect x="6" y="42" width="88" height="16" fill="#CDF34E"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 40" style="position:absolute;right:clamp(6px,1.8vw,28px);bottom:clamp(190px,26vh,330px);width:38px;height:auto;opacity:0.35;transform:rotate(-12deg);pointer-events:none"><g style="animation:decBob 11.0s ease-in-out infinite alternate;animation-delay:-0.2s;transform-box:fill-box;transform-origin:center"><circle cx="12" cy="20" r="8" fill="#101012"/><circle cx="46" cy="20" r="6" fill="#101012"/><circle cx="76" cy="20" r="4" fill="#101012"/></g></svg>
+    <div style="max-width:1340px;margin:0 auto">
+      <h2 style="margin:0 0 8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,3.2vw,40px);letter-spacing:-0.035em;border-top:2px solid #101012;padding-top:18px">Shipped, <span style="color:#B7BAC4">launched &amp; adopted.</span></h2>
+
+      <!-- Orchestrate -->
+      <article id="orchestrate" data-reveal style="padding:clamp(28px,3.6vh,44px) 0 0;margin-top:clamp(18px,2.6vh,28px);scroll-margin-top:140px">
+        <div style="{{ cardStyle0 }};display:flex;flex-wrap:wrap;gap:34px 56px;align-items:center">
+        <div style="flex:1 1 330px;min-width:0">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:16px">watsonx Orchestrate · IBM · 2025 — present</div>
+        <h3 style="margin:0 0 14px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,42px);line-height:1.08;letter-spacing:-0.03em">AI agent builder and platform with multi-agent orchestration</h3>
+        <p style="margin:0 0 22px;color:#444A56;font-size:16px;line-height:1.65">Providing enterprises the platform to build AI agents that can orchestrate across many agents, MCP servers, knowledge bases and more. Out of the box comes with governance features for control enforcement, agent development lifecycle experiences, and the observability to debug and improve enterprise agents.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:9px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">Multi-agent orchestration</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">Agent marketplace</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">Enterprise integrations</span>
+        </div>
+        </div>
+        <div style="flex:1.5 1 480px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A9270;padding:20px;text-align:center">Loading demo clip…</span>
+          <video src="uploads/wxo-demo-web.mp4" muted loop playsinline autoplay controls preload="metadata" style="position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;background:transparent"></video>
+        </div>
+        </div>
+      </article>
+
+      <!-- Assistant Builder -->
+      <article id="assistant" data-reveal style="padding:clamp(28px,3.6vh,44px) 0 0;border-top:1.5px solid rgba(16,16,18,0.14);margin-top:clamp(18px,2.6vh,28px);scroll-margin-top:140px">
+        <div style="{{ cardStyle1 }};display:flex;flex-wrap:wrap;gap:34px 56px;align-items:center">
+        <div style="flex:1 1 330px;min-width:0">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:16px">watsonx Assistant · IBM · 2021 — 2024</div>
+        <h3 style="margin:0 0 14px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,42px);line-height:1.08;letter-spacing:-0.03em">A no-code way to build production AI assistants</h3>
+        <p style="margin:0 0 22px;color:#444A56;font-size:16px;line-height:1.65">Launched the conversation-building canvas so non-technical teams could design, test and ship assistants without writing code, plus the analytics that closed the loop between what customers asked and what the assistant should do next. This is the most adopted IBM AI product, handling millions of conversations per month for enterprises with customer care use cases.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:9px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">No-code canvas</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">Closed-loop analytics</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">Enterprise scale</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.02em;color:#101012;background:#CDF34E;padding:7px 13px;border-radius:100px;white-space:nowrap">Gartner Leader · Enterprise Conversational AI, 2021</span>
+        </div>
+        </div>
+        <div style="flex:1.5 1 480px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A9270;padding:20px;text-align:center">Loading demo clip…</span>
+          <video src="uploads/watsonxAssistantnocode.mp4" muted loop playsinline autoplay controls preload="metadata" style="position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;background:transparent"></video>
+        </div>
+        </div>
+      </article>
+
+      <!-- Visual inspection -->
+      <article id="vision" data-reveal style="padding:clamp(28px,3.6vh,44px) 0 0;border-top:1.5px solid rgba(16,16,18,0.14);margin-top:clamp(18px,2.6vh,28px);scroll-margin-top:140px">
+        <div style="{{ cardStyle2 }};display:flex;flex-wrap:wrap;gap:34px 56px;align-items:center">
+        <div style="flex:1 1 330px;min-width:0">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:16px">Computer vision · IBM · 2018 — 2021</div>
+        <h3 style="margin:0 0 14px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,42px);line-height:1.08;letter-spacing:-0.03em">Computer vision that catches defects on assembly lines and on the edge</h3>
+        <p style="margin:0 0 22px;color:#444A56;font-size:16px;line-height:1.65">Led product for a visual inspection capability that let teams train custom object detection models to identify defects or problems in assembly lines and on the field. Deployable locally on iPhones and Android phones for instant and offline inference.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:9px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">Custom vision models</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">Real time inference</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">Edge deployment</span>
+        </div>
+        </div>
+        <div style="flex:1.5 1 480px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A9270;padding:20px;text-align:center">Loading demo clip…</span>
+          <video src="uploads/visinspect2.mp4" muted loop playsinline autoplay controls preload="metadata" style="position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;background:transparent"></video>
+        </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- PERSONAL -->
+  <section data-screen-label="Personal work" style="position:relative;padding:clamp(28px,4vh,52px) clamp(22px,5vw,80px) clamp(44px,6vh,72px);background-image:radial-gradient(rgba(16,16,18,0.09) 1.2px,transparent 1.4px);background-size:18px 18px">
+    <svg aria-hidden="true" viewBox="0 0 90 70" style="position:absolute;right:clamp(8px,3vw,48px);top:clamp(30px,5vh,64px);width:clamp(46px,6vw,76px);height:auto;opacity:.85;animation:spin 16s linear infinite"><path d="M44 6 C62 2 82 16 80 36 C78 54 62 66 42 64 C22 62 6 48 8 28 C10 12 26 9 44 6 Z" fill="#CDF34E"/></svg>
+    <svg aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(4px,1.4vw,22px);top:14%;width:21px;height:auto;opacity:0.85;transform:rotate(11deg);pointer-events:none"><g style="animation:decTwirl 34s linear infinite;animation-delay:-1s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#CDF34E"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 40" style="position:absolute;right:clamp(6px,1.8vw,28px);top:34%;width:36px;height:auto;opacity:0.35;transform:rotate(-11deg);pointer-events:none"><g style="animation:decBob 12.5s ease-in-out infinite alternate;animation-delay:-2s;transform-box:fill-box;transform-origin:center"><circle cx="12" cy="20" r="8" fill="#101012"/><circle cx="46" cy="20" r="6" fill="#101012"/><circle cx="76" cy="20" r="4" fill="#101012"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1vw,18px);top:48%;width:clamp(28px,3.2vw,42px);height:auto;opacity:0.4;transform:rotate(-18deg);pointer-events:none"><g style="animation:decBob 18s ease-in-out infinite alternate;animation-delay:-4s;transform-box:fill-box;transform-origin:center"><circle cx="48" cy="52" r="24" fill="none" stroke="#101012" stroke-width="3"/><circle cx="82" cy="26" r="7" fill="#101012"/><circle cx="18" cy="24" r="4.5" fill="#101012"/><circle cx="30" cy="86" r="5.5" fill="#101012"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 90 70" style="position:absolute;right:clamp(2px,1vw,18px);top:62%;width:clamp(30px,3.4vw,46px);height:auto;opacity:0.55;transform:rotate(-16deg);pointer-events:none"><g style="animation:decSway 17s ease-in-out infinite alternate;animation-delay:-1.5s;transform-box:fill-box;transform-origin:center"><path d="M44 6 C62 2 82 16 80 36 C78 54 62 66 42 64 C22 62 6 48 8 28 C10 12 26 9 44 6 Z" fill="#CDF34E"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(8px,2vw,30px);bottom:16%;width:16px;height:auto;opacity:0.45;transform:rotate(-8deg);pointer-events:none"><g style="animation:decTwirl 30s linear infinite;animation-delay:-2s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;right:clamp(4px,1.4vw,24px);bottom:6%;width:clamp(30px,3.4vw,46px);height:auto;opacity:0.75;transform:rotate(20deg);pointer-events:none"><g style="animation:decBob 15.5s ease-in-out infinite alternate;animation-delay:-2.5s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
+    <div style="position:relative;max-width:1340px;margin:0 auto">
+      <h2 style="margin:0 0 8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,3.2vw,40px);letter-spacing:-0.035em;border-top:2px solid #101012;padding-top:18px">Personal projects</h2>
+
+      <article id="siab" data-reveal style="padding:clamp(26px,3.4vh,40px) 0 0;border-top:1.5px solid rgba(16,16,18,0.14);margin-top:clamp(18px,2.4vh,26px);scroll-margin-top:140px">
+        <div style="{{ cardStyle3 }};display:flex;flex-wrap:wrap;gap:30px 52px;align-items:center">
+        <div style="flex:1 1 300px;min-width:0">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:14px">Personal project · Ongoing</div>
+        <h3 style="margin:0 0 12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,2.8vw,34px);line-height:1.1;letter-spacing:-0.03em">Saturdays in a Book</h3>
+        <p style="margin:0;color:#444A56;font-size:15.5px;line-height:1.6">My book blog showcasing my personal book reviews and recommendations.</p>
+        <a href="https://saturdaysinabook.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:11px 20px;background:#101012;color:#CDF34E;font-weight:700;font-size:14.5px;white-space:nowrap;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));transition:background .2s" style-hover="background:#232327">Visit site &#8599;</a>
+        </div>
+        <div style="flex:1.5 1 460px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A9270;padding:20px;text-align:center">Loading demo clip…</span>
+          <video src="uploads/siab.mp4" muted loop playsinline autoplay controls preload="metadata" style="position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;background:transparent"></video>
+        </div>
+        </div>
+      </article>
+
+      <article id="bookjumpr" data-reveal style="padding:clamp(26px,3.4vh,40px) 0 0;border-top:1.5px solid rgba(16,16,18,0.14);margin-top:clamp(18px,2.4vh,26px);scroll-margin-top:140px">
+        <div style="{{ cardStyle4 }};display:flex;flex-wrap:wrap;gap:30px 52px;align-items:center">
+        <div style="flex:1 1 300px;min-width:0">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:14px">Personal project · Ongoing</div>
+        <h3 style="margin:0 0 12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,2.8vw,34px);line-height:1.1;letter-spacing:-0.03em">BookJumpr</h3>
+        <p style="margin:0;color:#444A56;font-size:15.5px;line-height:1.6">A passion project that maps all the explicit book mentions across books. Pick a book, browse which books it mentions or which books mention it. View the graph and explore more!</p>
+        <a href="https://bookjumpr.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:11px 20px;background:#101012;color:#CDF34E;font-weight:700;font-size:14.5px;white-space:nowrap;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));transition:background .2s" style-hover="background:#232327">Visit site &#8599;</a>
+        </div>
+        <div style="flex:1.5 1 460px;min-width:0;position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1.5px solid #101012;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,0.45)">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A9270;padding:20px;text-align:center">Loading demo clip…</span>
+          <video src="uploads/bookjumpr-web.mp4" muted loop playsinline autoplay controls preload="metadata" style="position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;background:transparent"></video>
+        </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer data-screen-label="Footer" style="margin-top:clamp(20px,3vh,40px);background:#101012;color:#EEF0F5;padding:clamp(26px,3vh,34px) clamp(22px,5vw,80px) 22px">
+    <div style="max-width:1340px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-end;padding-bottom:20px;border-bottom:1px solid rgba(238,240,245,0.14)">
+        <div>
+          <p style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(17px,1.7vw,21px);line-height:1.4;letter-spacing:-0.015em;color:#EEF0F5;max-width:34ch"><span style="color:#CDF34E">Inbox open</span> — love to talk product, AI, tech, books, career and more...</p>
+        </div>
+        <a id="cta-footer" href="mailto:sabtain.a.khan@gmail.com" style="display:inline-flex;align-items:center;gap:9px;padding:11px 20px;background:#CDF34E;color:#101012;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:700;font-size:14.5px;letter-spacing:-0.01em;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch →</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:18px 28px;justify-content:space-between;align-items:center;padding-top:18px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.03em;color:#79808E">© 2026 Sabtain Khan · New York</span>
+        <div style="display:flex;gap:22px;font-size:14px;font-weight:500">
+          <a href="https://linkedin.com/in/sabtain" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">LinkedIn ↗</a>
+          <a href="https://github.com/SaturdaysinthePark" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">GitHub ↗</a>
+          <a href="resume.html" target="_blank" style="color:#AEB4C2" style-hover="color:#CDF34E">Résumé</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { navGeos: [], navHover: -1, navActive: -1, revealed: {} };
+  componentDidMount() {
+    if (window.SiteFX) window.SiteFX.initSiteFx(this, { scramble: ['#hero-head'], parallax: [['#dec-w1', -0.14], ['#dec-w2', 0.1], ['#dec-w3', -0.05]] });
+    const reduceM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.measureNav();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.measureNav());
+    this._onNavResize = () => this.measureNav();
+    window.addEventListener('resize', this._onNavResize);
+    const wireMagnet = (el, strength) => {
+      if (!el || reduceM) return;
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
+        el.style.transform = 'translate(' + (dx * strength).toFixed(1) + 'px,' + (dy * strength).toFixed(1) + 'px)';
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = 'translate(0,0)'; });
+    };
+    wireMagnet(document.getElementById('cta-nav'), 0.4);
+    wireMagnet(document.getElementById('cta-footer'), 0.3);
+
+    // ---- Scroll reveal: showcase entries (staggered fade + rise, state-driven) ----
+    if (reduceM) {
+      const rev = {}; [0, 1, 2, 3, 4].forEach((i) => { rev[i] = true; }); this.setState({ revealed: rev });
+    } else {
+      const checkReveal = () => {
+        const cards = Array.from(document.querySelectorAll('[data-reveal]'));
+        if (!cards.length) return;
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        let rev = null;
+        cards.forEach((c, i) => {
+          const r = c.getBoundingClientRect();
+          if (r.top < vh * 0.88 && r.bottom > 0 && !(this.state.revealed || {})[i]) {
+            rev = rev || Object.assign({}, this.state.revealed);
+            rev[i] = true;
+          }
+        });
+        if (rev) this.setState({ revealed: rev });
+      };
+      this._checkReveal = checkReveal;
+      window.addEventListener('scroll', checkReveal, { passive: true });
+      document.addEventListener('scroll', checkReveal, true);
+      window.addEventListener('resize', checkReveal);
+      checkReveal();
+      requestAnimationFrame(checkReveal);
+      setTimeout(checkReveal, 300);
+    }
+
+    const wave = document.getElementById('wave');
+    if (!wave) return;
+    const L = 220, H = 34, mid = 15, amp = 11;
+    const y = (x) => mid - amp * Math.cos((2 * Math.PI * x) / L);
+    let d = 'M0,0 H' + L + ' V' + y(L).toFixed(2);
+    for (let x = L; x >= 0; x -= 2) d += ' L' + x + ',' + y(x).toFixed(2);
+    d += ' Z';
+    const svg = "<svg xmlns='http://www.w3.org/2000/svg' width='" + L + "' height='" + H + "' viewBox='0 0 " + L + " " + H + "'><path d='" + d + "' fill='black'/></svg>";
+    const uri = "url(\"data:image/svg+xml," + encodeURIComponent(svg) + "\")";
+    wave.style.webkitMaskImage = uri; wave.style.maskImage = uri;
+    wave.style.webkitMaskRepeat = 'repeat-x'; wave.style.maskRepeat = 'repeat-x';
+    wave.style.webkitMaskSize = L + 'px ' + H + 'px'; wave.style.maskSize = L + 'px ' + H + 'px';
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const getY = () => window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    let last = -1;
+    const loop = () => {
+      const yy = getY();
+      if (yy !== last) { last = yy; const x = (yy * 0.32) + 'px'; wave.style.webkitMaskPositionX = x; wave.style.maskPositionX = x; }
+      if (!reduce) this._raf = requestAnimationFrame(loop);
+    };
+    loop();
+  }
+  measureNav() {
+    const wrap = document.getElementById('nav-pill');
+    if (!wrap) return;
+    const pills = Array.from(wrap.querySelectorAll('[data-pill]'));
+    const navGeos = pills.map((p) => ({ left: p.offsetLeft, width: p.offsetWidth }));
+    const navActive = pills.findIndex((p) => p.hasAttribute('data-active'));
+    this.setState({ navGeos: navGeos, navActive: navActive });
+  }
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); if (this._onNavResize) window.removeEventListener('resize', this._onNavResize); }
+  renderVals() {
+    const st = this.state || {};
+    const geos = st.navGeos || [];
+    const active = (st.navActive == null ? -1 : st.navActive);
+    const hover = (st.navHover == null ? -1 : st.navHover);
+    const cur = hover >= 0 ? hover : active;
+    const g = geos[cur];
+    const navIndStyle = {
+      position: 'absolute', top: 0, height: '100%', background: '#101012',
+      borderRadius: '100px', zIndex: 0, pointerEvents: 'none',
+      transition: 'left .3s cubic-bezier(.5,1.2,.5,1),width .3s cubic-bezier(.5,1.2,.5,1),opacity .2s',
+      left: (g ? g.left : 0) + 'px', width: (g ? g.width : 0) + 'px', opacity: g ? 1 : 0
+    };
+    const mkPill = (i) => ({
+      position: 'relative', zIndex: 1, padding: '8px 16px', fontSize: '14.5px',
+      fontWeight: 600, transition: 'color .25s', color: cur === i ? '#CDF34E' : '#101012'
+    });
+    const enter = (i) => () => this.setState({ navHover: i });
+    const rev = st.revealed || {};
+    const cardStyle = (i) => ({
+      transition: 'opacity .6s ease, transform .65s cubic-bezier(.2,.75,.2,1)',
+      transitionDelay: ((i % 4) * 0.09).toFixed(2) + 's',
+      opacity: rev[i] ? 1 : 0,
+      transform: rev[i] ? 'none' : 'translateY(28px)'
+    });
+    return {
+      cardStyle0: cardStyle(0), cardStyle1: cardStyle(1), cardStyle2: cardStyle(2), cardStyle3: cardStyle(3), cardStyle4: cardStyle(4),
+      navIndStyle: navIndStyle,
+      navPill0: mkPill(0), navPill1: mkPill(1), navPill2: mkPill(2),
+      navEnter0: enter(0), navEnter1: enter(1), navEnter2: enter(2),
+      navLeave: () => this.setState({ navHover: -1 })
+    };
+  }
+}
+</script>
+</body>
+</html>

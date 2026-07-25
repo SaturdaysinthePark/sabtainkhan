@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="./site-fx.js?v=5"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#FFFFFF;color:#101012;font-family:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:#CDF34E;color:#101012}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</helmet>
+<div style="position:relative;overflow-x:clip">
+
+  <!-- ACID HEADER + FLOWING WAVE -->
+  <div style="position:sticky;top:0;z-index:50">
+    <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(22px,5vw,80px);background:#CDF34E">
+      <a href="index.html" style="font-family:'Anton',sans-serif;font-size:27px;line-height:.84;text-transform:uppercase;letter-spacing:0.015em;white-space:nowrap;flex-shrink:0;color:#101012;transform:skewX(-9deg)">Sabtain Khan</a>
+      <div style="display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)">
+        <div id="nav-pill" onMouseLeave="{{ navLeave }}" style="position:relative;display:flex;align-items:center;gap:2px">
+          <div id="nav-ind" style="{{ navIndStyle }}"></div>
+          <a href="work.html" data-pill onMouseEnter="{{ navEnter0 }}" style="{{ navPill0 }}">Work</a>
+          <a href="talks.html" data-pill onMouseEnter="{{ navEnter1 }}" style="{{ navPill1 }}">Talks</a>
+          <a href="about.html" data-pill data-active="1" onMouseEnter="{{ navEnter2 }}" style="{{ navPill2 }}">About</a>
+        </div>
+        <a id="cta-nav" href="mailto:sabtain.a.khan@gmail.com" style="padding:9px 18px;background:#101012;color:#CDF34E;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-size:13.5px;font-weight:700;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch</a>
+      </div>
+    </nav>
+    <div id="wave" style="height:34px;background:#CDF34E;margin-top:-1px"></div>
+  </div>
+
+  <!-- HEADER -->
+  <header data-screen-label="About header" style="position:relative;padding:clamp(56px,10vh,128px) clamp(22px,5vw,80px) clamp(36px,5vh,56px)">
+    <svg id="dec-a1" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(24px,14vw,240px);top:clamp(30px,5vh,78px);width:clamp(38px,4.6vw,62px);height:auto;opacity:0.85;transform:rotate(16deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-0.0s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
+    <svg id="dec-a2" aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(120px,26vw,420px);top:clamp(110px,17vh,200px);width:17px;height:auto;opacity:0.55;transform:rotate(-12deg);pointer-events:none"><g style="animation:decTwirl 32s linear infinite;animation-delay:-1.7s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
+    <svg id="dec-a3" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;right:clamp(8px,2.4vw,44px);top:clamp(56px,9vh,120px);width:14px;height:auto;opacity:0.8;transform:rotate(22deg);pointer-events:none"><g style="animation:decPulse 13.0s ease-in-out infinite alternate;animation-delay:-3.4s;transform-box:fill-box;transform-origin:center"><rect x="42" y="6" width="16" height="88" fill="#CDF34E"/><rect x="6" y="42" width="88" height="16" fill="#CDF34E"/></g></svg>
+    <div style="position:relative;max-width:1340px;margin:0 auto;display:grid;grid-template-columns:1fr 220px;gap:clamp(32px,5vw,72px);align-items:end">
+      <div>
+        <p id="hero-head" style="margin:0 0 22px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,5.4vw,76px);line-height:1.05;letter-spacing:-0.04em">About <span style="background:#CDF34E;padding:0 10px">me.</span></p>
+        <p style="margin:0;color:#5C6470;font-size:clamp(16px,1.8vw,21px);line-height:1.55;max-width:50ch">Product Manager, obsessed with UX, always building and experimenting, slightly addicted to AI.</p>
+      </div>
+      <div style="aspect-ratio:4/5;width:220px;border-radius:14px;overflow:hidden;justify-self:end">
+        <img src="uploads/pasted-1784915822589-0.png" alt="Sabtain Khan" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+    </div>
+  </header>
+
+  <!-- BIO -->
+  <section data-screen-label="Bio" style="position:relative;padding:clamp(28px,4vh,52px) clamp(22px,5vw,80px)">
+    <svg aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(4px,1.4vw,22px);top:clamp(90px,14vh,180px);width:20px;height:auto;opacity:0.8;transform:rotate(11deg);pointer-events:none"><g style="animation:decTwirl 44s linear infinite;animation-delay:-0.1s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#CDF34E"/></g></svg>
+    <div style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:0.55fr 1.45fr;gap:clamp(24px,4vw,64px);border-top:2px solid #101012;padding-top:30px">
+      <h2 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#101012;font-weight:600">The story</h2>
+      <div style="max-width:60ch">
+        <p style="margin:0 0 20px;font-size:clamp(18px,2vw,24px);line-height:1.5;letter-spacing:-0.015em;font-weight:500">I've spent the last decade building AI products for enterprises, helping them transform experiences for customers and improve employee productivity.</p>
+        <p style="margin:0 0 18px;color:#444A56;font-size:16.5px;line-height:1.7">It started with putting conversational AI in robots, launching developer APIs to use common AI services, and gaining some experience early on. I met with customers, developers, and stakeholders and became an expert fast on how large enterprise organizations can succeed with AI, and what their needs were from a product.</p>
+        <p style="margin:0 0 18px;color:#444A56;font-size:16.5px;line-height:1.7">Since then, my products have helped all sizes of businesses to leverage AI to: integrate into their applications easily, visually inspect on the assembly line, transform their customer service operations, and control their AI usage across organizations.</p>
+        <p style="margin:0;color:#444A56;font-size:16.5px;line-height:1.7">Outside of work, you'll find me reading books and writing reviews in my blog <a href="https://saturdaysinabook.com/" target="_blank" rel="noopener" style="border-bottom:2px solid #CDF34E" style-hover="background:#CDF34E">Saturdays in a Book</a>, traveling the world, or attending and sometimes even presenting at tech conferences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK FACTS -->
+  <section data-screen-label="Quick facts" style="position:relative;padding:clamp(28px,4vh,52px) clamp(22px,5vw,80px)">
+    <svg aria-hidden="true" viewBox="0 0 90 70" style="position:absolute;right:clamp(2px,1vw,18px);top:clamp(48px,7vh,110px);width:clamp(28px,3.2vw,44px);height:auto;opacity:0.45;transform:rotate(-20deg);pointer-events:none"><g style="animation:decSway 28.0s ease-in-out infinite alternate;animation-delay:-1.8s;transform-box:fill-box;transform-origin:center"><path d="M44 6 C62 2 82 16 80 36 C78 54 62 66 42 64 C22 62 6 48 8 28 C10 12 26 9 44 6 Z" fill="none" stroke="#101012" stroke-width="2.6"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1vw,16px);bottom:clamp(24px,4vh,70px);width:clamp(28px,3.2vw,42px);height:auto;opacity:0.6;transform:rotate(-14deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-3.5s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 40" style="position:absolute;right:clamp(10px,2.4vw,36px);bottom:clamp(10px,2vh,40px);width:34px;height:auto;opacity:0.35;transform:rotate(-10deg);pointer-events:none"><g style="animation:decBob 11.0s ease-in-out infinite alternate;animation-delay:-0.2s;transform-box:fill-box;transform-origin:center"><circle cx="12" cy="20" r="8" fill="#101012"/><circle cx="46" cy="20" r="6" fill="#101012"/><circle cx="76" cy="20" r="4" fill="#101012"/></g></svg>
+    <div style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:0.55fr 1.45fr;gap:clamp(24px,4vw,64px);border-top:2px solid #101012;padding-top:30px">
+      <h2 style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#101012;font-weight:600">At a glance</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px 40px">
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:7px">Now</div><div style="font-size:17px;font-weight:500;letter-spacing:-0.01em">Group Product Manager,<br>watsonx Orchestrate</div></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:7px">Based in</div><div style="font-size:17px;font-weight:500;letter-spacing:-0.01em">New York, NY</div></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:7px">Focus</div><div style="font-size:17px;font-weight:500;letter-spacing:-0.01em">Product management,<br>AI &amp; LLMs, design</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section data-screen-label="Resume" style="padding:clamp(28px,4vh,52px) clamp(22px,5vw,80px) clamp(44px,6vh,72px)">
+    <div style="max-width:1340px;margin:0 auto;border-top:2px solid #101012;padding-top:30px">
+      <div style="position:relative;overflow:hidden;background:#F7FCDF;border-radius:18px;padding:clamp(28px,4vw,52px);display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:center">
+        <svg aria-hidden="true" viewBox="0 0 120 120" style="position:absolute;right:-26px;top:-34px;width:150px;height:150px;opacity:.5"><g style="animation:decBob 28.0s ease-in-out infinite alternate;animation-delay:-0.3s;transform-box:fill-box;transform-origin:center"><path d="M60 8 C88 4 116 28 112 60 C108 88 86 112 56 110 C28 108 8 84 10 54 C12 28 32 12 60 8 Z" fill="#CDF34E"/></g></svg>
+        <div style="position:relative">
+          <h2 style="margin:0 0 8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,3vw,36px);letter-spacing:-0.03em">Résumé</h2>
+          <p style="margin:0;color:#5C6470;font-size:16px;max-width:44ch">The full work history, in one page.</p>
+        </div>
+        <a href="resume.html" target="_blank" style="position:relative;display:inline-flex;align-items:center;gap:11px;padding:15px 30px;background:#101012;color:#CDF34E;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:700;font-size:16px;letter-spacing:-0.01em;white-space:nowrap;transition:transform .2s" style-hover="transform:translateY(-3px)">View resume ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer data-screen-label="Footer" style="margin-top:clamp(20px,3vh,40px);background:#101012;color:#EEF0F5;padding:clamp(26px,3vh,34px) clamp(22px,5vw,80px) 22px">
+    <div style="max-width:1340px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-end;padding-bottom:20px;border-bottom:1px solid rgba(238,240,245,0.14)">
+        <div>
+          <p style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(17px,1.7vw,21px);line-height:1.4;letter-spacing:-0.015em;color:#EEF0F5;max-width:34ch"><span style="color:#CDF34E">Inbox open</span> — love to talk product, AI, tech, books, career and more...</p>
+        </div>
+        <a id="cta-footer" href="mailto:sabtain.a.khan@gmail.com" style="display:inline-flex;align-items:center;gap:9px;padding:11px 20px;background:#CDF34E;color:#101012;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:700;font-size:14.5px;letter-spacing:-0.01em;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch →</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:18px 28px;justify-content:space-between;align-items:center;padding-top:18px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.03em;color:#79808E">© 2026 Sabtain Khan · New York</span>
+        <div style="display:flex;gap:22px;font-size:14px;font-weight:500">
+          <a href="https://linkedin.com/in/sabtain" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">LinkedIn ↗</a>
+          <a href="https://github.com/SaturdaysinthePark" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">GitHub ↗</a>
+          <a href="resume.html" target="_blank" style="color:#AEB4C2" style-hover="color:#CDF34E">Résumé</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { navGeos: [], navHover: -1, navActive: -1, statYearsTxt: '0', statTalksTxt: '0', statConvTxt: '0' };
+  componentDidMount() {
+    if (window.SiteFX) window.SiteFX.initSiteFx(this, { scramble: ['#hero-head'], parallax: [['#dec-a1', -0.13], ['#dec-a2', 0.09], ['#dec-a3', -0.06]] });
+    const reduceM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.measureNav();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.measureNav());
+    this._onNavResize = () => this.measureNav();
+    window.addEventListener('resize', this._onNavResize);
+    const wireMagnet = (el, strength) => {
+      if (!el || reduceM) return;
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
+        el.style.transform = 'translate(' + (dx * strength).toFixed(1) + 'px,' + (dy * strength).toFixed(1) + 'px)';
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = 'translate(0,0)'; });
+    };
+    wireMagnet(document.getElementById('cta-nav'), 0.4);
+    wireMagnet(document.getElementById('cta-footer'), 0.3);
+
+    const wave = document.getElementById('wave');
+    if (!wave) return;
+    const L = 220, H = 34, mid = 15, amp = 11;
+    const y = (x) => mid - amp * Math.cos((2 * Math.PI * x) / L);
+    let d = 'M0,0 H' + L + ' V' + y(L).toFixed(2);
+    for (let x = L; x >= 0; x -= 2) d += ' L' + x + ',' + y(x).toFixed(2);
+    d += ' Z';
+    const svg = "<svg xmlns='http://www.w3.org/2000/svg' width='" + L + "' height='" + H + "' viewBox='0 0 " + L + " " + H + "'><path d='" + d + "' fill='black'/></svg>";
+    const uri = "url(\"data:image/svg+xml," + encodeURIComponent(svg) + "\")";
+    wave.style.webkitMaskImage = uri; wave.style.maskImage = uri;
+    wave.style.webkitMaskRepeat = 'repeat-x'; wave.style.maskRepeat = 'repeat-x';
+    wave.style.webkitMaskSize = L + 'px ' + H + 'px'; wave.style.maskSize = L + 'px ' + H + 'px';
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const getY = () => window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    let last = -1;
+    const loop = () => {
+      const yy = getY();
+      if (yy !== last) { last = yy; const x = (yy * 0.32) + 'px'; wave.style.webkitMaskPositionX = x; wave.style.maskPositionX = x; }
+      if (!reduce) this._raf = requestAnimationFrame(loop);
+    };
+    loop();
+  }
+  measureNav() {
+    const wrap = document.getElementById('nav-pill');
+    if (!wrap) return;
+    const pills = Array.from(wrap.querySelectorAll('[data-pill]'));
+    const navGeos = pills.map((p) => ({ left: p.offsetLeft, width: p.offsetWidth }));
+    const navActive = pills.findIndex((p) => p.hasAttribute('data-active'));
+    this.setState({ navGeos: navGeos, navActive: navActive });
+  }
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); if (this._onNavResize) window.removeEventListener('resize', this._onNavResize); }
+  renderVals() {
+    const st = this.state || {};
+    const geos = st.navGeos || [];
+    const active = (st.navActive == null ? -1 : st.navActive);
+    const hover = (st.navHover == null ? -1 : st.navHover);
+    const cur = hover >= 0 ? hover : active;
+    const g = geos[cur];
+    const navIndStyle = {
+      position: 'absolute', top: 0, height: '100%', background: '#101012',
+      borderRadius: '100px', zIndex: 0, pointerEvents: 'none',
+      transition: 'left .3s cubic-bezier(.5,1.2,.5,1),width .3s cubic-bezier(.5,1.2,.5,1),opacity .2s',
+      left: (g ? g.left : 0) + 'px', width: (g ? g.width : 0) + 'px', opacity: g ? 1 : 0
+    };
+    const mkPill = (i) => ({
+      position: 'relative', zIndex: 1, padding: '8px 16px', fontSize: '14.5px',
+      fontWeight: 600, transition: 'color .25s', color: cur === i ? '#CDF34E' : '#101012'
+    });
+    const enter = (i) => () => this.setState({ navHover: i });
+    return {
+      statYearsTxt: st.statYearsTxt || '0', statTalksTxt: st.statTalksTxt || '0', statConvTxt: st.statConvTxt || '0',
+      navIndStyle: navIndStyle,
+      navPill0: mkPill(0), navPill1: mkPill(1), navPill2: mkPill(2),
+      navEnter0: enter(0), navEnter1: enter(1), navEnter2: enter(2),
+      navLeave: () => this.setState({ navHover: -1 })
+    };
+  }
+}
+</script>
+</body>
+</html>

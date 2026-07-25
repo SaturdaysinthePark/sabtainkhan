@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sabtain Khan — Resume</title>
+<style>
+  @page { size: Letter; margin: 0; }
+
+  :root{
+    --ink:#111111;
+    --body:#2b2b2b;
+    --muted:#8c8c8c;
+    --side:#4d4d4d;
+    --rule:#e6e6e6;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{ margin:0; padding:0; background:#f2f2f2; }
+
+  body{
+    font-family:"Helvetica Neue", Helvetica, "Liberation Sans", Arial, sans-serif;
+    color:var(--body);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    width:8.5in;
+    min-height:11in;
+    margin:24px auto;
+    background:#ffffff;
+    padding:0.72in 0.78in 0.6in 0.78in;
+  }
+
+  /* ---------- header ---------- */
+  .name{
+    font-size:31px;
+    font-weight:700;
+    letter-spacing:-0.6px;
+    color:var(--ink);
+    margin:0 0 3px 0;
+    line-height:1.1;
+  }
+  .role{
+    font-size:20px;
+    font-weight:400;
+    color:var(--ink);
+    margin:0;
+    line-height:1.2;
+  }
+
+  .columns{ margin-top:44px; }
+  .columns::after{ content:""; display:table; clear:both; }
+
+  .main{ float:left; width:62%; }
+  .side{ float:right; width:31%; }
+
+  /* ---------- section eyebrows ---------- */
+  .eyebrow{
+    font-size:8px;
+    letter-spacing:2.6px;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 12px 0;
+    font-weight:400;
+  }
+
+  /* ---------- experience ---------- */
+  .job{ margin-bottom:20px; }
+  .job:last-child{ margin-bottom:0; }
+
+  .job-title{
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--ink);
+    margin:0 0 2px 0;
+    line-height:1.35;
+  }
+  .job-org{
+    font-size:11.5px;
+    font-weight:400;
+    color:var(--ink);
+    margin:0 0 3px 0;
+    line-height:1.35;
+  }
+  .job-dates{
+    font-size:9px;
+    color:var(--muted);
+    letter-spacing:0.3px;
+    margin:0 0 6px 0;
+  }
+  .job-desc{
+    font-size:10.5px;
+    line-height:1.62;
+    color:var(--body);
+    margin:0;
+  }
+
+  .edu{ margin-top:30px; }
+  .edu .degree{
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--ink);
+    margin:0 0 2px 0;
+  }
+  .edu .school{
+    font-size:11.5px;
+    color:var(--ink);
+    margin:0 0 3px 0;
+  }
+  .edu .where{
+    font-size:9px;
+    color:var(--muted);
+    margin:0;
+  }
+
+  /* ---------- sidebar ---------- */
+  .contact{ margin-bottom:26px; }
+  .contact li{
+    font-size:11px;
+    color:var(--side);
+    line-height:1.85;
+    list-style:none;
+  }
+  .contact ul{ margin:0; padding:0; }
+
+  .side-block{ margin-bottom:24px; }
+  .side-block:last-child{ margin-bottom:0; }
+
+  .side-head{
+    font-size:11px;
+    font-weight:700;
+    color:var(--ink);
+    margin:0 0 6px 0;
+  }
+  .side-block ul{ margin:0; padding:0; }
+  .side-block li{
+    list-style:none;
+    font-size:11px;
+    color:var(--side);
+    line-height:1.6;
+    margin-bottom:2px;
+  }
+  .side-block li b{ color:var(--ink); font-weight:700; }
+
+  .inline{ font-size:11px; color:var(--side); line-height:1.6; margin:0; }
+
+  /* ---------- print ---------- */
+  @media print{
+    html,body{ background:#ffffff; }
+    .page{
+      width:auto;
+      min-height:0;
+      margin:0;
+      padding:0.6in 0.7in;
+      box-shadow:none;
+    }
+  }
+
+  @media screen{
+    .page{ box-shadow:0 2px 24px rgba(0,0,0,.10); }
+  }
+
+  @media screen and (max-width:900px){
+    .page{ width:auto; padding:32px 24px; }
+    .main,.side{ float:none; width:100%; }
+    .side{ margin-top:32px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1 class="name">Sabtain Khan</h1>
+    <p class="role">Group Product Manager</p>
+  </header>
+
+  <div class="columns">
+
+    <div class="main">
+      <p class="eyebrow">Experience</p>
+
+      <div class="job">
+        <p class="job-title">Group Product Manager</p>
+        <p class="job-org">watsonx Assistant &amp; Orchestrate — IBM</p>
+        <p class="job-dates">2023 &rarr; Present</p>
+        <p class="job-desc">I own the vision, strategy, and technical roadmap for IBM's AI assistant portfolio and manage 15+ product managers. Established voice partnerships with Deepgram and ElevenLabs.</p>
+      </div>
+
+      <div class="job">
+        <p class="job-title">Principal Product Manager</p>
+        <p class="job-org">watsonx Assistant — IBM</p>
+        <p class="job-dates">2022 &rarr; 2023</p>
+        <p class="job-desc">Led 20 engineers and 4 designers on core authoring and algorithms. Cut enterprise time-to-live by 65% and shipped IBM's first generative AI feature inside an assistant.</p>
+      </div>
+
+      <div class="job">
+        <p class="job-title">Product Strategy Lead</p>
+        <p class="job-org">Watson &amp; Customer Care — IBM</p>
+        <p class="job-dates">2020 &rarr; 2021</p>
+        <p class="job-desc">Set market and roadmap strategy across Assistant, Discovery, and Speech. Lifted portfolio gross profit from under 30% to over 70% and established a Twilio Segment partnership for event streaming.</p>
+      </div>
+
+      <div class="job">
+        <p class="job-title">Lead Product Manager</p>
+        <p class="job-org">Computer Vision — IBM Watson</p>
+        <p class="job-dates">2018 &rarr; 2020</p>
+        <p class="job-desc">Repositioned the product for industrial visual inspection, putting model training in the hands of quality engineers on the line. 10x revenue growth, 5x better margins.</p>
+      </div>
+
+      <div class="job">
+        <p class="job-title">Product Manager</p>
+        <p class="job-org">Developer Experience — IBM Watson</p>
+        <p class="job-dates">2016 &rarr; 2018</p>
+        <p class="job-desc">Launched the Watson developer suite and seven SDKs that still carry over 90% of customer usage. Doubled API conversion and raised IBM Cloud sign-ups 50%.</p>
+      </div>
+
+      <div class="job">
+        <p class="job-title">Finance Lead</p>
+        <p class="job-org">Watson Group — IBM</p>
+        <p class="job-dates">2012 &rarr; 2016</p>
+        <p class="job-desc">Managed a $1B budget through the founding years of IBM Watson &mdash; M&amp;A, the Apple partnership, pricing, and lab expansion.</p>
+      </div>
+
+      <div class="edu">
+        <p class="eyebrow">Education</p>
+        <p class="degree">Bachelor of Arts &mdash; Finance</p>
+        <p class="school">Michigan State University</p>
+        <p class="where">East Lansing, Michigan</p>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="contact">
+        <ul>
+          <li>+1 810 610 1475</li>
+          <li>sabtain.a.khan@gmail.com</li>
+          <li>linkedin.com/in/sabtain</li>
+          <li>Brooklyn, New York</li>
+        </ul>
+      </div>
+
+      <div class="side-block">
+        <p class="side-head">Impact</p>
+        <ul>
+          <li>$20M &rarr; $80M ARR, 41% CAGR</li>
+          <li>600% growth in SaaS signings</li>
+          <li>100M+ monthly active users</li>
+          <li>Gartner Magic Quadrant Leader</li>
+        </ul>
+      </div>
+
+      <div class="side-block">
+        <p class="side-head">Speaking</p>
+        <ul>
+          <li>AI Ethics, Tech Duels</li>
+          <li>AI Panel, DMLA New York</li>
+          <li>AI Panel, KnowIt</li>
+          <li>Federated AI on Edge Devices</li>
+          <li>Product Management, U of Utah</li>
+          <li>US Open, VivaTech, CES</li>
+          <li>Data &amp; AI judge, NYU</li>
+        </ul>
+      </div>
+
+      <div class="side-block">
+        <p class="side-head">Skills</p>
+        <ul>
+          <li>Product strategy</li>
+          <li>Roadmapping</li>
+          <li>Customer discovery</li>
+          <li>Pricing &amp; packaging</li>
+          <li>Generative AI</li>
+          <li>Claude</li>
+          <li>GitHub</li>
+          <li>Figma</li>
+          <li>Amplitude</li>
+          <li>Segment</li>
+          <li>SQL</li>
+          <li>Python</li>
+        </ul>
+      </div>
+
+      <div class="side-block">
+        <p class="side-head">Languages</p>
+        <p class="inline">English, Urdu, Pashto, Arabic</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

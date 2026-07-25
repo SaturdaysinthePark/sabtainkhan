@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#FFFFFF;color:#101012;font-family:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:#CDF34E;color:#101012}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes blob{0%,100%{border-radius:42% 58% 63% 37%/47% 42% 58% 53%}50%{border-radius:62% 38% 38% 62%/56% 60% 40% 44%}}
+  @keyframes decBob{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-9%) rotate(5deg)}}
+  @keyframes decSway{0%,100%{transform:translateX(-3%) rotate(-4deg)}50%{transform:translateX(4%) rotate(4deg)}}
+  @keyframes decPulse{0%,100%{transform:scale(1) rotate(0deg)}50%{transform:scale(1.12) rotate(9deg)}}
+  @keyframes decTwirl{to{transform:rotate(360deg)}}
+  @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<script src="./site-fx.js?v=5"></script>
+</helmet>
+<div style="position:relative;overflow-x:clip">
+
+  <!-- STICKY ACID HEADER + FLOWING WAVE -->
+  <div style="position:sticky;top:0;z-index:50">
+    <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(22px,5vw,80px);background:#CDF34E">
+      <a href="index.html" style="font-family:'Anton',sans-serif;font-size:27px;line-height:.84;text-transform:uppercase;letter-spacing:0.015em;white-space:nowrap;flex-shrink:0;color:#101012;transform:skewX(-9deg)">Sabtain Khan</a>
+      <div style="display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)">
+        <div id="nav-pill" onMouseLeave="{{ navLeave }}" style="position:relative;display:flex;align-items:center;gap:2px">
+          <div id="nav-ind" style="{{ navIndStyle }}"></div>
+          <a href="work.html" data-pill onMouseEnter="{{ navEnter0 }}" style="{{ navPill0 }}">Work</a>
+          <a href="talks.html" data-pill onMouseEnter="{{ navEnter1 }}" style="{{ navPill1 }}">Appearances</a>
+          <a href="about.html" data-pill onMouseEnter="{{ navEnter2 }}" style="{{ navPill2 }}">About</a>
+        </div>
+        <a id="cta-nav" href="mailto:sabtain.a.khan@gmail.com" style="padding:9px 18px;background:#101012;color:#CDF34E;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-size:13.5px;font-weight:700;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch</a>
+      </div>
+    </nav>
+    <div id="wave" style="height:34px;background:#CDF34E;margin-top:-1px"></div>
+  </div>
+
+  <!-- HERO (two-column: statement + live pipeline panel) -->
+  <header data-screen-label="Hero" style="position:relative;overflow:hidden;padding:clamp(52px,9vh,116px) clamp(22px,5vw,80px) clamp(46px,8vh,92px)">
+    <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;bottom:0;background-image:radial-gradient(rgba(16,16,18,0.05) 1.1px,transparent 1.3px);background-size:22px 22px;z-index:0"></div>
+    <svg id="dec-h1" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1.2vw,22px);top:clamp(40px,7vh,96px);z-index:1;width:clamp(38px,4.4vw,60px);height:auto;opacity:0.85;transform:rotate(18deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-0.0s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
+    <svg id="dec-h2" aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(30px,6vw,110px);bottom:clamp(26px,5vh,74px);z-index:1;width:19px;height:auto;opacity:0.5;transform:rotate(-11deg);pointer-events:none"><g style="animation:decTwirl 32s linear infinite;animation-delay:-1.7s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
+    <svg id="dec-h3" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(6px,1.6vw,26px);bottom:clamp(120px,19vh,220px);z-index:1;width:12px;height:auto;opacity:0.35;transform:rotate(20deg);pointer-events:none"><g style="animation:decPulse 13.0s ease-in-out infinite alternate;animation-delay:-3.4s;transform-box:fill-box;transform-origin:center"><rect x="42" y="6" width="16" height="88" fill="#101012"/><rect x="6" y="42" width="88" height="16" fill="#101012"/></g></svg>
+    <div style="position:relative;z-index:2;max-width:1340px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center">
+      <div>
+        <p style="margin:0 0 24px;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7A8192">Group Product Manager — New York</p>
+        <h1 id="hero-head" style="margin:0 0 26px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,5.4vw,78px);line-height:1.02;letter-spacing:-0.045em">I build and lead <span style="background:#CDF34E;padding:0 10px;box-decoration-break:clone;-webkit-box-decoration-break:clone">product teams.</span></h1>
+        <p style="margin:0 0 32px;color:#4C5462;font-size:clamp(16px,1.8vw,21px);line-height:1.55;max-width:52ch">Hi, I'm Sabtain — a product management leader building AI tools and experiences that drive real impact for customers across every industry. Sometimes I build other things for fun.</p>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px">
+          <a href="#work" style="display:inline-flex;align-items:center;gap:9px;padding:14px 28px;background:#101012;color:#fff;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,color .2s" style-hover="background:#CDF34E;color:#101012">See selected work ↓</a>
+          <a href="mailto:sabtain.a.khan@gmail.com" style="display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border:1.5px solid rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,border-color .2s" style-hover="background:#CDF34E;border-color:#CDF34E">Get in touch</a>
+        </div>
+      </div>
+
+      <!-- LIVE PIPELINE PANEL -->
+      <div id="hero-panel" style="position:relative;border:1.5px solid #101012;border-radius:16px;background:#101012;overflow:hidden;box-shadow:0 26px 60px -30px rgba(16,16,18,0.55)">
+        <div style="display:flex;align-items:center;gap:9px;padding:13px 16px;border-bottom:1.5px solid rgba(205,243,78,0.2)">
+          <span style="width:10px;height:10px;border-radius:100px;background:#CDF34E"></span>
+          <span style="width:10px;height:10px;border-radius:100px;background:rgba(205,243,78,0.36)"></span>
+          <span style="width:10px;height:10px;border-radius:100px;background:rgba(205,243,78,0.36)"></span>
+          <span style="margin-left:6px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;color:#8A9270">discovery → delivery</span>
+        </div>
+        <div style="padding:18px 18px 12px">
+          <div id="proc-screen" style="position:relative;height:212px;border:1.5px solid rgba(205,243,78,0.16);border-radius:10px;background:rgba(205,243,78,0.03);overflow:hidden">
+            <div id="proc-caption" style="position:absolute;left:12px;top:12px;z-index:3;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.04em;color:#101012;background:#CDF34E;padding:4px 9px;border-radius:5px">01 · Discover</div>
+
+            <div data-scene="0" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:14px;padding:20px;opacity:1;transition:opacity .45s ease">
+              <div style="width:74px;height:104px;border:1.5px solid rgba(205,243,78,0.28);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:7px">
+                <div style="height:5px;border-radius:3px;background:rgba(205,243,78,0.28);width:80%"></div>
+                <div style="height:5px;border-radius:3px;background:rgba(205,243,78,0.28);width:100%"></div>
+                <div style="height:5px;border-radius:3px;background:rgba(205,243,78,0.28);width:55%"></div>
+                <div style="margin-top:auto;height:5px;border-radius:3px;background:rgba(205,243,78,0.28);width:70%"></div>
+              </div>
+              <div style="position:relative;width:74px;height:104px">
+                <div style="width:100%;height:100%;border:1.5px solid #CDF34E;border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:7px;background:rgba(205,243,78,0.06)">
+                  <div style="height:5px;border-radius:3px;background:rgba(205,243,78,0.6);width:90%"></div>
+                  <div style="height:5px;border-radius:3px;background:rgba(205,243,78,0.6);width:70%"></div>
+                  <div style="height:5px;border-radius:3px;background:rgba(205,243,78,0.6);width:100%"></div>
+                  <div style="margin-top:auto;height:5px;border-radius:3px;background:rgba(205,243,78,0.6);width:60%"></div>
+                </div>
+                <div style="position:absolute;right:-10px;bottom:-8px;width:28px;height:28px;border:2.5px solid #CDF34E;border-radius:100px;background:rgba(16,16,18,0.55)"></div>
+                <div style="position:absolute;right:-16px;bottom:-14px;width:12px;height:3px;background:#CDF34E;border-radius:2px;transform:rotate(45deg)"></div>
+              </div>
+              <div style="width:74px;height:104px;border:1.5px solid rgba(205,243,78,0.28);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:7px">
+                <div style="height:5px;border-radius:3px;background:rgba(205,243,78,0.28);width:70%"></div>
+                <div style="height:5px;border-radius:3px;background:rgba(205,243,78,0.28);width:95%"></div>
+                <div style="height:5px;border-radius:3px;background:rgba(205,243,78,0.28);width:50%"></div>
+                <div style="margin-top:auto;height:5px;border-radius:3px;background:rgba(205,243,78,0.28);width:80%"></div>
+              </div>
+            </div>
+
+            <div data-scene="1" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:52px 32px 22px;opacity:0;transition:opacity .45s ease">
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:16px;height:16px;border-radius:4px;border:1.5px solid #CDF34E;background:#CDF34E;flex-shrink:0"></div>
+                <div style="height:6px;border-radius:3px;background:rgba(205,243,78,0.5);flex:1;max-width:70%"></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:16px;height:16px;border-radius:4px;border:1.5px solid #CDF34E;background:#CDF34E;flex-shrink:0"></div>
+                <div style="height:6px;border-radius:3px;background:rgba(205,243,78,0.5);flex:1;max-width:88%"></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:16px;height:16px;border-radius:4px;border:1.5px solid rgba(205,243,78,0.3);flex-shrink:0"></div>
+                <div style="height:6px;border-radius:3px;background:rgba(205,243,78,0.22);flex:1;max-width:60%"></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:16px;height:16px;border-radius:4px;border:1.5px solid rgba(205,243,78,0.3);flex-shrink:0"></div>
+                <div style="height:6px;border-radius:3px;background:rgba(205,243,78,0.22);flex:1;max-width:78%"></div>
+              </div>
+            </div>
+
+            <div data-scene="2" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:20px 24px;opacity:0;transition:opacity .45s ease">
+              <div style="border:1.5px solid rgba(205,243,78,0.28);border-radius:8px;overflow:hidden">
+                <div style="height:22px;background:rgba(205,243,78,0.12);display:flex;align-items:center;gap:6px;padding:0 9px">
+                  <div style="width:6px;height:6px;border-radius:100px;background:#CDF34E"></div>
+                  <div style="height:5px;width:54px;border-radius:3px;background:rgba(205,243,78,0.4)"></div>
+                </div>
+                <div style="padding:10px;display:flex;gap:9px">
+                  <div style="flex:1;height:46px;border-radius:6px;background:rgba(205,243,78,0.12)"></div>
+                  <div style="width:66px;display:flex;flex-direction:column;gap:6px">
+                    <div style="height:5px;border-radius:3px;background:rgba(205,243,78,0.35);width:100%"></div>
+                    <div style="height:5px;border-radius:3px;background:rgba(205,243,78,0.35);width:72%"></div>
+                    <div style="margin-top:auto;height:15px;border-radius:5px;background:#CDF34E"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:9px">
+                <div style="flex:1;height:6px;border-radius:3px;background:rgba(205,243,78,0.16);overflow:hidden"><div style="width:66%;height:100%;background:#CDF34E;border-radius:3px"></div></div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8A9270">build 66%</div>
+              </div>
+            </div>
+
+            <div data-scene="3" style="position:absolute;inset:0;display:flex;align-items:center;gap:12px;padding:20px 24px;opacity:0;transition:opacity .45s ease">
+              <div style="flex:1;height:118px;border:1.5px solid rgba(205,243,78,0.2);border-radius:8px;padding:10px">
+                <svg viewBox="0 0 150 90" preserveAspectRatio="none" style="width:100%;height:100%;display:block">
+                  <polygon points="6,74 34,58 62,62 90,38 120,22 144,10 144,84 6,84" fill="rgba(205,243,78,0.10)"></polygon>
+                  <polyline points="6,74 34,58 62,62 90,38 120,22 144,10" fill="none" stroke="#CDF34E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                </svg>
+              </div>
+              <div style="width:82px;display:flex;flex-direction:column;gap:10px">
+                <div style="border:1.5px solid rgba(205,243,78,0.22);border-radius:6px;padding:9px;display:flex;flex-direction:column;gap:6px">
+                  <div style="height:11px;width:64%;border-radius:3px;background:#CDF34E"></div>
+                  <div style="height:4px;width:92%;border-radius:2px;background:rgba(205,243,78,0.3)"></div>
+                </div>
+                <div style="border:1.5px solid rgba(205,243,78,0.22);border-radius:6px;padding:9px;display:flex;flex-direction:column;gap:6px">
+                  <div style="height:11px;width:48%;border-radius:3px;background:#CDF34E"></div>
+                  <div style="height:4px;width:80%;border-radius:2px;background:rgba(205,243,78,0.3)"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:8px">
+            <div id="proc-steps" style="position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:0 2px">
+              <div aria-hidden="true" style="position:absolute;left:12.5%;right:12.5%;top:8px;height:0;border-top:1.5px dashed rgba(205,243,78,0.22)"></div>
+              <div id="proc-fill" aria-hidden="true" style="position:absolute;left:12.5%;top:8px;height:0;border-top:2px solid #CDF34E;width:0;transition:width .5s cubic-bezier(.4,.8,.3,1),left .5s cubic-bezier(.4,.8,.3,1)"></div>
+              <div data-step="0" style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;flex:1">
+                <div data-dot style="width:16px;height:16px;border-radius:100px;border:2px solid #CDF34E;background:#CDF34E;transition:transform .3s,background .3s,border-color .3s"></div>
+                <div data-label style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#CDF34E;transition:color .3s;white-space:nowrap">Discover</div>
+              </div>
+              <div data-step="1" style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;flex:1">
+                <div data-dot style="width:16px;height:16px;border-radius:100px;border:2px solid rgba(205,243,78,0.4);background:transparent;transition:transform .3s,background .3s,border-color .3s"></div>
+                <div data-label style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7C8466;transition:color .3s;white-space:nowrap">Define</div>
+              </div>
+              <div data-step="2" style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;flex:1">
+                <div data-dot style="width:16px;height:16px;border-radius:100px;border:2px solid rgba(205,243,78,0.4);background:transparent;transition:transform .3s,background .3s,border-color .3s"></div>
+                <div data-label style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7C8466;transition:color .3s;white-space:nowrap">Deliver</div>
+              </div>
+              <div data-step="3" style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;flex:1">
+                <div data-dot style="width:16px;height:16px;border-radius:100px;border:2px solid rgba(205,243,78,0.4);background:transparent;transition:transform .3s,background .3s,border-color .3s"></div>
+                <div data-label style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7C8466;transition:color .3s;white-space:nowrap">Learn</div>
+              </div>
+            </div>
+            <div aria-hidden="true" style="position:relative;height:50px;margin-top:8px">
+              <svg viewBox="0 0 300 50" preserveAspectRatio="none" style="width:100%;height:50px;display:block;overflow:visible">
+                <path d="M262,8 L262,34 Q262,42 254,42 L48,42 Q40,42 40,34 L40,15" fill="none" stroke="rgba(205,243,78,0.55)" stroke-width="2" stroke-linecap="round" stroke-dasharray="0.5 8"></path>
+                <polygon points="40,4 34,15 46,15" fill="#CDF34E"></polygon>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SELECTED WORK (index) -->
+  <section id="work" data-screen-label="Selected work" style="position:relative;padding:clamp(44px,7vh,84px) clamp(22px,5vw,80px) clamp(30px,4vh,52px)">
+    <svg aria-hidden="true" viewBox="0 0 90 70" style="position:absolute;left:clamp(2px,1vw,18px);top:clamp(94px,14vh,180px);width:clamp(30px,3.4vw,46px);height:auto;opacity:0.55;transform:rotate(-16deg);pointer-events:none"><g style="animation:decSway 24.5s ease-in-out infinite alternate;animation-delay:-0.1s;transform-box:fill-box;transform-origin:center"><path d="M44 6 C62 2 82 16 80 36 C78 54 62 66 42 64 C22 62 6 48 8 28 C10 12 26 9 44 6 Z" fill="#CDF34E"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 40" style="position:absolute;right:clamp(6px,1.8vw,28px);top:clamp(30px,5vh,74px);width:36px;height:auto;opacity:0.35;transform:rotate(10deg);pointer-events:none"><g style="animation:decBob 13.5s ease-in-out infinite alternate;animation-delay:-1.8s;transform-box:fill-box;transform-origin:center"><circle cx="12" cy="20" r="8" fill="#101012"/><circle cx="46" cy="20" r="6" fill="#101012"/><circle cx="76" cy="20" r="4" fill="#101012"/></g></svg>
+    <div style="max-width:1340px;margin:0 auto">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(24px,4vh,40px)">
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,4vw,54px);letter-spacing:-0.04em;line-height:1.0">Selected <span style="color:#B7BAC4">work.</span></h2>
+        <a href="work.html" style="font-weight:600;font-size:14px;padding:11px 22px;border:1.5px solid rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));white-space:nowrap;transition:background .2s,border-color .2s" style-hover="background:#CDF34E;border-color:#CDF34E">All work →</a>
+      </div>
+
+      <a data-workrow href="work.html#orchestrate" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <div>
+          <h3 style="margin:0 0 3px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">AI agent builder with multi-agent orchestration</h3>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#9AA0AB">watsonx Orchestrate</div>
+        </div>
+        <div data-chip style="justify-self:start;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Designed for enterprise control</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2025—now →</div>
+      </a>
+
+      <a data-workrow href="work.html#assistant" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <div>
+          <h3 style="margin:0 0 3px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">No-code way to build production AI assistants</h3>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#9AA0AB">watsonx Assistant</div>
+        </div>
+        <div data-chip style="justify-self:start;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Millions of convos / mo</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2021—24 →</div>
+      </a>
+
+      <a data-workrow href="work.html#vision" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <div>
+          <h3 style="margin:0 0 3px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">Computer vision that catches defects on the line</h3>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#9AA0AB">Visual Inspection</div>
+        </div>
+        <div data-chip style="justify-self:start;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Runs offline on-device</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2018—21 →</div>
+      </a>
+
+      <a data-workrow href="work.html#bookjumpr" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);border-bottom:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <div>
+          <h3 style="margin:0 0 3px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">Mapping every book mentioned inside other books</h3>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#9AA0AB">BookJumpr · Personal</div>
+        </div>
+        <div data-chip style="justify-self:start;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Side project</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Ongoing →</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- APPEARANCES -->
+  <section data-screen-label="Appearances" style="position:relative;padding:clamp(30px,4vh,52px) clamp(22px,5vw,80px) clamp(44px,7vh,84px)">
+    <svg aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;right:clamp(4px,1.4vw,24px);top:clamp(120px,17vh,210px);width:18px;height:auto;opacity:0.5;transform:rotate(14deg);pointer-events:none"><g style="animation:decTwirl 38s linear infinite;animation-delay:-0.2s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1vw,18px);bottom:clamp(40px,7vh,110px);width:clamp(28px,3.2vw,42px);height:auto;opacity:0.4;transform:rotate(-22deg);pointer-events:none"><g style="animation:decBob 21.0s ease-in-out infinite alternate;animation-delay:-1.9s;transform-box:fill-box;transform-origin:center"><circle cx="48" cy="52" r="24" fill="none" stroke="#101012" stroke-width="3"/><circle cx="82" cy="26" r="7" fill="#101012"/><circle cx="18" cy="24" r="4.5" fill="#101012"/><circle cx="30" cy="86" r="5.5" fill="#101012"/></g></svg>
+    <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;right:clamp(8px,2vw,32px);bottom:clamp(150px,20vh,250px);width:13px;height:auto;opacity:0.8;transform:rotate(-8deg);pointer-events:none"><g style="animation:decPulse 9.0s ease-in-out infinite alternate;animation-delay:-3.6s;transform-box:fill-box;transform-origin:center"><polygon points="50,4 96,50 50,96 4,50" fill="#CDF34E"/></g></svg>
+    <div style="max-width:1340px;margin:0 auto">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(20px,3vh,32px)">
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(28px,4vw,54px);letter-spacing:-0.04em;line-height:1.0">Recent <span style="color:#B7BAC4">appearances.</span></h2>
+        <a href="talks.html" style="font-weight:600;font-size:14px;padding:11px 22px;border:1.5px solid rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));white-space:nowrap;transition:background .2s,border-color .2s" style-hover="background:#CDF34E;border-color:#CDF34E">All appearances →</a>
+      </div>
+      <a href="https://www.linkedin.com/posts/nikavagner_last-night-i-was-at-elevenlabsbrand-new-activity-7468696127215775744-x2E0" target="_blank" rel="noopener" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Tech Week @ ElevenLabs</span>
+        <span style="color:#5C6470;font-size:15px">Speaker — building AI agents people actually trust ↗</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2026</span>
+      </a>
+      <a href="talks.html" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">NYU Wagner</span>
+        <span style="color:#5C6470;font-size:15px">Guest lecturer — AI &amp; design thinking (recurring class)</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2022—26</span>
+      </a>
+      <a href="https://qatar.websummit.com/summaries/qat25/work-smarter-not-harder-build-an-ai-agent-in-5-minutes-hosted-by-ibm/" target="_blank" rel="noopener" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);border-bottom:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
+        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Web Summit Qatar</span>
+        <span style="color:#5C6470;font-size:15px">Speaker — build an AI agent in 5 minutes, hosted by IBM ↗</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2025</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer data-screen-label="Footer" style="margin-top:clamp(20px,3vh,40px);background:#101012;color:#EEF0F5;padding:clamp(26px,3vh,34px) clamp(22px,5vw,80px) 22px">
+    <div style="max-width:1340px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-end;padding-bottom:20px;border-bottom:1px solid rgba(238,240,245,0.14)">
+        <div>
+          <p style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(17px,1.7vw,21px);line-height:1.4;letter-spacing:-0.015em;color:#EEF0F5;max-width:34ch"><span style="color:#CDF34E">Inbox open</span> — love to talk product, AI, tech, books, career and more...</p>
+        </div>
+        <a id="cta-footer" href="mailto:sabtain.a.khan@gmail.com" style="display:inline-flex;align-items:center;gap:9px;padding:11px 20px;background:#CDF34E;color:#101012;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:700;font-size:14.5px;letter-spacing:-0.01em;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch →</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:18px 28px;justify-content:space-between;align-items:center;padding-top:18px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.03em;color:#79808E">© 2026 Sabtain Khan · New York</span>
+        <div style="display:flex;gap:22px;font-size:14px;font-weight:500">
+          <a href="https://linkedin.com/in/sabtain" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">LinkedIn ↗</a>
+          <a href="https://github.com/SaturdaysinthePark" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">GitHub ↗</a>
+          <a href="resume.html" target="_blank" style="color:#AEB4C2" style-hover="color:#CDF34E">Résumé</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { navGeos: [], navHover: -1 };
+  componentDidMount() {
+    if (window.SiteFX) window.SiteFX.initSiteFx(this, { scramble: ['#hero-head'], parallax: [['#dec-h1', -0.13], ['#dec-h2', 0.1], ['#dec-h3', -0.06]] });
+    this.measureNav();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.measureNav());
+    this._onNavResize = () => this.measureNav();
+    window.addEventListener('resize', this._onNavResize);
+
+    const wireMagnet = (el, strength) => {
+      if (!el) return;
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
+        el.style.transform = 'translate(' + (dx * strength).toFixed(1) + 'px,' + (dy * strength).toFixed(1) + 'px)';
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = 'translate(0,0)'; });
+    };
+    wireMagnet(document.getElementById('cta-nav'), 0.4);
+    wireMagnet(document.getElementById('cta-footer'), 0.3);
+
+    Array.from(document.querySelectorAll('[data-workrow]')).forEach((row) => {
+      const chip = row.querySelector('[data-chip]');
+      
+      row.addEventListener('mouseenter', () => {
+        row.style.paddingLeft = '16px';
+        if (chip) { chip.style.opacity = '1'; chip.style.transform = 'translateX(0)'; }
+      });
+      row.addEventListener('mouseleave', () => {
+        row.style.paddingLeft = '';
+        if (chip) { chip.style.opacity = '0'; chip.style.transform = 'translateX(-6px)'; }
+      });
+    });
+
+    // ---- Live pipeline panel ----
+    const screen = document.getElementById('proc-screen');
+    const stepsWrap = document.getElementById('proc-steps');
+    if (screen && stepsWrap) {
+      const scenes = Array.from(screen.querySelectorAll('[data-scene]'));
+      const steps = Array.from(stepsWrap.querySelectorAll('[data-step]'));
+      const caption = document.getElementById('proc-caption');
+      const fill = document.getElementById('proc-fill');
+      const names = ['Discover', 'Define', 'Deliver', 'Learn'];
+      let active = -1, paused = false;
+      const setActive = (i) => {
+        if (i === active) return;
+        active = i;
+        scenes.forEach((s, idx) => { s.style.opacity = idx === i ? '1' : '0'; });
+        steps.forEach((s, idx) => {
+          const dot = s.querySelector('[data-dot]');
+          const label = s.querySelector('[data-label]');
+          const on = idx === i;
+          if (dot) {
+            dot.style.background = on ? '#CDF34E' : 'transparent';
+            dot.style.borderColor = on ? '#CDF34E' : 'rgba(205,243,78,0.4)';
+            dot.style.transform = on ? 'scale(1.15)' : 'scale(1)';
+          }
+          if (label) label.style.color = on ? '#CDF34E' : '#7C8466';
+        });
+        if (caption) caption.textContent = '0' + (i + 1) + ' · ' + names[i];
+        if (fill) fill.style.width = ((75 * i) / (names.length - 1)) + '%';
+      };
+      setActive(0);
+      steps.forEach((s, idx) => { s.addEventListener('click', () => { paused = true; setActive(idx); }); });
+      const panel = document.getElementById('hero-panel');
+      if (panel) {
+        panel.addEventListener('mouseenter', () => { paused = true; });
+        panel.addEventListener('mouseleave', () => { paused = false; });
+      }
+      this._procInt = setInterval(() => { if (!paused) setActive((active + 1) % names.length); }, 3200);
+    }
+
+    // ---- Flowing wave header ----
+    const wave = document.getElementById('wave');
+    if (wave) {
+      const L = 220, H = 34, mid = 15, amp = 11;
+      const y = (x) => mid - amp * Math.cos((2 * Math.PI * x) / L);
+      let d = 'M0,0 H' + L + ' V' + y(L).toFixed(2);
+      for (let x = L; x >= 0; x -= 2) d += ' L' + x + ',' + y(x).toFixed(2);
+      d += ' Z';
+      const svg = "<svg xmlns='http://www.w3.org/2000/svg' width='" + L + "' height='" + H + "' viewBox='0 0 " + L + " " + H + "'><path d='" + d + "' fill='black'/></svg>";
+      const uri = "url(\"data:image/svg+xml," + encodeURIComponent(svg) + "\")";
+      wave.style.webkitMaskImage = uri; wave.style.maskImage = uri;
+      wave.style.webkitMaskRepeat = 'repeat-x'; wave.style.maskRepeat = 'repeat-x';
+      wave.style.webkitMaskSize = L + 'px ' + H + 'px'; wave.style.maskSize = L + 'px ' + H + 'px';
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const getY = () => window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      let last = -1;
+      const loop = () => {
+        const yy = getY();
+        if (yy !== last) { last = yy; const x = (yy * 0.32) + 'px'; wave.style.webkitMaskPositionX = x; wave.style.maskPositionX = x; }
+        if (!reduce) this._raf = requestAnimationFrame(loop);
+      };
+      loop();
+    }
+  }
+  measureNav() {
+    const wrap = document.getElementById('nav-pill');
+    if (!wrap) return;
+    const pills = Array.from(wrap.querySelectorAll('[data-pill]'));
+    const navGeos = pills.map((p) => ({ left: p.offsetLeft, width: p.offsetWidth }));
+    this.setState({ navGeos: navGeos });
+  }
+  componentWillUnmount() {
+    if (this._procInt) clearInterval(this._procInt);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._onNavResize) window.removeEventListener('resize', this._onNavResize);
+  }
+  renderVals() {
+    const st = this.state || {};
+    const geos = st.navGeos || [];
+    const hover = (st.navHover == null ? -1 : st.navHover);
+    const g = geos[hover];
+    const navIndStyle = {
+      position: 'absolute', top: 0, height: '100%', background: '#101012',
+      borderRadius: '100px', zIndex: 0, pointerEvents: 'none',
+      transition: 'left .3s cubic-bezier(.5,1.2,.5,1),width .3s cubic-bezier(.5,1.2,.5,1),opacity .2s',
+      left: (g ? g.left : 0) + 'px', width: (g ? g.width : 0) + 'px', opacity: g ? 1 : 0
+    };
+    const mkPill = (i) => ({
+      position: 'relative', zIndex: 1, padding: '8px 16px', fontSize: '14.5px',
+      fontWeight: 600, transition: 'color .25s', color: hover === i ? '#CDF34E' : '#101012'
+    });
+    const enter = (i) => () => this.setState({ navHover: i });
+    return {
+      navIndStyle: navIndStyle,
+      navPill0: mkPill(0), navPill1: mkPill(1), navPill2: mkPill(2),
+      navEnter0: enter(0), navEnter1: enter(1), navEnter2: enter(2),
+      navLeave: () => this.setState({ navHover: -1 })
+    };
+  }
+}
+
+</script>
+</body>
+</html>
