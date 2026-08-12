@@ -1,2 +1,25 @@
 [build.processing]
   skip_processing = true
+
+# /book-giveaways is served by a separate Netlify site (repo:
+# SaturdaysinthePark/book-giveaways) proxied in at the edge, so its twice-daily
+# data commits never rebuild this site. A Netlify custom domain attaches to a
+# site root, not a path, so a 200-status rewrite is the only way to mount it here.
+#
+# Order matters — Netlify matches top-down, so the exact path must come first.
+# The trailing-slash redirect is load-bearing: the proxied page fetches its data
+# with a relative path, and at "/book-giveaways" (no slash) the browser treats
+# "book-giveaways" as a filename, resolving that fetch to
+# sabtainkhan.com/giveaways.json — a 404, and a page stuck on "couldn't load".
+
+[[redirects]]
+  from = "/book-giveaways"
+  to = "/book-giveaways/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/book-giveaways/*"
+  to = "https://book-giveaways.netlify.app/:splat"
+  status = 200
+  force = true
