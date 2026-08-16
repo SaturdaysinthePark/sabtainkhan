@@ -327,7 +327,14 @@ class Component extends DCLogic {
             const touched = () => v._touch && (performance.now() - v._touch) < 600;
             v.addEventListener('pointerdown', () => { v._touch = performance.now(); });
             v.addEventListener('keydown', () => { v._touch = performance.now(); });
-            v.addEventListener('pause', () => { if (touched() && !v.ended) v._userPaused = true; });
+            // Only count a pause as deliberate if the clip was still on screen when it happened —
+            // otherwise a scroll-away pause just after a click would latch it as user-paused forever.
+            v.addEventListener('pause', () => {
+              if (!touched() || v.ended) return;
+              const b = v.getBoundingClientRect();
+              const seen = b.height ? (Math.min(b.bottom, window.innerHeight) - Math.max(b.top, 0)) / b.height : 0;
+              if (seen >= 0.35) v._userPaused = true;
+            });
             v.addEventListener('play', () => { if (touched()) v._userPaused = false; });
             v.addEventListener('canplay', () => checkVideos());
             v._vidWired = true;
@@ -357,25 +364,12 @@ class Component extends DCLogic {
       document.addEventListener('scroll', onScroll, true);
       window.addEventListener('resize', onScroll);
 
-      // Where autoplay is blocked, play() is only permitted synchronously inside a gesture handler —
-      // user activation does not carry over to a later scroll. So on the first gesture, prime every
-      // clip (play then immediately pause it back to where it was); that unlocks each element so the
-      // scroll-driven play() calls afterwards are allowed.
-      let primed = false;
-      const prime = () => {
-        if (primed) return;
-        primed = true;
-        const vh2 = window.innerHeight || document.documentElement.clientHeight;
-        Array.from(document.querySelectorAll('.wk-media video')).forEach((v) => {
-          const r = v.getBoundingClientRect();
-          const vis = r.height ? (Math.min(r.bottom, vh2) - Math.max(r.top, 0)) / r.height : 0;
-          if (vis >= 0.35) return; // this one is about to be played for real
-          const at = v.currentTime;
-          const p = v.play();
-          if (p && p.then) p.then(() => { v.pause(); v.currentTime = at; }).catch(() => { primed = false; });
-        });
-      };
-      this._unlock = () => { prime(); checkVideos(); };
+      // Re-check on any interaction too. (This used to also "prime" every off-screen clip by playing
+      // and immediately pausing it, to unlock playback where autoplay is blocked. That is unnecessary
+      // now the clips are genuinely muted, and it was actively harmful: the pause landed whenever the
+      // play promise resolved, which could be long after the clip had legitimately started on scroll,
+      // stopping and rewinding it.)
+      this._unlock = () => checkVideos();
       document.addEventListener('pointerdown', this._unlock, { passive: true });
       document.addEventListener('touchstart', this._unlock, { passive: true });
       document.addEventListener('keydown', this._unlock);
