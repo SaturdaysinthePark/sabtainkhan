@@ -69,6 +69,12 @@
   }
 
   /* ---------- header ---------- */
+  .head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+  }
   .name{
     font-size:29px;
     font-weight:700;
@@ -78,18 +84,20 @@
     line-height:1.1;
   }
   .role{
-    font-size:13px;
+    font-size:12px;
     font-weight:400;
     color:var(--body);
     margin:0;
     line-height:1.3;
   }
-
-  /* ---------- columns ---------- */
-  .columns{ margin-top:26px; }
-  .columns::after{ content:""; display:table; clear:both; }
-  .main{ float:left; width:67.5%; }
-  .side{ float:right; width:29%; }
+  .contact{
+    text-align:right;
+    font-size:9.5px;
+    color:var(--muted);
+    line-height:1.65;
+    white-space:nowrap;
+  }
+  .contact a{ color:var(--body); }
 
   /* ---------- sections ---------- */
   .eyebrow{
@@ -102,10 +110,10 @@
     padding-bottom:4px;
     border-bottom:1px solid var(--rule);
   }
-  .full{ margin-top:16px; }
+  section{ margin-top:12px; }
 
   /* ---------- entries (jobs & projects share this pattern) ---------- */
-  .entry{ margin-top:10px; }
+  .entry{ margin-top:8px; }
 
   .entry-line{
     display:flex;
@@ -153,15 +161,14 @@
   }
   .entry .oneline b{ color:var(--ink); font-weight:700; }
 
-  /* ---------- sidebar ---------- */
-  .side section + section{ margin-top:16px; }
-  .side .plain{
-    font-size:10px;
-    line-height:1.6;
+  /* ---------- simple text sections (speaking, skills, education) ---------- */
+  .plain{
+    font-size:10.5px;
+    line-height:1.55;
     color:var(--body);
     margin:6px 0 0 0;
   }
-  .side .plain a{ color:var(--body); }
+  .plain a{ color:var(--body); }
 
   /* ---------- print ---------- */
   @media print{
@@ -181,8 +188,8 @@
 
   @media screen and (max-width:900px){
     .page{ width:auto; padding:32px 24px; }
-    .main,.side{ float:none; width:100%; }
-    .side{ margin-top:24px; }
+    .head{ flex-direction:column; align-items:flex-start; }
+    .contact{ text-align:left; white-space:normal; }
     .entry-line{ flex-wrap:wrap; }
   }
 </style>
@@ -190,14 +197,17 @@
 <body>
 <div class="page">
 
-  <header>
-    <h1 class="name">Sabtain Khan</h1>
-    <p class="role">Group Product Manager — AI assistants, agents &amp; developer platforms</p>
+  <header class="head">
+    <div>
+      <h1 class="name">Sabtain Khan</h1>
+      <p class="role">Group Product Manager — AI assistants, agents &amp; developer platforms</p>
+    </div>
+    <div class="contact">
+      <a href="https://sabtainkhan.com">sabtainkhan.com</a> · <a href="https://github.com/SaturdaysinthePark">github.com/SaturdaysinthePark</a><br>
+      <a href="https://linkedin.com/in/sabtain">linkedin.com/in/sabtain</a> · sabtain.a.khan@gmail.com<br>
+      +1 810 610 1475 · Brooklyn, New York
+    </div>
   </header>
-
-  <div class="columns">
-
-    <div class="main">
 
       <section>
         <p class="eyebrow">Experience</p>
@@ -262,53 +272,7 @@
         </div>
       </section>
 
-    </div>
-
-    <div class="side">
-
-      <section>
-        <p class="eyebrow">Contact</p>
-        <p class="plain">
-          <a href="https://sabtainkhan.com">sabtainkhan.com</a><br>
-          <a href="https://github.com/SaturdaysinthePark">github.com/SaturdaysinthePark</a><br>
-          <a href="https://linkedin.com/in/sabtain">linkedin.com/in/sabtain</a><br>
-          sabtain.a.khan@gmail.com<br>
-          +1 810 610 1475<br>
-          Brooklyn, New York
-        </p>
-      </section>
-
-      <section>
-        <p class="eyebrow">Speaking &amp; Teaching</p>
-        <p class="plain">
-          Guest lecturer, NYU Wagner — AI &amp; design thinking (2022 &rarr; 2026)<br>
-          Web Summit Qatar 2025<br>
-          Tech Week @ ElevenLabs 2026<br>
-          The AI Summit 2025<br>
-          Watson demos at CES, VivaTech &amp; the US Open (2016 &rarr; 2019)
-        </p>
-      </section>
-
-      <section>
-        <p class="eyebrow">Skills</p>
-        <p class="plain">SQL · Python · JavaScript &amp; Astro · Claude&nbsp;Code · Figma · Amplitude · Segment · Pricing &amp; packaging</p>
-      </section>
-
-      <section>
-        <p class="eyebrow">Languages</p>
-        <p class="plain">English · Urdu · Pashto · Arabic</p>
-      </section>
-
-      <section>
-        <p class="eyebrow">Education</p>
-        <p class="plain">BA Finance<br>Michigan State University</p>
-      </section>
-
-    </div>
-
-  </div>
-
-  <section class="full">
+  <section>
     <p class="eyebrow">Personal Projects</p>
 
     <div class="entry">
@@ -340,6 +304,22 @@
         <li>Every open Goodreads giveaway, ranked by odds of winning via a self-healing scraper</li>
       </ul>
     </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Speaking &amp; Teaching</p>
+    <p class="plain">Guest lecturer, NYU Wagner — AI &amp; design thinking (2022 &rarr; 2026) · Web Summit Qatar 2025 · Tech Week @ ElevenLabs 2026 · The AI Summit 2025 · Watson demos at CES, VivaTech &amp; the US Open (2016 &rarr; 2019)</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Skills</p>
+    <p class="plain">SQL · Python · JavaScript &amp; Astro · Claude Code · Figma · Amplitude · Segment · Pricing &amp; packaging<br>
+    Languages: English · Urdu · Pashto · Arabic</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Education</p>
+    <p class="plain">BA Finance — Michigan State University</p>
   </section>
 
 </div>

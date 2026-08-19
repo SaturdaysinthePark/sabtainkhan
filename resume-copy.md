@@ -5,8 +5,8 @@ on GitHub, locally, or by telling Claude what to change — then ask Claude to
 **"sync the copy"** and the HTML will be updated to match. Structure notes:
 each `##` is a section; each `###` is an entry (job or project); `dates:` fills
 the right-aligned date, `org:` fills the grey text after the bold title on the
-same line; `-` lines become bullets. `## Sidebar — …` sections render in the
-narrow right column
+same line; `-` lines become bullets. Contact renders right-aligned in the
+header; Speaking/Skills/Languages/Education are one-line sections at the bottom
 
 Hard layout rules (verified with `node resume-check.mjs` on every sync):
 - a role/project header line must never wrap to a second line;
@@ -71,32 +71,21 @@ dates: 2026
 org: sabtainkhan.com/book-giveaways
 - Every open Goodreads giveaway, ranked by odds of winning via a self-healing scraper
 
-## Sidebar — Contact
+## Contact (header, right-aligned)
 
-sabtainkhan.com
-github.com/SaturdaysinthePark
-linkedin.com/in/sabtain
-sabtain.a.khan@gmail.com
-+1 810 610 1475
-Brooklyn, New York
+sabtainkhan.com · github.com/SaturdaysinthePark
+linkedin.com/in/sabtain · sabtain.a.khan@gmail.com
++1 810 610 1475 · Brooklyn, New York
 
-## Sidebar — Speaking & Teaching
+## Speaking & Teaching
 
-Guest lecturer, NYU Wagner — AI & design thinking (2022 → 2026)
-Web Summit Qatar 2025
-Tech Week @ ElevenLabs 2026
-The AI Summit 2025
-Watson demos at CES, VivaTech & the US Open (2016 → 2019)
+Guest lecturer, NYU Wagner — AI & design thinking (2022 → 2026) · Web Summit Qatar 2025 · Tech Week @ ElevenLabs 2026 · The AI Summit 2025 · Watson demos at CES, VivaTech & the US Open (2016 → 2019)
 
-## Sidebar — Skills
+## Skills
 
 SQL · Python · JavaScript & Astro · Claude Code · Figma · Amplitude · Segment · Pricing & packaging
+Languages: English · Urdu · Pashto · Arabic
 
-## Sidebar — Languages
+## Education
 
-English · Urdu · Pashto · Arabic
-
-## Sidebar — Education
-
-BA Finance
-Michigan State University
+BA Finance — Michigan State University
