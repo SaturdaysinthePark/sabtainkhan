@@ -8,6 +8,10 @@ the right-aligned date, `org:` fills the grey text after the bold title on the
 same line; `-` lines become bullets. `## Sidebar — …` sections render in the
 narrow right column.
 
+Hard layout rules (verified with `node resume-check.mjs` on every sync):
+- a role/project header line must never wrap to a second line;
+- a bullet must never wrap beyond two lines.
+
 ---
 
 ## Header
@@ -21,7 +25,7 @@ role: Group Product Manager — AI assistants, agents & developer platforms
 dates: 2023 → Present
 org: watsonx Assistant & Orchestrate — IBM
 - Own product vision and technical roadmap for IBM's AI assistant and agent portfolio, leading 15+ product managers; grew the portfolio from $20M to $80M ARR (41% CAGR).
-- Defined watsonx Orchestrate's agent platform — multi-agent orchestration, MCP-server integrations, an agent marketplace, and observability that makes agent runs legible to enterprises.
+- Defined watsonx Orchestrate's agent platform — multi-agent orchestration, MCP integrations, an agent marketplace, and observability that makes agent runs legible.
 - Struck Deepgram and ElevenLabs partnerships to bring low-latency voice agents to the platform.
 
 ### Principal Product Manager
