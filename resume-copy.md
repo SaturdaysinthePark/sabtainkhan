@@ -52,24 +52,24 @@ org: IBM Watson Dev Experience & Growth Hacking
 - Doubled API conversion and lifted IBM Cloud sign-ups 50% via A/B experimentation — shipped developer suite and SDKs still carrying 90%+ of usage
 
 ### Earlier (one-line entry, no bullets)
-Earlier — Finance Lead, Watson Group, IBM (2012 → 2016): ran a $1B budget through Watson's founding years — M&A, the Apple partnership, pricing, lab expansion
+Earlier — Finance Lead, Watson Group, IBM (2012 → 2016): ran >$1B budget in Watson's founding years, M&A, Apple partnership, pricing, lab expansion
 
 ## Personal Projects
 
 ### BookJumpr
 dates: 2025 → Present
 org: bookjumpr.com
-- Maps the books mentioned inside other books — 7,278 mentions across 5,150 titles, browsable as book pages, rankings, and a force-directed graph. Built the PDF-extraction pipeline, with human-in-the-loop verification, that grows the dataset
+- Network of over 7,300 explicit book mentions across 5,000+ titles. AI-driven PDF extraction pipeline to generate the graph and edges
 
 ### Saturdays in a Book
 dates: 2019 → Present
 org: saturdaysinabook.com
-- Book reviews and reading log — 109 reviews, 720 books. Astro, programmatic OG images, client-side search, Goodreads automation
+- Personal blog with over 100 book reviews and my reading stats across 700+ books
 
 ### Book Giveaways
 dates: 2026
 org: sabtainkhan.com/book-giveaways
-- Every open Goodreads giveaway, ranked by odds of winning — self-healing scraper, data-quality publish gate, twice-daily refresh
+- Every open Goodreads giveaway, ranked by odds of winning via a self-healing scraper
 
 ## Sidebar — Contact
 
