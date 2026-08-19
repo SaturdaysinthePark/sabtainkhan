@@ -6,11 +6,11 @@ on GitHub, locally, or by telling Claude what to change — then ask Claude to
 each `##` is a section; each `###` is an entry (job or project); `dates:` fills
 the right-aligned date, `org:` fills the grey text after the bold title on the
 same line; `-` lines become bullets. `## Sidebar — …` sections render in the
-narrow right column.
+narrow right column
 
 Hard layout rules (verified with `node resume-check.mjs` on every sync):
 - a role/project header line must never wrap to a second line;
-- a bullet must never wrap beyond two lines.
+- a bullet must never wrap beyond two lines
 
 ---
 
@@ -23,53 +23,53 @@ role: Group Product Manager — AI assistants, agents & developer platforms
 
 ### Group Product Manager
 dates: 2023 → Present
-org: watsonx Assistant & Orchestrate — IBM
-- Own product vision and technical roadmap for IBM's AI assistant and agent portfolio, leading 15+ product managers; grew the portfolio from $20M to $80M ARR (41% CAGR).
-- Defined watsonx Orchestrate's agent platform — multi-agent orchestration, MCP integrations, an agent marketplace, and observability that makes agent runs legible.
-- Struck Deepgram and ElevenLabs partnerships to bring low-latency voice agents to the platform.
+org: IBM watsonx Orchestrate
+- Own product vision and technical roadmap for IBM's AI agent portfolio, leading 15+ product managers, over $350M ARR
+- Zero to one launched watsonx Orchestrate's agent platform bringing multi-agent orchestration, MCP, evals and monitoring, and more to enterprise customers
+- Reference customers such as Elevance, Banco Inter, CVS and more launching customer service agents driving 100M+ messages a month
 
 ### Principal Product Manager
 dates: 2022 → 2023
-org: watsonx Assistant — IBM
-- Shipped IBM's first generative-AI feature inside an assistant, leading 20 engineers and 4 designers across core authoring and NLU algorithms.
-- Cut enterprise time-to-live 65% by redesigning the conversation-authoring canvas around how business users actually build.
-- Assistant became IBM's most-adopted AI product — millions of conversations a month, 100M+ end users, Gartner Magic Quadrant Leader for Enterprise Conversational AI.
+org: IBM watsonx Assistant
+- Shipped IBM's first generative-AI feature inside an assistant, leading 20 engineers and 4 designers across core authoring and NLU algorithms
+- Cut enterprise time-to-live 65% by redesigning the conversation-authoring canvas around how business users actually build
+- Assistant became IBM's most-adopted AI product — millions of conversations a month, 100M+ end users, Gartner Magic Quadrant Leader for Enterprise Conversational AI
 
 ### Product Strategy Lead
 dates: 2020 → 2022
-org: Watson & Customer Care — IBM
-- Set market and roadmap strategy across Assistant, Discovery, and Speech; lifted portfolio gross profit from under 30% to over 70%.
-- Initiated the Twilio Segment partnership for real-time event streaming into customer data stacks.
+org: IBM Watson & Customer Care
+- Set market and roadmap strategy across Assistant, Discovery, and Speech; lifted portfolio gross profit from under 30% to over 70%
+- Initiated the Twilio Segment partnership for real-time event streaming into customer data stacks
 
 ### Lead Product Manager
 dates: 2018 → 2020
-org: Computer Vision — IBM Watson
-- Repositioned the product for industrial visual inspection — quality engineers on the line train their own defect models, with offline on-device inference. 10x revenue, 5x margins.
+org: IBM Watson Computer Vision
+- Repositioned the product for industrial visual inspection — quality engineers on the line train their own defect models, with offline on-device inference. 10x revenue, 5x margins
 
 ### Product Manager
 dates: 2016 → 2018
-org: Developer Experience — IBM Watson
-- Launched the Watson developer suite and seven SDKs that still carry over 90% of customer usage; doubled API conversion and lifted IBM Cloud sign-ups 50%.
+org: IBM Watson Developer Experience
+- Launched the Watson developer suite and seven SDKs that still carry over 90% of customer usage; doubled API conversion and lifted IBM Cloud sign-ups 50%
 
 ### Earlier (one-line entry, no bullets)
-Earlier — Finance Lead, Watson Group, IBM (2012 → 2016): ran a $1B budget through Watson's founding years — M&A, the Apple partnership, pricing, lab expansion.
+Earlier — Finance Lead, Watson Group, IBM (2012 → 2016): ran a $1B budget through Watson's founding years — M&A, the Apple partnership, pricing, lab expansion
 
 ## Personal Projects
 
 ### BookJumpr
 dates: 2025 → Present
 org: bookjumpr.com
-- Maps the books mentioned inside other books — 7,278 mentions across 5,150 titles, browsable as book pages, rankings, and a force-directed graph. Built the PDF-extraction pipeline, with human-in-the-loop verification, that grows the dataset.
+- Maps the books mentioned inside other books — 7,278 mentions across 5,150 titles, browsable as book pages, rankings, and a force-directed graph. Built the PDF-extraction pipeline, with human-in-the-loop verification, that grows the dataset
 
 ### Saturdays in a Book
 dates: 2019 → Present
 org: saturdaysinabook.com
-- Book reviews and reading log — 109 reviews, 720 books. Astro, programmatic OG images, client-side search, Goodreads automation.
+- Book reviews and reading log — 109 reviews, 720 books. Astro, programmatic OG images, client-side search, Goodreads automation
 
 ### Book Giveaways
 dates: 2026
 org: sabtainkhan.com/book-giveaways
-- Every open Goodreads giveaway, ranked by odds of winning — self-healing scraper, data-quality publish gate, twice-daily refresh.
+- Every open Goodreads giveaway, ranked by odds of winning — self-healing scraper, data-quality publish gate, twice-daily refresh
 
 ## Sidebar — Contact
 
