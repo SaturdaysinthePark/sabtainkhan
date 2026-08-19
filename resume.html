@@ -62,7 +62,7 @@
     min-height:11in;
     margin:24px auto;
     background:#ffffff;
-    padding:0.6in 0.72in 0.55in 0.72in;
+    padding:0.55in 0.55in 0.5in 0.55in;
   }
 
   /* ---------- header ---------- */
@@ -85,8 +85,8 @@
   /* ---------- columns ---------- */
   .columns{ margin-top:26px; }
   .columns::after{ content:""; display:table; clear:both; }
-  .main{ float:left; width:64%; }
-  .side{ float:right; width:30%; }
+  .main{ float:left; width:67.5%; }
+  .side{ float:right; width:29%; }
 
   /* ---------- sections ---------- */
   .eyebrow{
@@ -99,7 +99,7 @@
     padding-bottom:4px;
     border-bottom:1px solid var(--rule);
   }
-  .main section + section{ margin-top:18px; }
+  .full{ margin-top:16px; }
 
   /* ---------- entries (jobs & projects share this pattern) ---------- */
   .entry{ margin-top:10px; }
@@ -167,7 +167,7 @@
       width:auto;
       min-height:0;
       margin:0;
-      padding:0.5in 0.65in;
+      padding:0.42in 0.48in;
       box-shadow:none;
     }
   }
@@ -207,7 +207,7 @@
           <ul>
             <li>Own product vision and technical roadmap for IBM's AI assistant and agent portfolio, leading 15+ product managers; grew the portfolio from $20M to $80M ARR (41% CAGR).</li>
             <li>Defined watsonx Orchestrate's agent platform — multi-agent orchestration, MCP-server integrations, an agent marketplace, and observability that makes agent runs legible to enterprises.</li>
-            <li>Struck voice partnerships with Deepgram and ElevenLabs to bring low-latency voice agents to the platform.</li>
+            <li>Struck Deepgram and ElevenLabs partnerships to bring low-latency voice agents to the platform.</li>
           </ul>
         </div>
 
@@ -230,7 +230,7 @@
           </div>
           <ul>
             <li>Set market and roadmap strategy across Assistant, Discovery, and Speech; lifted portfolio gross profit from under 30% to over 70%.</li>
-            <li>Initiated the Twilio Segment partnership that gave every assistant real-time event streaming into customer data stacks.</li>
+            <li>Initiated the Twilio Segment partnership for real-time event streaming into customer data stacks.</li>
           </ul>
         </div>
 
@@ -256,41 +256,6 @@
 
         <div class="entry">
           <p class="oneline"><b>Earlier</b> — Finance Lead, Watson Group, IBM (2012 &rarr; 2016): ran a $1B budget through Watson's founding years — M&amp;A, the Apple partnership, pricing, lab expansion.</p>
-        </div>
-      </section>
-
-      <section>
-        <p class="eyebrow">Personal Projects</p>
-
-        <div class="entry">
-          <div class="entry-line">
-            <p class="entry-title">BookJumpr <span>· <a href="https://bookjumpr.com">bookjumpr.com</a></span></p>
-            <span class="entry-dates">2025 &rarr; Present</span>
-          </div>
-          <ul>
-            <li>Maps the books mentioned inside other books — 7,278 mentions across 5,150 titles, browsable as book pages, rankings, and a graph.</li>
-            <li>Built the PDF-extraction pipeline, with human-in-the-loop verification, that grows the dataset.</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <div class="entry-line">
-            <p class="entry-title">Saturdays in a Book <span>· <a href="https://saturdaysinabook.com">saturdaysinabook.com</a></span></p>
-            <span class="entry-dates">2019 &rarr; Present</span>
-          </div>
-          <ul>
-            <li>Book reviews and reading log — 109 reviews, 720 books. Astro, programmatic OG images, client-side search, Goodreads automation.</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <div class="entry-line">
-            <p class="entry-title">Book Giveaways <span>· <a href="https://sabtainkhan.com/book-giveaways">sabtainkhan.com/book-giveaways</a></span></p>
-            <span class="entry-dates">2026</span>
-          </div>
-          <ul>
-            <li>Every open Goodreads giveaway, ranked by odds of winning — self-healing scraper, a data-quality gate that blocks incomplete publishes, twice-daily unattended refresh.</li>
-          </ul>
         </div>
       </section>
 
@@ -323,7 +288,7 @@
 
       <section>
         <p class="eyebrow">Skills</p>
-        <p class="plain">SQL · Python · JavaScript &amp; Astro · Claude Code · Figma · Amplitude · Segment · Pricing &amp; packaging</p>
+        <p class="plain">SQL · Python · JavaScript &amp; Astro · Claude&nbsp;Code · Figma · Amplitude · Segment · Pricing &amp; packaging</p>
       </section>
 
       <section>
@@ -339,6 +304,41 @@
     </div>
 
   </div>
+
+  <section class="full">
+    <p class="eyebrow">Personal Projects</p>
+
+    <div class="entry">
+      <div class="entry-line">
+        <p class="entry-title">BookJumpr <span>· <a href="https://bookjumpr.com">bookjumpr.com</a></span></p>
+        <span class="entry-dates">2025 &rarr; Present</span>
+      </div>
+      <ul>
+        <li>Maps the books mentioned inside other books — 7,278 mentions across 5,150 titles, browsable as book pages, rankings, and a force-directed graph. Built the PDF-extraction pipeline, with human-in-the-loop verification, that grows the dataset.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-line">
+        <p class="entry-title">Saturdays in a Book <span>· <a href="https://saturdaysinabook.com">saturdaysinabook.com</a></span></p>
+        <span class="entry-dates">2019 &rarr; Present</span>
+      </div>
+      <ul>
+        <li>Book reviews and reading log — 109 reviews, 720 books. Astro, programmatic OG images, client-side search, Goodreads automation.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-line">
+        <p class="entry-title">Book Giveaways <span>· <a href="https://sabtainkhan.com/book-giveaways">sabtainkhan.com/book-giveaways</a></span></p>
+        <span class="entry-dates">2026</span>
+      </div>
+      <ul>
+        <li>Every open Goodreads giveaway, ranked by odds of winning — self-healing scraper, data-quality publish gate, twice-daily refresh.</li>
+      </ul>
+    </div>
+  </section>
+
 </div>
 </body>
 </html>

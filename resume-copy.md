@@ -22,7 +22,7 @@ dates: 2023 → Present
 org: watsonx Assistant & Orchestrate — IBM
 - Own product vision and technical roadmap for IBM's AI assistant and agent portfolio, leading 15+ product managers; grew the portfolio from $20M to $80M ARR (41% CAGR).
 - Defined watsonx Orchestrate's agent platform — multi-agent orchestration, MCP-server integrations, an agent marketplace, and observability that makes agent runs legible to enterprises.
-- Struck voice partnerships with Deepgram and ElevenLabs to bring low-latency voice agents to the platform.
+- Struck Deepgram and ElevenLabs partnerships to bring low-latency voice agents to the platform.
 
 ### Principal Product Manager
 dates: 2022 → 2023
@@ -35,7 +35,7 @@ org: watsonx Assistant — IBM
 dates: 2020 → 2022
 org: Watson & Customer Care — IBM
 - Set market and roadmap strategy across Assistant, Discovery, and Speech; lifted portfolio gross profit from under 30% to over 70%.
-- Initiated the Twilio Segment partnership that gave every assistant real-time event streaming into customer data stacks.
+- Initiated the Twilio Segment partnership for real-time event streaming into customer data stacks.
 
 ### Lead Product Manager
 dates: 2018 → 2020
@@ -55,8 +55,7 @@ Earlier — Finance Lead, Watson Group, IBM (2012 → 2016): ran a $1B budget th
 ### BookJumpr
 dates: 2025 → Present
 org: bookjumpr.com
-- Maps the books mentioned inside other books — 7,278 mentions across 5,150 titles, browsable as book pages, rankings, and a graph.
-- Built the PDF-extraction pipeline, with human-in-the-loop verification, that grows the dataset.
+- Maps the books mentioned inside other books — 7,278 mentions across 5,150 titles, browsable as book pages, rankings, and a force-directed graph. Built the PDF-extraction pipeline, with human-in-the-loop verification, that grows the dataset.
 
 ### Saturdays in a Book
 dates: 2019 → Present
@@ -66,7 +65,7 @@ org: saturdaysinabook.com
 ### Book Giveaways
 dates: 2026
 org: sabtainkhan.com/book-giveaways
-- Every open Goodreads giveaway, ranked by odds of winning — self-healing scraper, a data-quality gate that blocks incomplete publishes, twice-daily unattended refresh.
+- Every open Goodreads giveaway, ranked by odds of winning — self-healing scraper, data-quality publish gate, twice-daily refresh.
 
 ## Sidebar — Contact
 
