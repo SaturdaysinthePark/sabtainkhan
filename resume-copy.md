@@ -3,8 +3,10 @@
 This file mirrors every line of text on `resume.html`. Edit anything here —
 on GitHub, locally, or by telling Claude what to change — then ask Claude to
 **"sync the copy"** and the HTML will be updated to match. Structure notes:
-each `##` is a section; each `###` is an entry (job or project); the `dates:`
-and `org:` lines fill the grey metadata; `-` lines become bullets.
+each `##` is a section; each `###` is an entry (job or project); `dates:` fills
+the right-aligned date, `org:` fills the grey text after the bold title on the
+same line; `-` lines become bullets. `## Sidebar — …` sections render in the
+narrow right column.
 
 ---
 
@@ -12,14 +14,12 @@ and `org:` lines fill the grey metadata; `-` lines become bullets.
 
 name: Sabtain Khan
 role: Group Product Manager — AI assistants, agents & developer platforms
-contact-line-1: sabtainkhan.com · github.com/SaturdaysinthePark · linkedin.com/in/sabtain
-contact-line-2: sabtain.a.khan@gmail.com · +1 810 610 1475 · Brooklyn, New York
 
 ## Experience
 
 ### Group Product Manager
 dates: 2023 → Present
-org: watsonx Assistant & Orchestrate — IBM, New York
+org: watsonx Assistant & Orchestrate — IBM
 - Own product vision and technical roadmap for IBM's AI assistant and agent portfolio, leading 15+ product managers; grew the portfolio from $20M to $80M ARR (41% CAGR).
 - Defined watsonx Orchestrate's agent platform — multi-agent orchestration, MCP-server integrations, an agent marketplace, and observability that makes agent runs legible to enterprises.
 - Struck voice partnerships with Deepgram and ElevenLabs to bring low-latency voice agents to the platform.
@@ -50,7 +50,7 @@ org: Developer Experience — IBM Watson
 ### Earlier (one-line entry, no bullets)
 Earlier — Finance Lead, Watson Group, IBM (2012 → 2016): ran a $1B budget through Watson's founding years — M&A, the Apple partnership, pricing, lab expansion.
 
-## Personal Projects — Built Solo, All Live
+## Personal Projects
 
 ### BookJumpr
 dates: 2025 → Present
@@ -68,15 +68,32 @@ dates: 2026
 org: sabtainkhan.com/book-giveaways
 - Every open Goodreads giveaway, ranked by odds of winning — self-healing scraper, a data-quality gate that blocks incomplete publishes, twice-daily unattended refresh.
 
-## Speaking & Teaching
+## Sidebar — Contact
 
-Guest lecturer, NYU Wagner — AI & design thinking (2022 → 2026) · Web Summit Qatar 2025 · Tech Week @ ElevenLabs 2026 · The AI Summit 2025 · Watson demos at CES, VivaTech & the US Open (2016 → 2019)
+sabtainkhan.com
+github.com/SaturdaysinthePark
+linkedin.com/in/sabtain
+sabtain.a.khan@gmail.com
++1 810 610 1475
+Brooklyn, New York
 
-## Skills
+## Sidebar — Speaking & Teaching
+
+Guest lecturer, NYU Wagner — AI & design thinking (2022 → 2026)
+Web Summit Qatar 2025
+Tech Week @ ElevenLabs 2026
+The AI Summit 2025
+Watson demos at CES, VivaTech & the US Open (2016 → 2019)
+
+## Sidebar — Skills
 
 SQL · Python · JavaScript & Astro · Claude Code · Figma · Amplitude · Segment · Pricing & packaging
-Languages: English · Urdu · Pashto · Arabic
 
-## Education
+## Sidebar — Languages
 
-BA Finance — Michigan State University
+English · Urdu · Pashto · Arabic
+
+## Sidebar — Education
+
+BA Finance
+Michigan State University

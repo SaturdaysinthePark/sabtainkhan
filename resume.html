@@ -32,8 +32,8 @@
 <!--
   COPY EDITING: every line of text on this page is mirrored in resume-copy.md
   at the repo root. Edit that file (no HTML knowledge needed) and ask Claude to
-  "sync the copy" — or edit the text right here between the tags. All visible
-  copy lives below the <body> tag; nothing above it needs touching.
+  "sync the copy" — or edit the text right here. All visible copy lives below
+  the <body> tag; nothing above it needs touching.
 -->
 <style>
   @page { size: Letter; margin: 0; }
@@ -62,7 +62,7 @@
     min-height:11in;
     margin:24px auto;
     background:#ffffff;
-    padding:0.55in 0.72in 0.5in 0.72in;
+    padding:0.6in 0.72in 0.55in 0.72in;
   }
 
   /* ---------- header ---------- */
@@ -78,63 +78,59 @@
     font-size:13px;
     font-weight:400;
     color:var(--body);
-    margin:0 0 10px 0;
+    margin:0;
     line-height:1.3;
   }
-  .contact{
-    font-size:9.5px;
-    color:var(--muted);
-    line-height:1.6;
-    margin:0;
-  }
-  .contact a{ color:var(--body); }
+
+  /* ---------- columns ---------- */
+  .columns{ margin-top:26px; }
+  .columns::after{ content:""; display:table; clear:both; }
+  .main{ float:left; width:64%; }
+  .side{ float:right; width:30%; }
 
   /* ---------- sections ---------- */
-  section{ margin-top:10px; }
-
   .eyebrow{
     font-size:9px;
     letter-spacing:2.4px;
     text-transform:uppercase;
     color:var(--muted);
     font-weight:400;
-    margin:0 0 2px 0;
-    padding-bottom:3px;
+    margin:0 0 3px 0;
+    padding-bottom:4px;
     border-bottom:1px solid var(--rule);
   }
+  .main section + section{ margin-top:18px; }
 
   /* ---------- entries (jobs & projects share this pattern) ---------- */
-  .entry{ margin-top:7px; }
+  .entry{ margin-top:10px; }
 
   .entry-line{
     display:flex;
     justify-content:space-between;
     align-items:baseline;
-    gap:16px;
+    gap:12px;
   }
   .entry-title{
     font-size:11px;
     font-weight:700;
     color:var(--ink);
-    margin:0;
+    margin:0 0 2px 0;
     line-height:1.4;
+  }
+  .entry-title span{
+    font-weight:400;
+    color:var(--muted);
   }
   .entry-dates{
     font-size:9.5px;
     color:var(--muted);
     white-space:nowrap;
   }
-  .entry-org{
-    font-size:10px;
-    color:var(--muted);
-    margin:0 0 3px 0;
-    line-height:1.4;
-  }
   .entry ul{ margin:0; padding:0; }
   .entry li{
     list-style:none;
     font-size:10.5px;
-    line-height:1.45;
+    line-height:1.5;
     color:var(--body);
     padding-left:12px;
     position:relative;
@@ -148,19 +144,21 @@
   }
   .entry .oneline{
     font-size:10.5px;
-    line-height:1.45;
+    line-height:1.5;
     color:var(--body);
     margin:0;
   }
   .entry .oneline b{ color:var(--ink); font-weight:700; }
 
-  /* ---------- simple text sections (speaking, skills, education) ---------- */
-  .plain{
-    font-size:10.5px;
-    line-height:1.45;
+  /* ---------- sidebar ---------- */
+  .side section + section{ margin-top:16px; }
+  .side .plain{
+    font-size:10px;
+    line-height:1.6;
     color:var(--body);
-    margin:5px 0 0 0;
+    margin:6px 0 0 0;
   }
+  .side .plain a{ color:var(--body); }
 
   /* ---------- print ---------- */
   @media print{
@@ -169,7 +167,7 @@
       width:auto;
       min-height:0;
       margin:0;
-      padding:0.38in 0.6in;
+      padding:0.5in 0.65in;
       box-shadow:none;
     }
   }
@@ -180,7 +178,9 @@
 
   @media screen and (max-width:900px){
     .page{ width:auto; padding:32px 24px; }
-    .entry-line{ flex-direction:column; gap:0; }
+    .main,.side{ float:none; width:100%; }
+    .side{ margin-top:24px; }
+    .entry-line{ flex-wrap:wrap; }
   }
 </style>
 </head>
@@ -190,134 +190,155 @@
   <header>
     <h1 class="name">Sabtain Khan</h1>
     <p class="role">Group Product Manager — AI assistants, agents &amp; developer platforms</p>
-    <p class="contact">
-      <a href="https://sabtainkhan.com">sabtainkhan.com</a> &nbsp;·&nbsp; <a href="https://github.com/SaturdaysinthePark">github.com/SaturdaysinthePark</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/sabtain">linkedin.com/in/sabtain</a><br>
-      sabtain.a.khan@gmail.com &nbsp;·&nbsp; +1 810 610 1475 &nbsp;·&nbsp; Brooklyn, New York
-    </p>
   </header>
 
-  <section>
-    <p class="eyebrow">Experience</p>
+  <div class="columns">
 
-    <div class="entry">
-      <div class="entry-line">
-        <p class="entry-title">Group Product Manager</p>
-        <span class="entry-dates">2023 &rarr; Present</span>
-      </div>
-      <p class="entry-org">watsonx Assistant &amp; Orchestrate — IBM, New York</p>
-      <ul>
-        <li>Own product vision and technical roadmap for IBM's AI assistant and agent portfolio, leading 15+ product managers; grew the portfolio from $20M to $80M ARR (41% CAGR).</li>
-        <li>Defined watsonx Orchestrate's agent platform — multi-agent orchestration, MCP-server integrations, an agent marketplace, and observability that makes agent runs legible to enterprises.</li>
-        <li>Struck voice partnerships with Deepgram and ElevenLabs to bring low-latency voice agents to the platform.</li>
-      </ul>
+    <div class="main">
+
+      <section>
+        <p class="eyebrow">Experience</p>
+
+        <div class="entry">
+          <div class="entry-line">
+            <p class="entry-title">Group Product Manager <span>· watsonx Assistant &amp; Orchestrate — IBM</span></p>
+            <span class="entry-dates">2023 &rarr; Present</span>
+          </div>
+          <ul>
+            <li>Own product vision and technical roadmap for IBM's AI assistant and agent portfolio, leading 15+ product managers; grew the portfolio from $20M to $80M ARR (41% CAGR).</li>
+            <li>Defined watsonx Orchestrate's agent platform — multi-agent orchestration, MCP-server integrations, an agent marketplace, and observability that makes agent runs legible to enterprises.</li>
+            <li>Struck voice partnerships with Deepgram and ElevenLabs to bring low-latency voice agents to the platform.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-line">
+            <p class="entry-title">Principal Product Manager <span>· watsonx Assistant — IBM</span></p>
+            <span class="entry-dates">2022 &rarr; 2023</span>
+          </div>
+          <ul>
+            <li>Shipped IBM's first generative-AI feature inside an assistant, leading 20 engineers and 4 designers across core authoring and NLU algorithms.</li>
+            <li>Cut enterprise time-to-live 65% by redesigning the conversation-authoring canvas around how business users actually build.</li>
+            <li>Assistant became IBM's most-adopted AI product — millions of conversations a month, 100M+ end users, Gartner Magic Quadrant Leader for Enterprise Conversational AI.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-line">
+            <p class="entry-title">Product Strategy Lead <span>· Watson &amp; Customer Care — IBM</span></p>
+            <span class="entry-dates">2020 &rarr; 2022</span>
+          </div>
+          <ul>
+            <li>Set market and roadmap strategy across Assistant, Discovery, and Speech; lifted portfolio gross profit from under 30% to over 70%.</li>
+            <li>Initiated the Twilio Segment partnership that gave every assistant real-time event streaming into customer data stacks.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-line">
+            <p class="entry-title">Lead Product Manager <span>· Computer Vision — IBM Watson</span></p>
+            <span class="entry-dates">2018 &rarr; 2020</span>
+          </div>
+          <ul>
+            <li>Repositioned the product for industrial visual inspection — quality engineers on the line train their own defect models, with offline on-device inference. 10x revenue, 5x margins.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-line">
+            <p class="entry-title">Product Manager <span>· Developer Experience — IBM Watson</span></p>
+            <span class="entry-dates">2016 &rarr; 2018</span>
+          </div>
+          <ul>
+            <li>Launched the Watson developer suite and seven SDKs that still carry over 90% of customer usage; doubled API conversion and lifted IBM Cloud sign-ups 50%.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <p class="oneline"><b>Earlier</b> — Finance Lead, Watson Group, IBM (2012 &rarr; 2016): ran a $1B budget through Watson's founding years — M&amp;A, the Apple partnership, pricing, lab expansion.</p>
+        </div>
+      </section>
+
+      <section>
+        <p class="eyebrow">Personal Projects</p>
+
+        <div class="entry">
+          <div class="entry-line">
+            <p class="entry-title">BookJumpr <span>· <a href="https://bookjumpr.com">bookjumpr.com</a></span></p>
+            <span class="entry-dates">2025 &rarr; Present</span>
+          </div>
+          <ul>
+            <li>Maps the books mentioned inside other books — 7,278 mentions across 5,150 titles, browsable as book pages, rankings, and a graph.</li>
+            <li>Built the PDF-extraction pipeline, with human-in-the-loop verification, that grows the dataset.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-line">
+            <p class="entry-title">Saturdays in a Book <span>· <a href="https://saturdaysinabook.com">saturdaysinabook.com</a></span></p>
+            <span class="entry-dates">2019 &rarr; Present</span>
+          </div>
+          <ul>
+            <li>Book reviews and reading log — 109 reviews, 720 books. Astro, programmatic OG images, client-side search, Goodreads automation.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-line">
+            <p class="entry-title">Book Giveaways <span>· <a href="https://sabtainkhan.com/book-giveaways">sabtainkhan.com/book-giveaways</a></span></p>
+            <span class="entry-dates">2026</span>
+          </div>
+          <ul>
+            <li>Every open Goodreads giveaway, ranked by odds of winning — self-healing scraper, a data-quality gate that blocks incomplete publishes, twice-daily unattended refresh.</li>
+          </ul>
+        </div>
+      </section>
+
     </div>
 
-    <div class="entry">
-      <div class="entry-line">
-        <p class="entry-title">Principal Product Manager</p>
-        <span class="entry-dates">2022 &rarr; 2023</span>
-      </div>
-      <p class="entry-org">watsonx Assistant — IBM</p>
-      <ul>
-        <li>Shipped IBM's first generative-AI feature inside an assistant, leading 20 engineers and 4 designers across core authoring and NLU algorithms.</li>
-        <li>Cut enterprise time-to-live 65% by redesigning the conversation-authoring canvas around how business users actually build.</li>
-        <li>Assistant became IBM's most-adopted AI product — millions of conversations a month, 100M+ end users, Gartner Magic Quadrant Leader for Enterprise Conversational AI.</li>
-      </ul>
+    <div class="side">
+
+      <section>
+        <p class="eyebrow">Contact</p>
+        <p class="plain">
+          <a href="https://sabtainkhan.com">sabtainkhan.com</a><br>
+          <a href="https://github.com/SaturdaysinthePark">github.com/SaturdaysinthePark</a><br>
+          <a href="https://linkedin.com/in/sabtain">linkedin.com/in/sabtain</a><br>
+          sabtain.a.khan@gmail.com<br>
+          +1 810 610 1475<br>
+          Brooklyn, New York
+        </p>
+      </section>
+
+      <section>
+        <p class="eyebrow">Speaking &amp; Teaching</p>
+        <p class="plain">
+          Guest lecturer, NYU Wagner — AI &amp; design thinking (2022 &rarr; 2026)<br>
+          Web Summit Qatar 2025<br>
+          Tech Week @ ElevenLabs 2026<br>
+          The AI Summit 2025<br>
+          Watson demos at CES, VivaTech &amp; the US Open (2016 &rarr; 2019)
+        </p>
+      </section>
+
+      <section>
+        <p class="eyebrow">Skills</p>
+        <p class="plain">SQL · Python · JavaScript &amp; Astro · Claude Code · Figma · Amplitude · Segment · Pricing &amp; packaging</p>
+      </section>
+
+      <section>
+        <p class="eyebrow">Languages</p>
+        <p class="plain">English · Urdu · Pashto · Arabic</p>
+      </section>
+
+      <section>
+        <p class="eyebrow">Education</p>
+        <p class="plain">BA Finance<br>Michigan State University</p>
+      </section>
+
     </div>
 
-    <div class="entry">
-      <div class="entry-line">
-        <p class="entry-title">Product Strategy Lead</p>
-        <span class="entry-dates">2020 &rarr; 2022</span>
-      </div>
-      <p class="entry-org">Watson &amp; Customer Care — IBM</p>
-      <ul>
-        <li>Set market and roadmap strategy across Assistant, Discovery, and Speech; lifted portfolio gross profit from under 30% to over 70%.</li>
-        <li>Initiated the Twilio Segment partnership that gave every assistant real-time event streaming into customer data stacks.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-line">
-        <p class="entry-title">Lead Product Manager</p>
-        <span class="entry-dates">2018 &rarr; 2020</span>
-      </div>
-      <p class="entry-org">Computer Vision — IBM Watson</p>
-      <ul>
-        <li>Repositioned the product for industrial visual inspection — quality engineers on the line train their own defect models, with offline on-device inference. 10x revenue, 5x margins.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-line">
-        <p class="entry-title">Product Manager</p>
-        <span class="entry-dates">2016 &rarr; 2018</span>
-      </div>
-      <p class="entry-org">Developer Experience — IBM Watson</p>
-      <ul>
-        <li>Launched the Watson developer suite and seven SDKs that still carry over 90% of customer usage; doubled API conversion and lifted IBM Cloud sign-ups 50%.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <p class="oneline"><b>Earlier</b> — Finance Lead, Watson Group, IBM (2012 &rarr; 2016): ran a $1B budget through Watson's founding years — M&amp;A, the Apple partnership, pricing, lab expansion.</p>
-    </div>
-  </section>
-
-  <section>
-    <p class="eyebrow">Personal Projects — Built Solo, All Live</p>
-
-    <div class="entry">
-      <div class="entry-line">
-        <p class="entry-title">BookJumpr</p>
-        <span class="entry-dates">2025 &rarr; Present</span>
-      </div>
-      <p class="entry-org"><a href="https://bookjumpr.com">bookjumpr.com</a></p>
-      <ul>
-        <li>Maps the books mentioned inside other books — 7,278 mentions across 5,150 titles, browsable as book pages, rankings, and a graph.</li>
-        <li>Built the PDF-extraction pipeline, with human-in-the-loop verification, that grows the dataset.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-line">
-        <p class="entry-title">Saturdays in a Book</p>
-        <span class="entry-dates">2019 &rarr; Present</span>
-      </div>
-      <p class="entry-org"><a href="https://saturdaysinabook.com">saturdaysinabook.com</a></p>
-      <ul>
-        <li>Book reviews and reading log — 109 reviews, 720 books. Astro, programmatic OG images, client-side search, Goodreads automation.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-line">
-        <p class="entry-title">Book Giveaways</p>
-        <span class="entry-dates">2026</span>
-      </div>
-      <p class="entry-org"><a href="https://sabtainkhan.com/book-giveaways">sabtainkhan.com/book-giveaways</a></p>
-      <ul>
-        <li>Every open Goodreads giveaway, ranked by odds of winning — self-healing scraper, a data-quality gate that blocks incomplete publishes, twice-daily unattended refresh.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <p class="eyebrow">Speaking &amp; Teaching</p>
-    <p class="plain">Guest lecturer, NYU Wagner — AI &amp; design thinking (2022 &rarr; 2026) · Web Summit Qatar 2025 · Tech Week @ ElevenLabs 2026 · The AI Summit 2025 · Watson demos at CES, VivaTech &amp; the US Open (2016 &rarr; 2019)</p>
-  </section>
-
-  <section>
-    <p class="eyebrow">Skills</p>
-    <p class="plain">SQL · Python · JavaScript &amp; Astro · Claude Code · Figma · Amplitude · Segment · Pricing &amp; packaging<br>
-    Languages: English · Urdu · Pashto · Arabic</p>
-  </section>
-
-  <section>
-    <p class="eyebrow">Education</p>
-    <p class="plain">BA Finance — Michigan State University</p>
-  </section>
-
+  </div>
 </div>
 </body>
 </html>
