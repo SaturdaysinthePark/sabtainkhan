@@ -31,20 +31,20 @@ org: IBM watsonx Orchestrate
 ### Principal Product Manager
 dates: 2022 → 2023
 org: IBM watsonx Assistant
-- Shipped IBM's first generative-AI feature inside an assistant, leading 20 engineers and 4 designers across core authoring and NLU algorithms
-- Cut enterprise time-to-live 65% by redesigning the conversation-authoring canvas around how business users actually build
-- Assistant became IBM's most-adopted AI product — millions of conversations a month, 100M+ end users, Gartner Magic Quadrant Leader for Enterprise Conversational AI
+- Customer discovery led roadmap shipping ~4 enhancements a week, including IBM's first generative-AI assistant features — led 20 engineers and 4 designers
+- Cut enterprise time-to-live by 65% by redesigning the conversation authoring canvas for no code users
+- Assistant became IBM's most-adopted AI product with 100M+ monthly active users, a Gartner Magic Quadrant Leader for Enterprise Conversational AI
 
 ### Product Strategy Lead
 dates: 2020 → 2022
-org: IBM Watson & Customer Care
+org: IBM Watson + Customer Care
 - Set market and roadmap strategy across Assistant, Discovery, and Speech; lifted portfolio gross profit from under 30% to over 70%
-- Initiated the Twilio Segment partnership for real-time event streaming into customer data stacks
+- Launched Twilio Segment partnership for real-time event streaming into customer data stacks
 
 ### Lead Product Manager
 dates: 2018 → 2020
 org: IBM Watson Computer Vision
-- Repositioned the product for industrial visual inspection — quality engineers on the line train their own defect models, with offline on-device inference. 10x revenue, 5x margins
+- 10x revenue and 5x margins repositioning the product for industrial visual inspection — quality engineers detect assembly-line defects with offline on-device inference
 
 ### Product Manager
 dates: 2016 → 2018
