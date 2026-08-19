@@ -29,19 +29,20 @@
 <meta name="twitter:title" content="Sabtain Khan — Resume">
 <meta name="twitter:description" content="Sabtain Khan — Group Product Manager. One-page résumé.">
 <meta name="twitter:image" content="https://sabtainkhan.com/og-image.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Hanken+Grotesk:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!--
+  COPY EDITING: every line of text on this page is mirrored in resume-copy.md
+  at the repo root. Edit that file (no HTML knowledge needed) and ask Claude to
+  "sync the copy" — or edit the text right here between the tags. All visible
+  copy lives below the <body> tag; nothing above it needs touching.
+-->
 <style>
   @page { size: Letter; margin: 0; }
 
   :root{
-    --ink:#111214;
-    --body:#2e3033;
-    --muted:#77797d;
-    --faint:#9b9da1;
-    --rule:#e3e4e6;
-    --rule-dark:#111214;
+    --ink:#111111;      /* headings, titles */
+    --body:#2b2b2b;     /* body text */
+    --muted:#8a8a8a;    /* dates, orgs, labels */
+    --rule:#dddddd;     /* hairlines */
   }
 
   *{ box-sizing:border-box; }
@@ -49,192 +50,116 @@
   html,body{ margin:0; padding:0; background:#f2f2f2; }
 
   body{
-    font-family:"Hanken Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:"Helvetica Neue", Helvetica, "Liberation Sans", Arial, sans-serif;
     color:var(--body);
     -webkit-font-smoothing:antialiased;
   }
 
   a{ color:inherit; text-decoration:none; }
 
-  .mono{
-    font-family:"IBM Plex Mono","Courier New",monospace;
-  }
-
   .page{
     width:8.5in;
     min-height:11in;
     margin:24px auto;
     background:#ffffff;
-    padding:0.58in 0.66in 0.5in 0.66in;
+    padding:0.55in 0.72in 0.5in 0.72in;
   }
 
   /* ---------- header ---------- */
-  .head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:24px;
-    padding-bottom:14px;
-    border-bottom:1.5px solid var(--rule-dark);
-  }
   .name{
-    font-family:"Space Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size:30px;
+    font-size:29px;
     font-weight:700;
-    letter-spacing:-0.045em;
+    letter-spacing:-0.5px;
     color:var(--ink);
     margin:0 0 4px 0;
-    line-height:1;
+    line-height:1.1;
   }
   .role{
-    font-size:12.5px;
+    font-size:13px;
     font-weight:400;
     color:var(--body);
-    margin:0;
-    line-height:1.35;
+    margin:0 0 10px 0;
+    line-height:1.3;
   }
   .contact{
-    text-align:right;
-    font-family:"IBM Plex Mono","Courier New",monospace;
-    font-size:8.8px;
-    line-height:1.75;
+    font-size:9.5px;
     color:var(--muted);
-    white-space:nowrap;
+    line-height:1.6;
+    margin:0;
   }
-  .contact a{ color:var(--ink); }
+  .contact a{ color:var(--body); }
 
   /* ---------- sections ---------- */
-  section{ margin-top:16px; }
+  section{ margin-top:10px; }
 
   .eyebrow{
-    font-family:"IBM Plex Mono","Courier New",monospace;
-    font-size:8.5px;
-    letter-spacing:0.22em;
+    font-size:9px;
+    letter-spacing:2.4px;
     text-transform:uppercase;
     color:var(--muted);
-    margin:0 0 9px 0;
-    font-weight:500;
+    font-weight:400;
+    margin:0 0 2px 0;
+    padding-bottom:3px;
+    border-bottom:1px solid var(--rule);
   }
 
-  /* ---------- proof strip: built & shipped solo ---------- */
-  .proof{ margin:0; padding:0; }
-  .proof li{
-    list-style:none;
-    display:flex;
-    gap:14px;
-    align-items:baseline;
-    margin-bottom:6px;
-  }
-  .proof li:last-child{ margin-bottom:0; }
-  .proof .url{
-    font-family:"IBM Plex Mono","Courier New",monospace;
-    font-size:9.5px;
-    font-weight:500;
-    color:var(--ink);
-    flex:0 0 2.15in;
-    white-space:nowrap;
-  }
-  .proof .what{
-    font-size:10.5px;
-    line-height:1.5;
-    color:var(--body);
-    margin:0;
-  }
+  /* ---------- entries (jobs & projects share this pattern) ---------- */
+  .entry{ margin-top:7px; }
 
-  /* ---------- experience ---------- */
-  .org-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    margin:0 0 10px 0;
-  }
-  .org-name{
-    font-family:"Space Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size:12.5px;
-    font-weight:700;
-    letter-spacing:-0.01em;
-    color:var(--ink);
-    margin:0;
-  }
-  .org-span{
-    font-family:"IBM Plex Mono","Courier New",monospace;
-    font-size:9px;
-    color:var(--muted);
-  }
-
-  .job{ margin-bottom:11px; }
-  .job:last-child{ margin-bottom:0; }
-  .job-line{
+  .entry-line{
     display:flex;
     justify-content:space-between;
     align-items:baseline;
     gap:16px;
-    margin-bottom:3px;
   }
-  .job-title{
+  .entry-title{
     font-size:11px;
     font-weight:700;
     color:var(--ink);
     margin:0;
-    line-height:1.35;
+    line-height:1.4;
   }
-  .job-title span{
-    font-weight:400;
-    color:var(--muted);
-  }
-  .job-dates{
-    font-family:"IBM Plex Mono","Courier New",monospace;
-    font-size:9px;
+  .entry-dates{
+    font-size:9.5px;
     color:var(--muted);
     white-space:nowrap;
   }
-  .job ul{ margin:0; padding:0; }
-  .job li{
+  .entry-org{
+    font-size:10px;
+    color:var(--muted);
+    margin:0 0 3px 0;
+    line-height:1.4;
+  }
+  .entry ul{ margin:0; padding:0; }
+  .entry li{
     list-style:none;
     font-size:10.5px;
-    line-height:1.5;
+    line-height:1.45;
     color:var(--body);
-    padding-left:13px;
+    padding-left:12px;
     position:relative;
-    margin-bottom:2.5px;
+    margin-bottom:2px;
   }
-  .job li::before{
+  .entry li::before{
     content:"–";
     position:absolute;
     left:0;
-    color:var(--faint);
-  }
-  .earlier{
-    font-size:10.5px;
-    line-height:1.5;
-    color:var(--body);
-    margin:0;
-  }
-  .earlier b{ color:var(--ink); font-weight:700; }
-
-  /* ---------- bottom rows ---------- */
-  .rows{ border-top:1.5px solid var(--rule-dark); padding-top:12px; }
-  .row{
-    display:flex;
-    gap:14px;
-    align-items:baseline;
-    margin-bottom:6px;
-  }
-  .row:last-child{ margin-bottom:0; }
-  .row .label{
-    font-family:"IBM Plex Mono","Courier New",monospace;
-    font-size:8.5px;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
     color:var(--muted);
-    flex:0 0 2.15in;
-    font-weight:500;
   }
-  .row .val{
+  .entry .oneline{
     font-size:10.5px;
-    line-height:1.5;
+    line-height:1.45;
     color:var(--body);
     margin:0;
+  }
+  .entry .oneline b{ color:var(--ink); font-weight:700; }
+
+  /* ---------- simple text sections (speaking, skills, education) ---------- */
+  .plain{
+    font-size:10.5px;
+    line-height:1.45;
+    color:var(--body);
+    margin:5px 0 0 0;
   }
 
   /* ---------- print ---------- */
@@ -244,7 +169,7 @@
       width:auto;
       min-height:0;
       margin:0;
-      padding:0.5in 0.6in;
+      padding:0.38in 0.6in;
       box-shadow:none;
     }
   }
@@ -254,59 +179,32 @@
   }
 
   @media screen and (max-width:900px){
-    .page{ width:auto; padding:32px 22px; }
-    .head{ flex-direction:column; align-items:flex-start; }
-    .contact{ text-align:left; white-space:normal; }
-    .proof li,.row{ flex-direction:column; gap:1px; }
-    .proof .url,.row .label{ flex:none; }
+    .page{ width:auto; padding:32px 24px; }
+    .entry-line{ flex-direction:column; gap:0; }
   }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <header class="head">
-    <div>
-      <h1 class="name">Sabtain Khan</h1>
-      <p class="role">Group Product Manager — AI assistants, agents &amp; developer platforms</p>
-    </div>
-    <div class="contact">
-      <a href="https://sabtainkhan.com">sabtainkhan.com</a> · <a href="https://github.com/SaturdaysinthePark">github.com/SaturdaysinthePark</a><br>
-      <a href="https://linkedin.com/in/sabtain">linkedin.com/in/sabtain</a> · sabtain.a.khan@gmail.com<br>
-      +1 810 610 1475 · Brooklyn, New York
-    </div>
+  <header>
+    <h1 class="name">Sabtain Khan</h1>
+    <p class="role">Group Product Manager — AI assistants, agents &amp; developer platforms</p>
+    <p class="contact">
+      <a href="https://sabtainkhan.com">sabtainkhan.com</a> &nbsp;·&nbsp; <a href="https://github.com/SaturdaysinthePark">github.com/SaturdaysinthePark</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/sabtain">linkedin.com/in/sabtain</a><br>
+      sabtain.a.khan@gmail.com &nbsp;·&nbsp; +1 810 610 1475 &nbsp;·&nbsp; Brooklyn, New York
+    </p>
   </header>
 
   <section>
-    <p class="eyebrow">Built &amp; shipped solo — live</p>
-    <ul class="proof">
-      <li>
-        <span class="url"><a href="https://bookjumpr.com">bookjumpr.com</a></span>
-        <p class="what">Maps the books mentioned inside other books — 7,278 mentions across 5,150 titles. I built the PDF-extraction pipeline, with human-in-the-loop verification, that grows the graph.</p>
-      </li>
-      <li>
-        <span class="url"><a href="https://saturdaysinabook.com">saturdaysinabook.com</a></span>
-        <p class="what">Book reviews since 2019 — 109 reviews, 720 books logged. Astro, programmatic OG images, client-side search, Goodreads automation.</p>
-      </li>
-      <li>
-        <span class="url"><a href="https://sabtainkhan.com/book-giveaways">sabtainkhan.com/book-giveaways</a></span>
-        <p class="what">Every open Goodreads giveaway, ranked by odds of winning. Self-healing scraper, a data-quality gate that blocks incomplete publishes, refreshes twice daily unattended.</p>
-      </li>
-    </ul>
-  </section>
-
-  <section>
     <p class="eyebrow">Experience</p>
-    <div class="org-head">
-      <p class="org-name">IBM — Watson &amp; watsonx</p>
-      <span class="org-span">2012 &rarr; Present · New York</span>
-    </div>
 
-    <div class="job">
-      <div class="job-line">
-        <p class="job-title">Group Product Manager <span>· watsonx Assistant &amp; Orchestrate</span></p>
-        <span class="job-dates">2023 &rarr; Present</span>
+    <div class="entry">
+      <div class="entry-line">
+        <p class="entry-title">Group Product Manager</p>
+        <span class="entry-dates">2023 &rarr; Present</span>
       </div>
+      <p class="entry-org">watsonx Assistant &amp; Orchestrate — IBM, New York</p>
       <ul>
         <li>Own product vision and technical roadmap for IBM's AI assistant and agent portfolio, leading 15+ product managers; grew the portfolio from $20M to $80M ARR (41% CAGR).</li>
         <li>Defined watsonx Orchestrate's agent platform — multi-agent orchestration, MCP-server integrations, an agent marketplace, and observability that makes agent runs legible to enterprises.</li>
@@ -314,11 +212,12 @@
       </ul>
     </div>
 
-    <div class="job">
-      <div class="job-line">
-        <p class="job-title">Principal Product Manager <span>· watsonx Assistant</span></p>
-        <span class="job-dates">2022 &rarr; 2023</span>
+    <div class="entry">
+      <div class="entry-line">
+        <p class="entry-title">Principal Product Manager</p>
+        <span class="entry-dates">2022 &rarr; 2023</span>
       </div>
+      <p class="entry-org">watsonx Assistant — IBM</p>
       <ul>
         <li>Shipped IBM's first generative-AI feature inside an assistant, leading 20 engineers and 4 designers across core authoring and NLU algorithms.</li>
         <li>Cut enterprise time-to-live 65% by redesigning the conversation-authoring canvas around how business users actually build.</li>
@@ -326,59 +225,97 @@
       </ul>
     </div>
 
-    <div class="job">
-      <div class="job-line">
-        <p class="job-title">Product Strategy Lead <span>· Watson &amp; Customer Care</span></p>
-        <span class="job-dates">2020 &rarr; 2022</span>
+    <div class="entry">
+      <div class="entry-line">
+        <p class="entry-title">Product Strategy Lead</p>
+        <span class="entry-dates">2020 &rarr; 2022</span>
       </div>
+      <p class="entry-org">Watson &amp; Customer Care — IBM</p>
       <ul>
         <li>Set market and roadmap strategy across Assistant, Discovery, and Speech; lifted portfolio gross profit from under 30% to over 70%.</li>
         <li>Initiated the Twilio Segment partnership that gave every assistant real-time event streaming into customer data stacks.</li>
       </ul>
     </div>
 
-    <div class="job">
-      <div class="job-line">
-        <p class="job-title">Lead Product Manager <span>· Computer Vision</span></p>
-        <span class="job-dates">2018 &rarr; 2020</span>
+    <div class="entry">
+      <div class="entry-line">
+        <p class="entry-title">Lead Product Manager</p>
+        <span class="entry-dates">2018 &rarr; 2020</span>
       </div>
+      <p class="entry-org">Computer Vision — IBM Watson</p>
       <ul>
         <li>Repositioned the product for industrial visual inspection — quality engineers on the line train their own defect models, with offline on-device inference. 10x revenue, 5x margins.</li>
       </ul>
     </div>
 
-    <div class="job">
-      <div class="job-line">
-        <p class="job-title">Product Manager <span>· Developer Experience</span></p>
-        <span class="job-dates">2016 &rarr; 2018</span>
+    <div class="entry">
+      <div class="entry-line">
+        <p class="entry-title">Product Manager</p>
+        <span class="entry-dates">2016 &rarr; 2018</span>
       </div>
+      <p class="entry-org">Developer Experience — IBM Watson</p>
       <ul>
         <li>Launched the Watson developer suite and seven SDKs that still carry over 90% of customer usage; doubled API conversion and lifted IBM Cloud sign-ups 50%.</li>
       </ul>
     </div>
 
-    <div class="job">
-      <p class="earlier"><b>Earlier</b> — Finance Lead, Watson Group (2012 &rarr; 2016): ran a $1B budget through Watson's founding years — M&amp;A, the Apple partnership, pricing, lab expansion.</p>
+    <div class="entry">
+      <p class="oneline"><b>Earlier</b> — Finance Lead, Watson Group, IBM (2012 &rarr; 2016): ran a $1B budget through Watson's founding years — M&amp;A, the Apple partnership, pricing, lab expansion.</p>
     </div>
   </section>
 
-  <section class="rows">
-    <div class="row">
-      <span class="label">Talks &amp; Teaching</span>
-      <p class="val">Guest lecturer, NYU Wagner — AI &amp; design thinking (2022 &rarr; 2026) · Web Summit Qatar 2025 · Tech Week @ ElevenLabs 2026 · The AI Summit 2025 · Watson demos at CES, VivaTech &amp; the US Open (2016 &rarr; 2019)</p>
+  <section>
+    <p class="eyebrow">Personal Projects — Built Solo, All Live</p>
+
+    <div class="entry">
+      <div class="entry-line">
+        <p class="entry-title">BookJumpr</p>
+        <span class="entry-dates">2025 &rarr; Present</span>
+      </div>
+      <p class="entry-org"><a href="https://bookjumpr.com">bookjumpr.com</a></p>
+      <ul>
+        <li>Maps the books mentioned inside other books — 7,278 mentions across 5,150 titles, browsable as book pages, rankings, and a graph.</li>
+        <li>Built the PDF-extraction pipeline, with human-in-the-loop verification, that grows the dataset.</li>
+      </ul>
     </div>
-    <div class="row">
-      <span class="label">Skills</span>
-      <p class="val">SQL · Python · JavaScript &amp; Astro · Claude Code · Figma · Amplitude · Segment · Pricing &amp; packaging</p>
+
+    <div class="entry">
+      <div class="entry-line">
+        <p class="entry-title">Saturdays in a Book</p>
+        <span class="entry-dates">2019 &rarr; Present</span>
+      </div>
+      <p class="entry-org"><a href="https://saturdaysinabook.com">saturdaysinabook.com</a></p>
+      <ul>
+        <li>Book reviews and reading log — 109 reviews, 720 books. Astro, programmatic OG images, client-side search, Goodreads automation.</li>
+      </ul>
     </div>
-    <div class="row">
-      <span class="label">Languages</span>
-      <p class="val">English · Urdu · Pashto · Arabic</p>
+
+    <div class="entry">
+      <div class="entry-line">
+        <p class="entry-title">Book Giveaways</p>
+        <span class="entry-dates">2026</span>
+      </div>
+      <p class="entry-org"><a href="https://sabtainkhan.com/book-giveaways">sabtainkhan.com/book-giveaways</a></p>
+      <ul>
+        <li>Every open Goodreads giveaway, ranked by odds of winning — self-healing scraper, a data-quality gate that blocks incomplete publishes, twice-daily unattended refresh.</li>
+      </ul>
     </div>
-    <div class="row">
-      <span class="label">Education</span>
-      <p class="val">BA Finance — Michigan State University</p>
-    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Speaking &amp; Teaching</p>
+    <p class="plain">Guest lecturer, NYU Wagner — AI &amp; design thinking (2022 &rarr; 2026) · Web Summit Qatar 2025 · Tech Week @ ElevenLabs 2026 · The AI Summit 2025 · Watson demos at CES, VivaTech &amp; the US Open (2016 &rarr; 2019)</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Skills</p>
+    <p class="plain">SQL · Python · JavaScript &amp; Astro · Claude Code · Figma · Amplitude · Segment · Pricing &amp; packaging<br>
+    Languages: English · Urdu · Pashto · Arabic</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Education</p>
+    <p class="plain">BA Finance — Michigan State University</p>
   </section>
 
 </div>
