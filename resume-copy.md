@@ -48,8 +48,8 @@ org: IBM Watson Computer Vision
 
 ### Product Manager
 dates: 2016 → 2018
-org: IBM Watson Developer Experience
-- Launched the Watson developer suite and seven SDKs that still carry over 90% of customer usage; doubled API conversion and lifted IBM Cloud sign-ups 50%
+org: IBM Watson Dev Experience & Growth Hacking
+- Doubled API conversion and lifted IBM Cloud sign-ups 50% via A/B experimentation — shipped developer suite and SDKs still carrying 90%+ of usage
 
 ### Earlier (one-line entry, no bullets)
 Earlier — Finance Lead, Watson Group, IBM (2012 → 2016): ran a $1B budget through Watson's founding years — M&A, the Apple partnership, pricing, lab expansion
