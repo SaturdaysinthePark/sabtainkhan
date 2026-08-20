@@ -2,90 +2,74 @@
 
 This file mirrors every line of text on `resume.html`. Edit anything here —
 on GitHub, locally, or by telling Claude what to change — then ask Claude to
-**"sync the copy"** and the HTML will be updated to match. Structure notes:
-each `##` is a section; each `###` is an entry (job or project); `dates:` fills
-the right-aligned date, `org:` fills the grey text after the bold title on the
-same line; `-` lines become bullets. Contact renders right-aligned in the
-header; Speaking/Skills/Languages/Education are one-line sections at the bottom
+**"sync the copy"** and the HTML will be updated to match.
 
 Hard layout rules (verified with `node resume-check.mjs` on every sync):
 - a role/project header line must never wrap to a second line;
-- a bullet must never wrap beyond two lines
+- a bullet must never wrap beyond two lines;
+- all content must fit inside the fixed one-page (8.5×11in) frame.
 
 ---
 
 ## Header
 
 name: Sabtain Khan
-role: Group Product Manager — AI assistants, agents & developer platforms
+role: Group Product Manager · AI agents & platforms
+contact-strip: Brooklyn, NY · +1 810 610 1475 · sabtain.a.khan@gmail.com · sabtainkhan.com · linkedin.com/in/sabtain · github.com/SaturdaysinthePark
+intro: Product leader for enterprise AI agents at IBM. I take zero-to-one platforms to enterprise scale and build the PM organizations that run them.
 
-## Experience
+## Stat cards
 
-### Group Product Manager
+- $350M — ARR
+- 100M+ — Active users
+- 15+ — PMs in my org
+
+## Experience — IBM · New York · 2012 → Present
+
+### Group Product Manager · watsonx Orchestrate
 dates: 2023 → Present
-org: IBM watsonx Orchestrate
-- Own product vision and technical roadmap for IBM's AI agent portfolio, leading 15+ product managers, over $350M ARR
-- Zero to one launched watsonx Orchestrate's agent platform bringing multi-agent orchestration, MCP, evals and monitoring, and more to enterprise customers
-- Reference customers such as Elevance, Banco Inter, CVS and more launching customer service agents driving 100M+ messages a month
+- Own vision and technical roadmap for IBM's AI agent portfolio — **$350M ARR**, leading 15+ PMs.
+- Launched the agent platform zero-to-one: multi-agent orchestration, MCP, evals and monitoring.
+- Elevance, CVS, Banco Inter and more customers running customer-service agents — **100M+ messages a month**.
 
-### Principal Product Manager
+### Principal Product Manager · watsonx Assistant
 dates: 2022 → 2023
-org: IBM watsonx Assistant
-- Customer discovery led roadmap shipping ~4 enhancements a week, including IBM's first generative-AI assistant features — led 20 engineers and 4 designers
-- Cut enterprise time-to-live by 65% by redesigning the conversation authoring canvas for no code users
-- Assistant became IBM's most-adopted AI product with 100M+ monthly active users, a Gartner Magic Quadrant Leader for Enterprise Conversational AI
+- Cut enterprise time-to-live **65%** by redesigning the no-code conversation authoring canvas.
+- Shipped 2–4 customer-led enhancements a week with 20 engineers and 4 designers, including IBM's first generative-AI features.
+- Grew it into IBM's most-adopted AI product: 100M+ MAU and a Gartner Magic Quadrant Leader.
 
-### Product Strategy Lead
+### Product Strategy Lead · Watson & Customer Care
 dates: 2020 → 2022
-org: IBM Watson + Customer Care
-- Set market and roadmap strategy across Assistant, Discovery, and Speech; lifted portfolio gross profit from under 30% to over 70%
-- Launched Twilio Segment partnership for real-time event streaming into customer data stacks
+- Lifted portfolio gross profit from under 30% to **over 70%**, setting strategy across Assistant, Discovery and Speech.
+- Launched the Twilio Segment partnership for real-time event streaming into customer data stacks.
 
-### Lead Product Manager
+### Lead Product Manager · Watson Computer Vision
 dates: 2018 → 2020
-org: IBM Watson Computer Vision
-- 10x revenue and 5x margins repositioning the product for industrial visual inspection — quality engineers detect assembly-line defects with offline on-device inference
+- **10× revenue and 5× margin** repositioning to visual defect inspection on the assembly line with offline on-device inference.
 
-### Product Manager
+### Product Manager · Watson Developer Experience
 dates: 2016 → 2018
-org: IBM Watson Dev Experience & Growth Hacking
-- Doubled API conversion and lifted IBM Cloud sign-ups 50% via A/B experimentation — shipped developer suite and SDKs still carrying 90%+ of usage
+- 2x conversion to first API call and lifted IBM Cloud sign-ups **50%** via A/B experimentation; shipped SDKs still carrying 90% of usage.
 
-### Earlier (one-line entry, no bullets)
-Earlier — Finance Lead, Watson Group, IBM (2012 → 2016): ran >$1B budget in Watson's founding years, M&A, Apple partnership, pricing, lab expansion
+### Finance Lead · Watson Group
+dates: 2012 → 2016
+- Ran a **>$1B** budget through Watson's founding years — M&A, the Apple partnership, pricing, lab expansion.
 
-## Personal Projects
+### Software consulting, finance & healthcare analytics
+dates: Pre-2012
+- Thomson Reuters · Genesys Hospital · Morgan Stanley · Hurley
 
-### BookJumpr
-dates: 2025 → Present
-org: bookjumpr.com
-- Network of over 7,300 explicit book mentions across 5,000+ titles. AI-driven PDF extraction pipeline to generate the graph and edges
+## Side projects I built and launched
 
-### Saturdays in a Book
-dates: 2019 → Present
-org: saturdaysinabook.com
-- Personal blog with over 100 book reviews and my reading stats across 700+ books
+- **BookJumpr** · bookjumpr.com — knowledge graph of 7,300 book mentions across 5,000 titles, built by an AI PDF-extraction pipeline
+- **Saturdays in a Book** · saturdaysinabook.com — 100+ reviews and reading stats across 700 books
+- **Book Giveaways** · sabtainkhan.com/book-giveaways — every open Goodreads giveaway, ranked by odds
 
-### Book Giveaways
-dates: 2026
-org: sabtainkhan.com/book-giveaways
-- Every open Goodreads giveaway, ranked by odds of winning via a self-healing scraper
+## Toolkit (pills)
 
-## Contact (header, right-aligned)
+AI agents · Agent development lifecycle · MCP · Evals & guardrails · RAG · LLMs · Claude Code, Codex · Python · SQL · Amplitude / product analytics · Segment / event instrumentation · Figma / design tools · Monday, Asana · Pricing & packaging
 
-sabtainkhan.com · github.com/SaturdaysinthePark
-linkedin.com/in/sabtain · sabtain.a.khan@gmail.com
-+1 810 610 1475 · Brooklyn, New York
+## Footer rows
 
-## Speaking & Teaching
-
-Guest lecturer, NYU Wagner — AI & design thinking (2022 → 2026) · Web Summit Qatar 2025 · Tech Week @ ElevenLabs 2026 · The AI Summit 2025 · Watson demos at CES, VivaTech & the US Open (2016 → 2019)
-
-## Skills
-
-SQL · Python · JavaScript & Astro · Claude Code · Figma · Amplitude · Segment · Pricing & packaging
-Languages: English · Urdu · Pashto · Arabic
-
-## Education
-
-BA Finance — Michigan State University
+Speaking: NYU Wagner guest lecturer, AI & design thinking (2022 → 2026) · Web Summit Qatar · The AI Summit · Tech Week @ ElevenLabs
+Education: BA Finance, Michigan State University
