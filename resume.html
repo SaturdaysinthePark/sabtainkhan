@@ -43,6 +43,22 @@
   a:hover{color:#171614;}
   .page{box-shadow:0 2px 28px rgba(0,0,0,.10);}
   @page{size:letter;margin:0;}
+  @media (max-width:880px){
+    body{padding:0;}
+    .page{width:auto !important;min-height:0 !important;padding:26px 18px !important;}
+    .head-row{flex-wrap:wrap;gap:2px 14px !important;align-items:baseline !important;}
+    .contact-strip{justify-content:flex-start !important;white-space:normal !important;}
+    .stats{gap:8px !important;}
+    .stat-card{padding:6px 8px !important;flex-wrap:wrap;}
+    .stat-card > div:first-child{font-size:19px !important;}
+    .role-row{flex-wrap:wrap;row-gap:0;}
+    .proj-row{flex-wrap:wrap;}
+    .proj-row span[style*="flex:1"]{flex:1 1 100% !important;}
+    .footer-row{flex-wrap:wrap;}
+  }
+  @media (max-width:400px){
+    .stats{grid-template-columns:1fr !important;}
+  }
   @media print{
     body{background:#fff;padding:0;display:block;}
     .page{box-shadow:none;width:8.5in;height:11in;page-break-after:avoid;}
@@ -54,24 +70,24 @@
 <div class="page" style="box-sizing:border-box;width:8.5in;min-height:11in;background:#fff;padding:0.46in 0.5in;display:flex;flex-direction:column;gap:14px;color:#3a3835">
 
         <div style="display:flex;flex-direction:column;gap:9px">
-          <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px">
+          <div class="head-row" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px">
             <div style="font-size:33px;font-weight:700;letter-spacing:-0.8px;color:#171614;line-height:1">Sabtain Khan</div>
             <div style="font-size:12.5px;color:#2f4f6f;font-weight:600;letter-spacing:0.2px;padding-bottom:2px">Group Product Manager · AI agents &amp; platforms</div>
           </div>
-          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;column-gap:14px;row-gap:2px;align-items:center;font-size:10px;color:#6b6862;white-space:nowrap;padding:7px 0;border-top:1px solid #e2ded8;border-bottom:1px solid #e2ded8">
+          <div class="contact-strip" style="display:flex;justify-content:space-between;flex-wrap:wrap;column-gap:14px;row-gap:2px;align-items:center;font-size:10px;color:#6b6862;white-space:nowrap;padding:7px 0;border-top:1px solid #e2ded8;border-bottom:1px solid #e2ded8">
             <span style="flex:none">Brooklyn, NY</span><span style="flex:none">+1 810 610 1475</span><span style="flex:none">sabtain.a.khan@gmail.com</span><a href="https://sabtainkhan.com" style="flex:none">sabtainkhan.com</a><a href="https://linkedin.com/in/sabtain" style="flex:none">linkedin.com/in/sabtain</a><a href="https://github.com/SaturdaysinthePark" style="flex:none">github.com/SaturdaysinthePark</a>
           </div>
           <div style="font-size:12.5px;line-height:1.55;color:#171614;text-wrap:pretty">Product leader for enterprise AI agents at IBM. I take zero-to-one platforms to enterprise scale and build the PM organizations that run them.</div>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-          <div style="border:1px solid #e2ded8;padding:7px 12px;display:flex;align-items:baseline;gap:8px"><div style="font-family:Newsreader,Georgia,serif;font-size:26px;line-height:1.05;color:#171614">$350M</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:#8b8781">ARR</div></div>
-          <div style="border:1px solid #e2ded8;padding:7px 12px;display:flex;align-items:baseline;gap:8px"><div style="font-family:Newsreader,Georgia,serif;font-size:26px;line-height:1.05;color:#171614">100M+</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:#8b8781">Active users</div></div>
-          <div style="border:1px solid #e2ded8;padding:7px 12px;display:flex;align-items:baseline;gap:8px"><div style="font-family:Newsreader,Georgia,serif;font-size:26px;line-height:1.05;color:#171614">15+</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:#8b8781">PMs in my org</div></div>
+        <div class="stats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+          <div class="stat-card" style="border:1px solid #e2ded8;padding:7px 12px;display:flex;align-items:baseline;gap:8px"><div style="font-family:Newsreader,Georgia,serif;font-size:26px;line-height:1.05;color:#171614">$350M</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:#8b8781">ARR</div></div>
+          <div class="stat-card" style="border:1px solid #e2ded8;padding:7px 12px;display:flex;align-items:baseline;gap:8px"><div style="font-family:Newsreader,Georgia,serif;font-size:26px;line-height:1.05;color:#171614">100M+</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:#8b8781">Active users</div></div>
+          <div class="stat-card" style="border:1px solid #e2ded8;padding:7px 12px;display:flex;align-items:baseline;gap:8px"><div style="font-family:Newsreader,Georgia,serif;font-size:26px;line-height:1.05;color:#171614">15+</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:#8b8781">PMs in my org</div></div>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:9px">
-          <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #171614;padding-bottom:4px">
+          <div class="role-row" style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #171614;padding-bottom:4px">
             <div style="font-size:14.5px;font-weight:700;color:#171614;letter-spacing:0.2px">IBM</div>
             <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:#8b8781">Experience · New York · 2012 → Present</div>
           </div>
@@ -80,7 +96,7 @@
             <div style="display:flex;gap:13px">
               <div style="width:9px;flex:none;display:flex;flex-direction:column;align-items:center"><div style="width:9px;height:9px;border-radius:50%;background:#2f4f6f;margin-top:4px"></div><div style="width:1px;flex:1;background:#e2ded8;margin-top:4px"></div></div>
               <div style="flex:1;display:flex;flex-direction:column;gap:3px">
-                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Group Product Manager · watsonx Orchestrate</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2023 → Present</div></div>
+                <div class="role-row" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Group Product Manager · watsonx Orchestrate</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2023 → Present</div></div>
                 <div style="font-size:11.5px;line-height:1.5">Own vision and technical roadmap for IBM's AI agent portfolio — <b style="color:#171614;">$350M ARR</b>,&nbsp; leading 15+ PMs.</div>
                 <div style="font-size:11.5px;line-height:1.5">Launched the agent platform zero-to-one: multi-agent orchestration, MCP, evals and monitoring.</div>
                 <div style="font-size:11.5px;line-height:1.5">Elevance, CVS, Banco Inter and more customers running customer-service agents — <b style="color:#171614;">100M+ messages a month</b>.</div>
@@ -90,7 +106,7 @@
             <div style="display:flex;gap:13px">
               <div style="width:9px;flex:none;display:flex;flex-direction:column;align-items:center"><div style="width:9px;height:9px;border-radius:50%;background:#c9c5be;margin-top:4px"></div><div style="width:1px;flex:1;background:#e2ded8;margin-top:4px"></div></div>
               <div style="flex:1;display:flex;flex-direction:column;gap:3px">
-                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Principal Product Manager · watsonx Assistant</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2022 → 2023</div></div>
+                <div class="role-row" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Principal Product Manager · watsonx Assistant</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2022 → 2023</div></div>
                 <div style="font-size:11.5px;line-height:1.5">Cut enterprise time-to-live <b style="color:#171614">65%</b> by redesigning the no-code conversation authoring canvas.</div>
                 <div style="font-size:11.5px;line-height:1.5">Shipped 2–4 customer-led enhancements a week with 20 engineers and 4 designers, including IBM's first generative-AI features.</div>
                 <div style="font-size:11.5px;line-height:1.5">Grew it into IBM's most-adopted AI product: 100M+ MAU and a Gartner Magic Quadrant Leader.</div>
@@ -100,7 +116,7 @@
             <div style="display:flex;gap:13px">
               <div style="width:9px;flex:none;display:flex;flex-direction:column;align-items:center"><div style="width:9px;height:9px;border-radius:50%;background:#c9c5be;margin-top:4px"></div><div style="width:1px;flex:1;background:#e2ded8;margin-top:4px"></div></div>
               <div style="flex:1;display:flex;flex-direction:column;gap:3px">
-                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Product Strategy Lead · Watson &amp; Customer Care</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2020 → 2022</div></div>
+                <div class="role-row" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Product Strategy Lead · Watson &amp; Customer Care</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2020 → 2022</div></div>
                 <div style="font-size:11.5px;line-height:1.5">Lifted portfolio gross profit from under 30% to <b style="color:#171614">over 70%</b>, setting strategy across Assistant, Discovery and Speech.</div>
                 <div style="font-size:11.5px;line-height:1.5">Launched the Twilio Segment partnership for real-time event streaming into customer data stacks.</div>
               </div>
@@ -109,7 +125,7 @@
             <div style="display:flex;gap:13px">
               <div style="width:9px;flex:none;display:flex;flex-direction:column;align-items:center"><div style="width:9px;height:9px;border-radius:50%;background:#c9c5be;margin-top:4px"></div><div style="width:1px;flex:1;background:#e2ded8;margin-top:4px"></div></div>
               <div style="flex:1;display:flex;flex-direction:column;gap:3px">
-                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Lead Product Manager · Watson Computer Vision</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2018 → 2020</div></div>
+                <div class="role-row" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Lead Product Manager · Watson Computer Vision</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2018 → 2020</div></div>
                 <div style="font-size:11.5px;line-height:1.5"><b style="color:#171614">10× revenue and 5× margin</b> repositioning to visual defect inspection on the assembly line with offline on-device inference.</div>
               </div>
             </div>
@@ -117,7 +133,7 @@
             <div style="display:flex;gap:13px">
               <div style="width:9px;flex:none;display:flex;flex-direction:column;align-items:center"><div style="width:9px;height:9px;border-radius:50%;background:#c9c5be;margin-top:4px"></div><div style="width:1px;flex:1;background:#e2ded8;margin-top:4px"></div></div>
               <div style="flex:1;display:flex;flex-direction:column;gap:3px">
-                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Product Manager · Watson Developer Experience</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2016 → 2018</div></div>
+                <div class="role-row" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Product Manager · Watson Developer Experience</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2016 → 2018</div></div>
                 <div style="font-size:11.5px;line-height:1.5">2x conversion to first API call and lifted IBM Cloud sign-ups <b style="color:#171614;">50%</b> via A/B experimentation; shipped SDKs still carrying 90% of usage.</div>
               </div>
             </div>
@@ -125,7 +141,7 @@
             <div style="display:flex;gap:13px">
               <div style="width:9px;flex:none;display:flex;flex-direction:column;align-items:center"><div style="width:9px;height:9px;border-radius:50%;background:#c9c5be;margin-top:4px"></div><div style="width:1px;flex:1;background:#e2ded8;margin-top:4px"></div></div>
               <div style="flex:1;display:flex;flex-direction:column;gap:3px">
-                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Finance Lead · Watson Group</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2012 → 2016</div></div>
+                <div class="role-row" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Finance Lead · Watson Group</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">2012 → 2016</div></div>
                 <div style="font-size:11.5px;line-height:1.5">Ran a <b style="color:#171614">&gt;$1B</b> budget through Watson's founding years — M&amp;A, the Apple partnership, pricing, lab expansion.</div>
               </div>
             </div>
@@ -133,7 +149,7 @@
             <div style="display:flex;gap:13px">
               <div style="width:9px;flex:none;display:flex;flex-direction:column;align-items:center"><div style="width:9px;height:9px;border-radius:50%;background:#eeebe6;border:1px solid #d8d5d0;box-sizing:border-box;margin-top:4px"></div></div>
               <div style="flex:1;display:flex;flex-direction:column;gap:3px">
-                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Software consulting, finance &amp; healthcare analytics</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">Pre-2012</div></div>
+                <div class="role-row" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><div style="font-size:12.5px;font-weight:700;color:#171614">Software consulting, finance &amp; healthcare analytics</div><div style="font-size:10px;color:#8b8781;white-space:nowrap">Pre-2012</div></div>
                 <div style="font-size:11.5px;line-height:1.5">Thomson Reuters · Genesys Hospital · Morgan Stanley · Hurley</div>
               </div>
             </div>
@@ -143,9 +159,9 @@
         <div style="display:flex;flex-direction:column;gap:6px">
           <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1.8px;text-transform:uppercase;color:#8b8781;border-bottom:1px solid #e2ded8;padding-bottom:4px">Side projects I built and launched</div>
           <div style="display:flex;flex-direction:column;gap:3px">
-            <div style="display:flex;gap:8px;font-size:11.5px;line-height:1.5"><b style="color:#171614;flex:none">BookJumpr</b><a href="https://bookjumpr.com" style="flex:none">bookjumpr.com</a><span style="flex:1;color:#3a3835">— knowledge graph of 7,300 book mentions across 5,000 titles, built by an AI PDF-extraction pipeline</span></div>
-            <div style="display:flex;gap:8px;font-size:11.5px;line-height:1.5"><b style="color:#171614;flex:none">Saturdays in a Book</b><a href="https://saturdaysinabook.com" style="flex:none">saturdaysinabook.com</a><span style="flex:1;color:#3a3835">— 100+ reviews and reading stats across 700 books</span></div>
-            <div style="display:flex;gap:8px;font-size:11.5px;line-height:1.5"><b style="color:#171614;flex:none">Book Giveaways</b><a href="https://sabtainkhan.com/book-giveaways" style="flex:none">sabtainkhan.com/book-giveaways</a><span style="flex:1;color:#3a3835">— every open Goodreads giveaway, ranked by odds</span></div>
+            <div class="proj-row" style="display:flex;gap:8px;font-size:11.5px;line-height:1.5"><b style="color:#171614;flex:none">BookJumpr</b><a href="https://bookjumpr.com" style="flex:none">bookjumpr.com</a><span style="flex:1;color:#3a3835">— knowledge graph of 7,300 book mentions across 5,000 titles, built by an AI PDF-extraction pipeline</span></div>
+            <div class="proj-row" style="display:flex;gap:8px;font-size:11.5px;line-height:1.5"><b style="color:#171614;flex:none">Saturdays in a Book</b><a href="https://saturdaysinabook.com" style="flex:none">saturdaysinabook.com</a><span style="flex:1;color:#3a3835">— 100+ reviews and reading stats across 700 books</span></div>
+            <div class="proj-row" style="display:flex;gap:8px;font-size:11.5px;line-height:1.5"><b style="color:#171614;flex:none">Book Giveaways</b><a href="https://sabtainkhan.com/book-giveaways" style="flex:none">sabtainkhan.com/book-giveaways</a><span style="flex:1;color:#3a3835">— every open Goodreads giveaway, ranked by odds</span></div>
           </div>
         </div>
 
@@ -170,8 +186,8 @@
         </div>
 
         <div style="display:flex;flex-direction:column;gap:3px;font-size:11px;line-height:1.5;color:#6b6862;border-top:1px solid #e2ded8;padding-top:7px">
-          <div style="display:flex;gap:13px"><span style="min-width:86px;flex:none;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:#8b8781">Speaking</span><span style="flex:1">NYU Wagner guest lecturer, AI &amp; design thinking (2022 → 2026) · Web Summit Qatar · The AI Summit · Tech Week @ ElevenLabs</span></div>
-          <div style="display:flex;gap:13px"><span style="min-width:86px;flex:none;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:#8b8781">Education</span><span style="flex:1">BA Finance, Michigan State University</span></div>
+          <div class="footer-row" style="display:flex;gap:13px"><span style="min-width:86px;flex:none;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:#8b8781">Speaking</span><span style="flex:1">NYU Wagner guest lecturer, AI &amp; design thinking (2022 → 2026) · Web Summit Qatar · The AI Summit · Tech Week @ ElevenLabs</span></div>
+          <div class="footer-row" style="display:flex;gap:13px"><span style="min-width:86px;flex:none;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:#8b8781">Education</span><span style="flex:1">BA Finance, Michigan State University</span></div>
         </div>
 
       </div>
