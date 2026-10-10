@@ -22,3 +22,36 @@
   to = "https://book-giveaways.netlify.app/:splat"
   status = 200
   force = true
+
+# /greek-family-tree is served by a separate Netlify site
+# (https://greek-family-tree.netlify.app, app mounted at /greek-family-tree/)
+# proxied in the same way as /book-giveaways above.
+#
+# Same trailing-slash caveat: Netlify ignores trailing slashes when matching, so
+# a "/greek-family-tree" -> "/greek-family-tree/" 301 would match its own target
+# and loop. The bare path is proxied directly to the slashed upstream URL instead.
+# The legacy /greekfamilytree spelling is a different path, so a real 301 is safe.
+
+[[redirects]]
+  from = "/greek-family-tree"
+  to = "https://greek-family-tree.netlify.app/greek-family-tree/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/greek-family-tree/*"
+  to = "https://greek-family-tree.netlify.app/greek-family-tree/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/greekfamilytree"
+  to = "/greek-family-tree/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/greekfamilytree/*"
+  to = "/greek-family-tree/:splat"
+  status = 301
+  force = true
