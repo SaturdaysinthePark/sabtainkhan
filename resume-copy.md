@@ -36,7 +36,7 @@ dates: 2023 → Present
 dates: 2022 → 2023
 - Cut enterprise time-to-live **65%** by redesigning the no-code conversation authoring canvas.
 - Shipped 2–4 customer-led enhancements a week with 20 engineers and 4 designers, including IBM's first generative-AI features.
-- Grew it into IBM's most-adopted AI product: 100M+ MAU and a Gartner Magic Quadrant Leader.
+- Grew it into IBM's most-adopted AI product: 100M+ users and a Gartner Magic Quadrant Leader.
 
 ### Product Strategy Lead · Watson & Customer Care
 dates: 2020 → 2022

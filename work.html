@@ -66,6 +66,7 @@
   }
   @media(max-width:560px){
     .wk-text,.wk-media{flex:1 1 100%!important}
+    .wk-jump-label{flex-basis:100%;margin-top:4px}
   }
 </style>
 </helmet>
@@ -105,6 +106,11 @@
     <div style="position:relative;max-width:1340px;margin:0 auto">
       <h1 id="hero-head" style="margin:0 0 22px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(34px,5.4vw,76px);line-height:1.05;letter-spacing:-0.04em;max-width:16ch">Things <span style="background:#CDF34E;padding:0 10px;box-decoration-break:clone;-webkit-box-decoration-break:clone">I've shipped.</span></h1>
       <p style="margin:0;color:#5C6470;font-size:clamp(16px,1.8vw,20px);line-height:1.55;max-width:56ch">Featuring products and experiences I've shipped that I'm proud of, both personal and professional. <a href="/resume" target="_blank" style="color:#101012;border-bottom:2px solid #CDF34E">My r&eacute;sum&eacute; has the formal version &rarr;</a></p>
+      <!-- Jump links to each project on this page -->
+      <nav aria-label="Projects on this page" style="margin-top:clamp(24px,3.4vh,34px);display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:9px"><span class="wk-jump-label" style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;min-width:78px">At IBM</span><a href="#orchestrate" style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56;white-space:nowrap;transition:background .2s,border-color .2s,color .2s" style-hover="background:#CDF34E;border-color:#CDF34E;color:#101012">watsonx Orchestrate</a><a href="#assistant" style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56;white-space:nowrap;transition:background .2s,border-color .2s,color .2s" style-hover="background:#CDF34E;border-color:#CDF34E;color:#101012">watsonx Assistant</a><a href="#vision" style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56;white-space:nowrap;transition:background .2s,border-color .2s,color .2s" style-hover="background:#CDF34E;border-color:#CDF34E;color:#101012">Visual Inspection</a></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:9px"><span class="wk-jump-label" style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;min-width:78px">Personal</span><a href="#siab" style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56;white-space:nowrap;transition:background .2s,border-color .2s,color .2s" style-hover="background:#CDF34E;border-color:#CDF34E;color:#101012">Saturdays in a Book</a><a href="#bookjumpr" style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56;white-space:nowrap;transition:background .2s,border-color .2s,color .2s" style-hover="background:#CDF34E;border-color:#CDF34E;color:#101012">BookJumpr</a><a href="#book-giveaways" style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56;white-space:nowrap;transition:background .2s,border-color .2s,color .2s" style-hover="background:#CDF34E;border-color:#CDF34E;color:#101012">Book Giveaways</a><a href="#greek-family-tree" style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56;white-space:nowrap;transition:background .2s,border-color .2s,color .2s" style-hover="background:#CDF34E;border-color:#CDF34E;color:#101012">Greek Lineage</a></div>
+      </nav>
     </div>
   </header>
 
@@ -148,7 +154,7 @@
         <div class="wk-text" style="flex:1 1 330px;min-width:0">
         <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#9AA0AB;margin-bottom:16px">watsonx Assistant · IBM · 2021 — 2024</div>
         <h3 style="margin:0 0 14px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(26px,3.4vw,42px);line-height:1.08;letter-spacing:-0.03em">A no-code way to build production AI assistants</h3>
-        <p style="margin:0 0 22px;color:#444A56;font-size:16px;line-height:1.65">Launched the conversation-building canvas so non-technical teams could design, test and ship assistants without writing code, plus the analytics that closed the loop between what customers asked and what the assistant should do next. This is the most adopted IBM AI product, handling millions of conversations per month for enterprises with customer care use cases.</p>
+        <p style="margin:0 0 22px;color:#444A56;font-size:16px;line-height:1.65">Launched the conversation-building canvas so non-technical teams could design, test and ship assistants without writing code, plus the analytics that closed the loop between what customers asked and what the assistant should do next. This is the most adopted IBM AI product, with 100M+ users across enterprises with customer care use cases.</p>
         <div style="display:flex;flex-wrap:wrap;gap:9px">
           <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">No-code canvas</span>
           <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;padding:7px 13px;border:1.5px solid rgba(16,16,18,0.18);border-radius:100px;color:#444A56">Closed-loop analytics</span>
@@ -268,7 +274,7 @@
         <a id="cta-footer" href="mailto:sabtain.a.khan@gmail.com" style="display:inline-flex;align-items:center;gap:9px;padding:11px 20px;background:#CDF34E;color:#101012;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:700;font-size:14.5px;letter-spacing:-0.01em;white-space:nowrap;will-change:transform;transition:transform .25s cubic-bezier(.3,1.3,.5,1)">Get in touch →</a>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:18px 28px;justify-content:space-between;align-items:center;padding-top:18px">
-        <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;letter-spacing:0.03em;color:#79808E">© 2026 Sabtain Khan · New York</span>
+        <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11.5px;letter-spacing:0.03em;color:#79808E">© 2026 Sabtain Khan · Brooklyn</span>
         <div style="display:flex;gap:22px;font-size:14px;font-weight:500">
           <a href="https://linkedin.com/in/sabtain" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">LinkedIn ↗</a>
           <a href="https://github.com/SaturdaysinthePark" target="_blank" rel="noopener" style="color:#AEB4C2" style-hover="color:#CDF34E">GitHub ↗</a>
