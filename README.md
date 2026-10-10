@@ -14,10 +14,12 @@ Static, dependency-free site. Five HTML pages plus a shared runtime and effects 
 
 ## Supporting files
 
-- `support.js` — the component runtime the four main pages are written against. Loads React + Babel from CDN and renders each page's `<x-dc>` template. **Required.**
+- `support.js` — the component runtime the four main pages are written against. Loads React from `vendor/` (unpkg as a fallback) and renders each page's `<x-dc>` template; if React can't load at all, the static markup is shown instead of a blank page. **Required.**
+- `vendor/` — self-hosted React 18.3.1 UMD builds, byte-identical to the unpkg files (same SRI hashes).
 - `site-fx.js` — shared scroll effects: progress bar, back-to-top, page transitions, headline scramble, decorative parallax. Config is passed per page in `componentDidMount`.
 - `image-slot.js`, `doc-page.js` — drag-drop image placeholder and printable-page shell. Only `resume.html` needs `doc-page.js`.
-- `uploads/` — one portrait PNG and five demo `.mp4` clips.
+- `uploads/` — portrait PNG, demo `.mp4` clips (720p, CRF 26, faststart) and a first-frame `-poster.webp` for each.
+- `404.html` — static not-found page (no runtime). `robots.txt`, `sitemap.xml` — crawler files.
 - `.nojekyll` — tells GitHub Pages to serve files as-is.
 
 ## Deploy
@@ -44,6 +46,6 @@ python3 -m http.server 8000
 
 ## Known trade-offs
 
-- **Runtime transpile.** `support.js` compiles each page in the browser via Babel, so first paint carries ~300kb of CDN JS and a short delay. Fine for a personal site; see `CLAUDE_CODE.md` to port it to a build-time framework instead.
-- **Videos are unoptimized** and autoplay muted. Compress them (`ffmpeg -crf 28 -vf scale=1280:-2`) or add `poster` images if the page feels heavy on mobile.
+- **Runtime transpile.** `support.js` compiles each page in the browser via Babel, so first paint waits on ~140kb of React and a short delay. Fine for a personal site; see `CLAUDE_CODE.md` to port it to a build-time framework instead.
+- **Videos** autoplay muted while on screen. New clips: `ffmpeg -i in.mp4 -an -vf "scale='min(1280,iw)':-2" -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -movflags +faststart out.mp4`, plus a poster: `ffmpeg -i out.mp4 -frames:v 1 -c:v libwebp -quality 78 out-poster.webp`.
 - **Fonts** come from Google Fonts (Anton, Hanken Grotesk, Space Grotesk, IBM Plex Mono). Self-host them if you want zero third-party requests.

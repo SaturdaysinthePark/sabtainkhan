@@ -141,6 +141,35 @@
     onScroll(run); run();
   }
 
+  // The page is rendered after load, so the browser's own jump to #anchor finds nothing and
+  // leaves you at the top. Redo it once the content exists, and again as fonts/layout settle,
+  // unless the visitor has started scrolling on their own.
+  function initHashScroll() {
+    var id = location.hash && decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    var userMoved = false;
+    var stop = function () { userMoved = true; };
+    ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(function (t) {
+      window.addEventListener(t, stop, { passive: true, once: true });
+    });
+    // Fonts and the headline scramble shift the layout for a moment, so for the first couple of
+    // seconds re-align whenever the target drifts from where we put it.
+    var t0 = Date.now(), landed = null;
+    var tick = function () {
+      var el = document.getElementById(id);
+      if (userMoved || Date.now() - t0 > 2500) return;
+      if (el) {
+        var top = Math.round(el.getBoundingClientRect().top);
+        if (top !== landed) {
+          el.scrollIntoView({ block: 'start', behavior: 'instant' });
+          landed = Math.round(el.getBoundingClientRect().top);
+        }
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
   window.SiteFX = {
     initSiteFx: function (component, config) {
       config = config || {};
@@ -150,6 +179,7 @@
       try { initScramble(config.scramble); } catch (e) {}
       try { initParallax(config.parallax); } catch (e) {}
       try { initMetrics(component, config.metrics); } catch (e) {}
+      try { initHashScroll(); } catch (e) {}
     }
   };
 })();

@@ -1565,14 +1565,23 @@
   }
 
   // src/index.ts
-  var REACT_URL = "https://unpkg.com/react@18.3.1/umd/react.production.min.js";
+  // Self-hosted copies first (byte-identical to the unpkg builds, so the same SRI hashes apply);
+  // unpkg is only a fallback. Some networks block unpkg.com, which used to leave the page blank.
+  var REACT_URLS = ["/vendor/react-18.3.1.production.min.js", "https://unpkg.com/react@18.3.1/umd/react.production.min.js"];
   var REACT_SRI = "sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z";
-  var REACT_DOM_URL = "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js";
+  var REACT_DOM_URLS = ["/vendor/react-dom-18.3.1.production.min.js", "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"];
   var REACT_DOM_SRI = "sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1";
+  var rawTemplateHider = null;
   function hideRawTemplate() {
     const s = document.createElement("style");
     s.textContent = "x-dc{display:none!important}";
     document.head.appendChild(s);
+    rawTemplateHider = s;
+  }
+  // Last resort if React can't load at all: show the static markup rather than a blank page.
+  function showRawTemplate() {
+    if (rawTemplateHider) rawTemplateHider.remove();
+    rawTemplateHider = null;
   }
   function loadScript(src, integrity) {
     return new Promise((resolve2, reject) => {
@@ -1589,11 +1598,17 @@
   }
   function loadReactUmd() {
     const w = window;
-    if (w.React && w.ReactDOM) return Promise.resolve();
-    return Promise.all([
-      loadScript(REACT_URL, REACT_SRI),
-      loadScript(REACT_DOM_URL, REACT_DOM_SRI)
-    ]).then(() => void 0);
+    const attempt = (i) => {
+      if (w.React && w.ReactDOM) return Promise.resolve();
+      if (i >= REACT_URLS.length) return Promise.reject(new Error("failed to load React from every source"));
+      // Fetched in parallel; async=false keeps execution in order (react-dom needs window.React).
+      // On a retry, only whichever one is still missing is requested.
+      return Promise.all([
+        w.React ? null : loadScript(REACT_URLS[i], REACT_SRI),
+        w.ReactDOM ? null : loadScript(REACT_DOM_URLS[i], REACT_DOM_SRI)
+      ]).then(() => attempt(i + 1)).catch(() => attempt(i + 1));
+    };
+    return attempt(0);
   }
   function init() {
     const runtime = createRuntime(document);
@@ -1653,6 +1668,7 @@
   hideRawTemplate();
   loadReactUmd().then(init).catch((err) => {
     console.error("[dc] failed to load React or boot:", err);
+    showRawTemplate();
     throw err;
   });
 })();

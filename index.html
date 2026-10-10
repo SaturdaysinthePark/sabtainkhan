@@ -61,6 +61,8 @@
   @media(max-width:760px){
     #nav-pill,#cta-nav{display:none!important}
     .nav-hamburger{display:flex}
+    .nav-toggle-checkbox{display:block;position:absolute;width:1px;height:1px;margin:0;opacity:0;pointer-events:none}
+    .nav-toggle-checkbox:focus-visible ~ nav .nav-hamburger{outline:2px solid #101012;outline-offset:4px;border-radius:2px}
     .nav-toggle-checkbox:checked ~ #mobile-menu{display:flex}
     .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(2){opacity:0}
@@ -76,13 +78,13 @@
     #hero-panel{display:none!important}
   }
 </style>
-<script src="./site-fx.js?v=5"></script>
+<script src="./site-fx.js?v=6"></script>
 </helmet>
 <div style="position:relative;overflow-x:clip">
 
   <!-- STICKY ACID HEADER + FLOWING WAVE -->
   <div style="position:sticky;top:0;z-index:50">
-    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" aria-label="Menu" aria-controls="mobile-menu">
     <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(22px,5vw,80px);background:#CDF34E">
       <a href="/" style="font-family:&#39;Anton&#39;,sans-serif;font-size:27px;line-height:.84;text-transform:uppercase;letter-spacing:0.015em;white-space:nowrap;flex-shrink:0;color:#101012;transform:skewX(-9deg)">Sabtain Khan</a>
       <div style="display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)">
@@ -105,6 +107,7 @@
     <div id="wave" style="height:34px;background:#CDF34E;margin-top:-1px"></div>
   </div>
 
+  <main>
   <!-- HERO (two-column: statement + live pipeline panel) -->
   <header data-screen-label="Hero" style="position:relative;overflow:hidden;padding:clamp(52px,9vh,116px) clamp(22px,5vw,80px) clamp(46px,8vh,92px)">
     <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;bottom:0;background-image:radial-gradient(rgba(16,16,18,0.05) 1.1px,transparent 1.3px);background-size:22px 22px;z-index:0"></div>
@@ -253,7 +256,7 @@
   </header>
 
   <!-- SELECTED WORK (index) -->
-  <section id="work" data-screen-label="Selected work" style="position:relative;padding:clamp(44px,7vh,84px) clamp(22px,5vw,80px) clamp(30px,4vh,52px)">
+  <section id="work" data-screen-label="Selected work" style="position:relative;scroll-margin-top:72px;padding:clamp(44px,7vh,84px) clamp(22px,5vw,80px) clamp(30px,4vh,52px)">
     <svg aria-hidden="true" viewBox="0 0 90 70" style="position:absolute;left:clamp(2px,1vw,18px);top:clamp(94px,14vh,180px);width:clamp(30px,3.4vw,46px);height:auto;opacity:0.55;transform:rotate(-16deg);pointer-events:none"><g style="animation:decSway 24.5s ease-in-out infinite alternate;animation-delay:-0.1s;transform-box:fill-box;transform-origin:center"><path d="M44 6 C62 2 82 16 80 36 C78 54 62 66 42 64 C22 62 6 48 8 28 C10 12 26 9 44 6 Z" fill="#CDF34E"/></g></svg>
     <svg aria-hidden="true" viewBox="0 0 100 40" style="position:absolute;right:clamp(6px,1.8vw,28px);top:clamp(30px,5vh,74px);width:36px;height:auto;opacity:0.35;transform:rotate(10deg);pointer-events:none"><g style="animation:decBob 13.5s ease-in-out infinite alternate;animation-delay:-1.8s;transform-box:fill-box;transform-origin:center"><circle cx="12" cy="20" r="8" fill="#101012"/><circle cx="46" cy="20" r="6" fill="#101012"/><circle cx="76" cy="20" r="4" fill="#101012"/></g></svg>
     <div style="max-width:1340px;margin:0 auto">
@@ -345,6 +348,8 @@
       </a>
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer data-screen-label="Footer" style="margin-top:clamp(20px,3vh,40px);background:#101012;color:#EEF0F5;padding:clamp(26px,3vh,34px) clamp(22px,5vw,80px) 22px">

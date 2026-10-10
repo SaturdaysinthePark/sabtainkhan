@@ -13,6 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Appearances — Sabtain Khan</title>
 <meta name="description" content="A decade spent making AI make sense — keynotes, panels, press mentions, and the occasional lecture hall.">
+<link rel="canonical" href="https://sabtainkhan.com/talks">
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -30,7 +31,7 @@
 <meta name="twitter:description" content="A decade spent making AI make sense — keynotes, panels, press mentions, and the occasional lecture hall.">
 <meta name="twitter:image" content="https://sabtainkhan.com/og-image.png">
 <script src="./support.js"></script>
-<script src="./site-fx.js?v=5"></script>
+<script src="./site-fx.js?v=6"></script>
 </head>
 <body>
 <x-dc>
@@ -55,6 +56,8 @@
   @media(max-width:760px){
     #nav-pill,#cta-nav{display:none!important}
     .nav-hamburger{display:flex}
+    .nav-toggle-checkbox{display:block;position:absolute;width:1px;height:1px;margin:0;opacity:0;pointer-events:none}
+    .nav-toggle-checkbox:focus-visible ~ nav .nav-hamburger{outline:2px solid #101012;outline-offset:4px;border-radius:2px}
     .nav-toggle-checkbox:checked ~ #mobile-menu{display:flex}
     .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .nav-toggle-checkbox:checked ~ nav .nav-hamburger span:nth-child(2){opacity:0}
@@ -70,7 +73,7 @@
 
   <!-- ACID HEADER + FLOWING WAVE (wave bites into the dark hero band) -->
   <div style="position:sticky;top:0;z-index:50">
-    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" aria-label="Menu" aria-controls="mobile-menu">
     <nav style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(22px,5vw,80px);background:#CDF34E">
       <a href="/" style="font-family:&#39;Anton&#39;,sans-serif;font-size:27px;line-height:.84;text-transform:uppercase;letter-spacing:0.015em;white-space:nowrap;flex-shrink:0;color:#101012;transform:skewX(-9deg)">Sabtain Khan</a>
       <div style="display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)">
@@ -93,6 +96,7 @@
     <div id="wave" style="height:34px;background:#CDF34E;margin-top:-1px"></div>
   </div>
 
+  <main>
   <!-- DARK HERO BAND -->
   <header data-screen-label="Speaking header" style="position:relative;margin-top:-34px;background:#101012;color:#fff;overflow:hidden;padding:clamp(78px,8vh,134px) clamp(22px,5vw,80px) clamp(48px,8vh,96px)">
     <svg id="dec-s1" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;right:clamp(26px,7vw,120px);top:clamp(36px,7vh,86px);width:clamp(40px,5vw,66px);height:auto;opacity:0.95;transform:rotate(-16deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-0.0s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
@@ -101,7 +105,7 @@
     <svg aria-hidden="true" viewBox="0 0 80 80" style="position:absolute;right:clamp(28px,6vw,90px);bottom:clamp(20px,4vh,52px);width:clamp(54px,7vw,88px);height:auto;opacity:.9;animation:spin 16s linear infinite"><path d="M40 4 C58 4 76 22 76 40 C76 58 58 76 40 76 C22 76 4 58 4 40 C4 22 22 4 40 4 Z M40 18 C28 18 18 28 18 40 C18 52 28 62 40 62 C52 62 62 52 62 40 C62 28 52 18 40 18 Z" fill="#CDF34E"/></svg>
     <div style="position:relative;max-width:1340px;margin:0 auto">
       <p style="margin:0 0 22px;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#CDF34E">Talks · Panels · Teaching</p>
-      <p id="hero-head" style="margin:0 0 26px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(42px,7vw,104px);line-height:0.98;letter-spacing:-0.045em;max-width:16ch">On stages, <span style="color:#CDF34E">panels &amp; in classrooms.</span></p>
+      <h1 id="hero-head" style="margin:0 0 26px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(42px,7vw,104px);line-height:0.98;letter-spacing:-0.045em;max-width:16ch">On stages, <span style="color:#CDF34E">panels &amp; in classrooms.</span></h1>
       <p style="margin:0 0 32px;color:rgba(255,255,255,0.78);font-size:clamp(16px,1.8vw,21px);line-height:1.55;max-width:54ch">A decade spent making AI make sense — keynotes, panels, and the occasional lecture hall. A selection below.</p>
       <a href="mailto:sabtain.a.khan@gmail.com" style="display:inline-flex;align-items:center;gap:9px;padding:14px 26px;background:#CDF34E;color:#101012;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:700;font-size:14.5px;white-space:nowrap;transition:transform .2s" style-hover="transform:translateY(-2px)">Want me to speak or guest-lecture? →</a>
     </div>
@@ -127,11 +131,11 @@
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Jun 2026</span>
       </a>
 
-      <a href="#" class="talk-row" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+      <div class="talk-row" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">NYU Wagner</span>
         <span style="color:#5C6470;font-size:15px">Guest lecturer — AI &amp; design thinking (recurring class)</span>
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2022—26</span>
-      </a>
+      </div>
 
       <a href="https://qatar.websummit.com/summaries/qat25/work-smarter-not-harder-build-an-ai-agent-in-5-minutes-hosted-by-ibm/" target="_blank" rel="noopener" class="talk-row" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Web Summit Qatar</span>
@@ -139,17 +143,17 @@
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Feb 2025</span>
       </a>
 
-      <a href="#" class="talk-row" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+      <div class="talk-row" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">The AI Summit</span>
         <span style="color:#5C6470;font-size:15px">Speaker — putting enterprise AI agents into production</span>
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2025</span>
-      </a>
+      </div>
 
-      <a href="#" class="talk-row" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+      <div class="talk-row" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Tech Week @ IBM</span>
         <span style="color:#5C6470;font-size:15px">Speaker — the road to enterprise AI agents</span>
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Jun 2025</span>
-      </a>
+      </div>
 
       <a href="https://mentorstudents.org/q/sabtain#5f68aa024426b56e1c0541fb" target="_blank" rel="noopener" class="talk-row" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">University of Utah</span>
@@ -181,11 +185,11 @@
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Feb 2019</span>
       </a>
 
-      <a href="#" class="talk-row" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
+      <div class="talk-row" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Federated AI Panel</span>
         <span style="color:#5C6470;font-size:15px">Panel on federated AI on edge devices</span>
         <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Nov 2018</span>
-      </a>
+      </div>
 
       <a href="https://www.linkedin.com/posts/ibm_ai-is-transforming-the-way-you-watch-tennis-activity-6572509364593262592-z_x0" target="_blank" rel="noopener" class="talk-row" style="display:grid;grid-template-columns:0.9fr 1.5fr 96px;gap:20px 28px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(16,16,18,0.12);transition:padding .25s ease" style-hover="padding-left:8px">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">US Open · VivaTech · CES</span>
@@ -244,6 +248,8 @@
       <p style="margin:22px 0 0;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;letter-spacing:0.03em">Got an article, post or podcast that mentions my work? Send it over and I'll add it here.</p>
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer data-screen-label="Footer" style="margin-top:clamp(20px,3vh,40px);background:#101012;color:#EEF0F5;padding:clamp(26px,3vh,34px) clamp(22px,5vw,80px) 22px">
