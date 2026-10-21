@@ -110,6 +110,20 @@
     [data-scene="3"].on > div:last-child > div:nth-child(1){animation-delay:.7s}
     [data-scene="3"].on > div:last-child > div:nth-child(2){animation-delay:.9s}
   }
+  /* Selected-work rows: one stretched link per row, clear action label, mobile thumbnail, desktop hover preview */
+  .row-thumb{display:none}
+  .row-main{color:inherit}
+  .row-main::after{content:"";position:absolute;inset:0}
+  .row-end{display:flex;flex-direction:column;align-items:flex-end;gap:3px;white-space:nowrap}
+  .row-act{font-weight:700;font-size:14px;color:#101012;background:linear-gradient(#CDF34E,#CDF34E) 0 92%/0% 42% no-repeat;transition:background-size .3s ease}
+  [data-workrow]:hover .row-act,[data-workrow]:focus-within .row-act{background-size:100% 42%}
+  .row-year{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#6B7280}
+  .row-alt{position:relative;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#6B7280;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(16,16,18,.3)}
+  .row-alt:hover{color:#101012;text-decoration-color:#101012}
+  #work-peek{position:fixed;left:0;top:0;width:320px;height:180px;z-index:80000;pointer-events:none;will-change:transform}
+  #work-peek .pk{width:100%;height:100%;border:1.5px solid #101012;border-radius:12px;overflow:hidden;background:#101012;box-shadow:0 26px 50px -22px rgba(16,16,18,.6);opacity:0;transform:scale(.94) rotate(-1.5deg);transition:opacity .2s ease,transform .25s cubic-bezier(.2,.8,.3,1)}
+  #work-peek.on .pk{opacity:1;transform:scale(1) rotate(0)}
+  #work-peek img{width:100%;height:100%;object-fit:cover;display:block}
   .nav-toggle-checkbox{display:none}
   .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:30px;height:30px;cursor:pointer;flex-shrink:0;background:none;border:none;padding:0}
   .nav-hamburger span{display:block;height:2px;width:100%;background:#101012;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
@@ -126,7 +140,10 @@
   }
   @media(max-width:700px){
     #hero-grid{grid-template-columns:1fr!important}
-    [data-workrow]{grid-template-columns:1fr!important;row-gap:4px!important}
+    [data-workrow]{grid-template-columns:96px 1fr!important;column-gap:14px!important;row-gap:6px!important;align-items:start!important}
+    .row-thumb{display:block;grid-row:1 / span 2;grid-column:1;width:96px;height:54px;object-fit:cover;border-radius:8px;border:1.5px solid #101012;margin-top:3px}
+    .row-end{flex-direction:row;align-items:center;gap:14px}
+    #work-peek{display:none}
     [data-workrow] div[data-chip]{display:none!important}
     [data-workrow] > div:last-child{text-align:left!important}
     .app-row{grid-template-columns:1fr!important;row-gap:4px!important}
@@ -328,59 +345,60 @@
         <a class="btn-ol" href="/work" style="font-size:14px;padding:11px 22px">All work →</a>
       </div>
 
-      <a data-workrow href="work.html#orchestrate" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+      <div data-workrow data-peek="uploads/thumbs/wxo-demo-web.webp" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <img class="row-thumb" src="uploads/thumbs/wxo-demo-web.webp" alt="" width="96" height="54" loading="lazy" decoding="async">
         <div>
-          <h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">AI agent builder with multi-agent orchestration</h3>
-          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#9AA0AB">watsonx Orchestrate</div>
+          <a class="row-main" href="work.html#orchestrate"><h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">AI agent builder with multi-agent orchestration</h3></a>
+          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#6B7280">watsonx Orchestrate</div>
         </div>
         <div data-chip style="justify-self:start;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Designed for enterprise control</div>
-        <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2025—now →</div>
-      </a>
-
-      <a data-workrow href="work.html#assistant" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <div class="row-end"><span class="row-act">Case study →</span><span class="row-year">2025—now</span></div>
+      </div>
+      <div data-workrow data-peek="uploads/thumbs/watsonxAssistantnocode.webp" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <img class="row-thumb" src="uploads/thumbs/watsonxAssistantnocode.webp" alt="" width="96" height="54" loading="lazy" decoding="async">
         <div>
-          <h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">No-code way to build production AI assistants</h3>
-          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#9AA0AB">watsonx Assistant</div>
+          <a class="row-main" href="work.html#assistant"><h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">No-code way to build production AI assistants</h3></a>
+          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#6B7280">watsonx Assistant</div>
         </div>
         <div data-chip style="justify-self:start;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Millions of convos / mo</div>
-        <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2021—24 →</div>
-      </a>
-
-      <a data-workrow href="work.html#vision" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <div class="row-end"><span class="row-act">Case study →</span><span class="row-year">2021—24</span></div>
+      </div>
+      <div data-workrow data-peek="uploads/thumbs/visinspect2.webp" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <img class="row-thumb" src="uploads/thumbs/visinspect2.webp" alt="" width="96" height="54" loading="lazy" decoding="async">
         <div>
-          <h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">Computer vision that catches defects on the line</h3>
-          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#9AA0AB">Visual Inspection</div>
+          <a class="row-main" href="work.html#vision"><h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">Computer vision that catches defects on the line</h3></a>
+          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#6B7280">Visual Inspection</div>
         </div>
         <div data-chip style="justify-self:start;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Runs offline on-device</div>
-        <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2018—21 →</div>
-      </a>
-
-      <a data-workrow href="work.html#bookjumpr" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <div class="row-end"><span class="row-act">Case study →</span><span class="row-year">2018—21</span></div>
+      </div>
+      <div data-workrow data-peek="uploads/thumbs/bookjumpr-web.webp" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <img class="row-thumb" src="uploads/thumbs/bookjumpr-web.webp" alt="" width="96" height="54" loading="lazy" decoding="async">
         <div>
-          <h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">Mapping every book mentioned inside other books</h3>
-          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#9AA0AB">BookJumpr · Personal</div>
+          <a class="row-main" href="https://bookjumpr.com" target="_blank" rel="noopener"><h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">Mapping every book mentioned inside other books</h3></a>
+          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#6B7280">BookJumpr · Personal</div>
         </div>
         <div data-chip style="justify-self:start;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Side project</div>
-        <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Ongoing →</div>
-      </a>
-
-      <a data-workrow href="work.html#book-giveaways" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <div class="row-end"><span class="row-act">Visit site ↗</span><a class="row-alt" href="work.html#bookjumpr">Case study →</a></div>
+      </div>
+      <div data-workrow data-peek="uploads/thumbs/book-giveaways.webp" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <img class="row-thumb" src="uploads/thumbs/book-giveaways.webp" alt="" width="96" height="54" loading="lazy" decoding="async">
         <div>
-          <h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">Every open Goodreads giveaway, ranked by your odds</h3>
-          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#9AA0AB">Book Giveaways · Personal</div>
+          <a class="row-main" href="/book-giveaways"><h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">Every open Goodreads giveaway, ranked by your odds</h3></a>
+          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#6B7280">Book Giveaways · Personal</div>
         </div>
         <div data-chip style="justify-self:start;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Updated twice daily</div>
-        <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Ongoing →</div>
-      </a>
-
-      <a data-workrow href="work.html#greek-family-tree" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);border-bottom:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <div class="row-end"><span class="row-act">Visit site ↗</span><a class="row-alt" href="work.html#book-giveaways">Case study →</a></div>
+      </div>
+      <div data-workrow data-peek="uploads/thumbs/greek-family-tree.webp" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
+        <img class="row-thumb" src="uploads/thumbs/greek-family-tree.webp" alt="" width="96" height="54" loading="lazy" decoding="async">
         <div>
-          <h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">An interactive family tree of Greek myth and history</h3>
-          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#9AA0AB">Greek Lineage · Personal</div>
+          <a class="row-main" href="/greek-family-tree/"><h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">An interactive family tree of Greek myth and history</h3></a>
+          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#6B7280">Greek Lineage · Personal</div>
         </div>
         <div data-chip style="justify-self:start;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Interactive</div>
-        <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">Ongoing →</div>
-      </a>
+        <div class="row-end"><span class="row-act">Visit site ↗</span><a class="row-alt" href="work.html#greek-family-tree">Case study →</a></div>
+      </div>
     </div>
   </section>
 
@@ -457,16 +475,50 @@ class Component extends DCLogic {
     wireMagnet(document.getElementById('cta-nav'), 0.4);
     wireMagnet(document.getElementById('cta-footer'), 0.3);
 
-    Array.from(document.querySelectorAll('[data-workrow]')).forEach((row) => {
+    // Desktop only: hovering a work row floats a preview of the project beside the cursor.
+    const rowsEl = Array.from(document.querySelectorAll('[data-workrow]'));
+    const reduceW = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const finePtr = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
+    let peek = null, peekImg = null, px = 0, py = 0, tx = 0, ty = 0, peekOn = false, peekRaf = 0, preloaded = false;
+    if (finePtr) {
+      peek = document.createElement('div'); peek.id = 'work-peek'; peek.setAttribute('aria-hidden', 'true');
+      const pk = document.createElement('div'); pk.className = 'pk';
+      peekImg = document.createElement('img'); peekImg.alt = ''; pk.appendChild(peekImg); peek.appendChild(pk);
+      document.body.appendChild(peek);
+      this._peekEl = peek;
+    }
+    const aim = (e, row) => {
+      // Park the card in the empty space right of the titles (clear of the chip and action column) and follow the cursor vertically.
+      const W = 320, H = 180, rr = row.getBoundingClientRect();
+      tx = Math.max(e.clientX + 28, Math.min(rr.right - W - 140, window.innerWidth - W - 16));
+      ty = Math.max(12, Math.min(window.innerHeight - H - 12, e.clientY - H / 2));
+    };
+    const glide = () => {
+      px += (tx - px) * (reduceW ? 1 : 0.2); py += (ty - py) * (reduceW ? 1 : 0.2);
+      peek.style.transform = 'translate3d(' + px.toFixed(1) + 'px,' + py.toFixed(1) + 'px,0)';
+      peekRaf = (peekOn && (Math.abs(tx - px) > 0.5 || Math.abs(ty - py) > 0.5)) ? requestAnimationFrame(glide) : 0;
+    };
+    const peekHide = () => { peekOn = false; if (peek) peek.classList.remove('on'); };
+    this._peekHide = peekHide;
+    window.addEventListener('blur', peekHide);
+
+    rowsEl.forEach((row) => {
       const chip = row.querySelector('[data-chip]');
-      
-      row.addEventListener('mouseenter', () => {
+      row.addEventListener('mouseenter', (e) => {
         row.style.paddingLeft = '16px';
         if (chip) { chip.style.opacity = '1'; chip.style.transform = 'translateX(0)'; }
+        if (!peek) return;
+        if (!preloaded) { preloaded = true; rowsEl.forEach((r) => { const im = new Image(); im.src = r.dataset.peek; }); }
+        peekImg.src = row.dataset.peek;
+        aim(e, row);
+        if (!peekOn) { px = tx; py = ty; peek.style.transform = 'translate3d(' + px + 'px,' + py + 'px,0)'; }
+        peekOn = true; peek.classList.add('on');
       });
+      row.addEventListener('mousemove', (e) => { if (!peek || !peekOn) return; aim(e, row); if (!peekRaf) peekRaf = requestAnimationFrame(glide); });
       row.addEventListener('mouseleave', () => {
         row.style.paddingLeft = '';
         if (chip) { chip.style.opacity = '0'; chip.style.transform = 'translateX(-6px)'; }
+        peekHide();
       });
     });
 
@@ -611,6 +663,8 @@ class Component extends DCLogic {
     this.setState({ navGeos: navGeos });
   }
   componentWillUnmount() {
+    if (this._peekEl) this._peekEl.remove();
+    if (this._peekHide) window.removeEventListener('blur', this._peekHide);
     if (this._procStop) this._procStop();
     if (this._procIO) this._procIO.disconnect();
     if (this._onProcVis) document.removeEventListener('visibilitychange', this._onProcVis);
