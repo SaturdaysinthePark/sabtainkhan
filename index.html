@@ -52,6 +52,64 @@
   @keyframes decTwirl{to{transform:rotate(360deg)}}
   @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
   @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+  /* Outline button: a border can't follow a clip-path's cut corners, so the stroke is the element's own
+     fill and a ::before panel (inset 1.5px, cut shrunk to 8.1px to keep the diagonal stroke even) is the face. */
+  .btn-ol{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:9px;font-weight:600;white-space:nowrap;
+    background:rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));transition:background .2s}
+  .btn-ol::before{content:"";position:absolute;inset:1.5px;z-index:-1;background:#fff;
+    clip-path:polygon(0 0,calc(100% - 8.1px) 0,100% 8.1px,100% 100%,8.1px 100%,0 calc(100% - 8.1px));transition:background .2s}
+  .btn-ol:hover,.btn-ol:focus-visible{background:#CDF34E}
+  .btn-ol:hover::before,.btn-ol:focus-visible::before{background:#CDF34E}
+  a:focus-visible,[data-step]:focus-visible{outline:3px solid #101012;outline-offset:3px}
+  /* clip-path would cut off an outer outline, so cut-corner buttons get an inset one */
+  .btn-ol:focus-visible,a[style*="clip-path"]:focus-visible{outline:2px solid currentColor;outline-offset:-5px}
+
+  /* Pipeline panel: each scene builds itself in when it becomes active (.on). `translate` is used instead of
+     `transform` so the animations never clobber the inline rotations on the magnifier handle etc. */
+  #proc-loop path{stroke-dashoffset:0}
+  #proc-timer{position:absolute;left:0;bottom:0;height:2px;width:0;background:#CDF34E;z-index:3;opacity:.8}
+  @media(prefers-reduced-motion:no-preference){
+    @keyframes pRise{from{opacity:0;translate:0 10px}to{opacity:1;translate:0 0}}
+    @keyframes pSlide{from{opacity:0;translate:-14px 0}to{opacity:1;translate:0 0}}
+    @keyframes pGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @keyframes pTick{to{background:#CDF34E;border-color:#CDF34E}}
+    @keyframes pDraw{to{stroke-dashoffset:0}}
+    @keyframes pFade{from{opacity:0}to{opacity:1}}
+    @keyframes pScan{0%,100%{translate:0 0}50%{translate:-18px -12px}}
+    @keyframes pPing{0%{box-shadow:0 0 0 0 rgba(205,243,78,.55)}70%,100%{box-shadow:0 0 0 8px rgba(205,243,78,0)}}
+    @keyframes dashFlow{to{stroke-dashoffset:-8.5}}
+    #proc-loop path{animation:dashFlow 1.1s linear infinite}
+    .is-on [data-dot]{animation:pPing 1.8s ease-out infinite}
+    /* 0 · Discover — three docs rise in, the middle one is scanned */
+    [data-scene="0"].on > div{animation:pRise .5s cubic-bezier(.2,.8,.3,1) both}
+    [data-scene="0"].on > div:nth-child(2){animation-delay:.1s}
+    [data-scene="0"].on > div:nth-child(3){animation-delay:.2s}
+    [data-scene="0"].on > div:nth-child(2) > div:first-child > div{transform-origin:left;animation:pGrow .45s ease-out both}
+    [data-scene="0"].on > div:nth-child(2) > div:first-child > div:nth-child(1){animation-delay:.35s}
+    [data-scene="0"].on > div:nth-child(2) > div:first-child > div:nth-child(2){animation-delay:.45s}
+    [data-scene="0"].on > div:nth-child(2) > div:first-child > div:nth-child(3){animation-delay:.55s}
+    [data-scene="0"].on > div:nth-child(2) > div:first-child > div:nth-child(4){animation-delay:.65s}
+    [data-scene="0"].on > div:nth-child(2) > div:nth-child(n+2){animation:pScan 2.6s ease-in-out .8s infinite}
+    /* 1 · Define — requirements slide in, bars fill, the last two get ticked off */
+    [data-scene="1"].on > div{animation:pSlide .45s cubic-bezier(.2,.8,.3,1) both}
+    [data-scene="1"].on > div:nth-child(2){animation-delay:.1s}
+    [data-scene="1"].on > div:nth-child(3){animation-delay:.2s}
+    [data-scene="1"].on > div:nth-child(4){animation-delay:.3s}
+    [data-scene="1"].on > div > div:nth-child(2){transform-origin:left;animation:pGrow .6s ease-out .25s both}
+    [data-scene="1"].on > div:nth-child(3) > div:first-child{animation:pTick .25s ease 1.1s both}
+    [data-scene="1"].on > div:nth-child(4) > div:first-child{animation:pTick .25s ease 1.7s both}
+    /* 2 · Deliver — the mock UI appears, the build bar fills, the CTA pings */
+    [data-scene="2"].on > div:first-child{animation:pRise .5s cubic-bezier(.2,.8,.3,1) both}
+    [data-scene="2"].on > div:last-child > div:first-child > div{transform-origin:left;animation:pGrow 2s cubic-bezier(.3,.7,.3,1) .35s both}
+    [data-scene="2"].on > div:first-child > div:last-child > div:last-child > div:last-child{animation:pPing 1.4s ease-out 1.2s 2}
+    /* 3 · Learn — the curve draws itself, then the KPI cards land */
+    [data-scene="3"].on polyline{stroke-dasharray:160;stroke-dashoffset:160;animation:pDraw 1.1s ease-out .2s forwards}
+    [data-scene="3"].on polygon{animation:pFade .6s ease .9s both}
+    [data-scene="3"].on > div:last-child > div{animation:pRise .45s cubic-bezier(.2,.8,.3,1) both}
+    [data-scene="3"].on > div:last-child > div:nth-child(1){animation-delay:.7s}
+    [data-scene="3"].on > div:last-child > div:nth-child(2){animation-delay:.9s}
+  }
   .nav-toggle-checkbox{display:none}
   .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:30px;height:30px;cursor:pointer;flex-shrink:0;background:none;border:none;padding:0}
   .nav-hamburger span{display:block;height:2px;width:100%;background:#101012;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
@@ -73,8 +131,15 @@
     [data-workrow] > div:last-child{text-align:left!important}
     .app-row{grid-template-columns:1fr!important;row-gap:4px!important}
     .app-row > span:last-child{text-align:left!important}
-    #hero-panel{display:none!important}
+    /* Hero panel stays on mobile as a compact version: shorter stage, no return-loop arrow */
+    #hero-panel{border-radius:14px!important}
+    #proc-screen{height:186px!important}
+    #proc-loop{display:none!important}
+    .hero-ctas{flex-direction:column!important;align-items:stretch!important;gap:12px!important}
+    .hero-ctas > a{justify-content:center;width:100%}
+    #dec-h1{left:auto!important;right:16px;top:30px!important}
   }
+  footer a:focus-visible,[data-dark] a:focus-visible{outline-color:#CDF34E}
 </style>
 <script src="./site-fx.js?v=5"></script>
 </helmet>
@@ -108,7 +173,7 @@
   <!-- HERO (two-column: statement + live pipeline panel) -->
   <header data-screen-label="Hero" style="position:relative;overflow:hidden;padding:clamp(52px,9vh,116px) clamp(22px,5vw,80px) clamp(46px,8vh,92px)">
     <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;bottom:0;background-image:radial-gradient(rgba(16,16,18,0.05) 1.1px,transparent 1.3px);background-size:22px 22px;z-index:0"></div>
-    <svg id="dec-h1" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1.2vw,22px);top:clamp(40px,7vh,96px);z-index:1;width:clamp(38px,4.4vw,60px);height:auto;opacity:0.85;transform:rotate(18deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-0.0s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
+    <svg id="dec-h1" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1vw,14px);top:clamp(22px,4vh,56px);z-index:1;width:clamp(28px,3vw,44px);height:auto;opacity:0.85;transform:rotate(18deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-0.0s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
     <svg id="dec-h2" aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(30px,6vw,110px);bottom:clamp(26px,5vh,74px);z-index:1;width:19px;height:auto;opacity:0.5;transform:rotate(-11deg);pointer-events:none"><g style="animation:decTwirl 32s linear infinite;animation-delay:-1.7s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
     <svg id="dec-h3" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(6px,1.6vw,26px);bottom:clamp(120px,19vh,220px);z-index:1;width:12px;height:auto;opacity:0.35;transform:rotate(20deg);pointer-events:none"><g style="animation:decPulse 13.0s ease-in-out infinite alternate;animation-delay:-3.4s;transform-box:fill-box;transform-origin:center"><rect x="42" y="6" width="16" height="88" fill="#101012"/><rect x="6" y="42" width="88" height="16" fill="#101012"/></g></svg>
     <div id="hero-grid" style="position:relative;z-index:2;max-width:1340px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center">
@@ -116,9 +181,9 @@
         <p style="margin:0 0 24px;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:13px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#7A8192">Group Product Manager — New York</p>
         <h1 id="hero-head" style="margin:0 0 26px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(34px,5.4vw,78px);line-height:1.02;letter-spacing:-0.045em">I build and lead <span style="background:#CDF34E;padding:0 10px;box-decoration-break:clone;-webkit-box-decoration-break:clone">product teams.</span></h1>
         <p style="margin:0 0 32px;color:#4C5462;font-size:clamp(16px,1.8vw,21px);line-height:1.55;max-width:52ch">Hi, I'm Sabtain — a product management leader building AI tools and experiences that drive real impact for customers across every industry. Sometimes I build other things for fun.</p>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px">
+        <div class="hero-ctas" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px">
           <a href="#work" style="display:inline-flex;align-items:center;gap:9px;padding:14px 28px;background:#101012;color:#fff;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,color .2s" style-hover="background:#CDF34E;color:#101012">See selected work ↓</a>
-          <a href="mailto:sabtain.a.khan@gmail.com" style="display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border:1.5px solid rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));font-weight:600;font-size:15px;white-space:nowrap;transition:background .2s,border-color .2s" style-hover="background:#CDF34E;border-color:#CDF34E">Get in touch</a>
+          <a class="btn-ol" href="mailto:sabtain.a.khan@gmail.com" style="padding:14px 28px;font-size:15px">Get in touch</a>
         </div>
       </div>
 
@@ -132,6 +197,7 @@
         </div>
         <div style="padding:18px 18px 12px">
           <div id="proc-screen" style="position:relative;height:212px;border:1.5px solid rgba(205,243,78,0.16);border-radius:10px;background:rgba(205,243,78,0.03);overflow:hidden">
+            <div id="proc-timer" aria-hidden="true"></div>
             <div id="proc-caption" style="position:absolute;left:12px;top:12px;z-index:3;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:10px;letter-spacing:0.04em;color:#101012;background:#CDF34E;padding:4px 9px;border-radius:5px">01 · Discover</div>
 
             <div data-scene="0" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:14px;padding:20px;opacity:1;transition:opacity .45s ease">
@@ -259,7 +325,7 @@
     <div style="max-width:1340px;margin:0 auto">
       <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(24px,4vh,40px)">
         <h2 style="margin:0;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(28px,4vw,54px);letter-spacing:-0.04em;line-height:1.0">Selected <span style="color:#B7BAC4">work.</span></h2>
-        <a href="/work" style="font-weight:600;font-size:14px;padding:11px 22px;border:1.5px solid rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));white-space:nowrap;transition:background .2s,border-color .2s" style-hover="background:#CDF34E;border-color:#CDF34E">All work →</a>
+        <a class="btn-ol" href="/work" style="font-size:14px;padding:11px 22px">All work →</a>
       </div>
 
       <a data-workrow href="work.html#orchestrate" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
@@ -326,7 +392,7 @@
     <div style="max-width:1340px;margin:0 auto">
       <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(20px,3vh,32px)">
         <h2 style="margin:0;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(28px,4vw,54px);letter-spacing:-0.04em;line-height:1.0">Recent <span style="color:#B7BAC4">appearances.</span></h2>
-        <a href="/talks" style="font-weight:600;font-size:14px;padding:11px 22px;border:1.5px solid rgba(16,16,18,0.2);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));white-space:nowrap;transition:background .2s,border-color .2s" style-hover="background:#CDF34E;border-color:#CDF34E">All appearances →</a>
+        <a class="btn-ol" href="/talks" style="font-size:14px;padding:11px 22px">All appearances →</a>
       </div>
       <a href="https://www.linkedin.com/posts/nikavagner_last-night-i-was-at-elevenlabsbrand-new-activity-7468696127215775744-x2E0" target="_blank" rel="noopener" class="app-row" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
         <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Tech Week @ ElevenLabs</span>
@@ -405,6 +471,9 @@ class Component extends DCLogic {
     });
 
     // ---- Live pipeline panel ----
+    // Each scene builds itself in via CSS when it gets the `.on` class. A thin bar along the stage bottom
+    // shows the dwell time. Autoplay pauses while the panel is off-screen, hovered, keyboard-focused or the
+    // tab is hidden; a manual pick holds for a few seconds then resumes. Reduced motion: no autoplay.
     const screen = document.getElementById('proc-screen');
     const stepsWrap = document.getElementById('proc-steps');
     if (screen && stepsWrap) {
@@ -412,34 +481,102 @@ class Component extends DCLogic {
       const steps = Array.from(stepsWrap.querySelectorAll('[data-step]'));
       const caption = document.getElementById('proc-caption');
       const fill = document.getElementById('proc-fill');
+      const timer = document.getElementById('proc-timer');
+      const panel = document.getElementById('hero-panel');
       const names = ['Discover', 'Define', 'Deliver', 'Learn'];
-      let active = -1, paused = false;
+      const DWELL = 3800;
+      const reduceP = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      const canHover = !!(window.matchMedia && window.matchMedia('(hover: hover)').matches);
+      let active = -1, tm = 0, resumeTm = 0, hoverHold = false, focusHold = false, userHold = false, inView = true;
+
+      const resetTimer = () => { if (timer) { timer.style.transition = 'none'; timer.style.width = '0'; } };
+      const runTimer = () => {
+        if (!timer) return;
+        resetTimer(); void timer.offsetWidth;
+        timer.style.transition = 'width ' + DWELL + 'ms linear'; timer.style.width = '100%';
+      };
+      const halt = () => {
+        clearTimeout(tm); tm = 0;
+        if (timer) { const w = getComputedStyle(timer).width; timer.style.transition = 'none'; timer.style.width = w; }
+      };
+      const canRun = () => !reduceP && inView && !document.hidden && !hoverHold && !focusHold && !userHold;
+      const schedule = () => {
+        clearTimeout(tm); tm = 0;
+        if (!canRun()) return;
+        runTimer();
+        tm = setTimeout(() => { setActive((active + 1) % names.length); schedule(); }, DWELL);
+      };
+
       const setActive = (i) => {
         if (i === active) return;
         active = i;
-        scenes.forEach((s, idx) => { s.style.opacity = idx === i ? '1' : '0'; });
-        steps.forEach((s, idx) => {
-          const dot = s.querySelector('[data-dot]');
-          const label = s.querySelector('[data-label]');
+        scenes.forEach((sc, idx) => {
+          sc.style.opacity = idx === i ? '1' : '0';
+          sc.classList.toggle('on', idx === i);
+        });
+        steps.forEach((st, idx) => {
+          const dot = st.querySelector('[data-dot]');
+          const label = st.querySelector('[data-label]');
           const on = idx === i;
+          st.classList.toggle('is-on', on);
+          st.setAttribute('aria-current', on ? 'step' : 'false');
           if (dot) {
-            dot.style.background = on ? '#CDF34E' : 'transparent';
-            dot.style.borderColor = on ? '#CDF34E' : 'rgba(205,243,78,0.4)';
+            dot.style.background = on ? '#CDF34E' : (idx < i ? 'rgba(205,243,78,0.55)' : 'transparent');
+            dot.style.borderColor = on ? '#CDF34E' : (idx < i ? 'rgba(205,243,78,0.55)' : 'rgba(205,243,78,0.4)');
             dot.style.transform = on ? 'scale(1.15)' : 'scale(1)';
           }
-          if (label) label.style.color = on ? '#CDF34E' : '#7C8466';
+          if (label) label.style.color = on ? '#CDF34E' : (idx < i ? '#A6AE86' : '#7C8466');
         });
         if (caption) caption.textContent = '0' + (i + 1) + ' · ' + names[i];
         if (fill) fill.style.width = ((75 * i) / (names.length - 1)) + '%';
       };
-      setActive(0);
-      steps.forEach((s, idx) => { s.addEventListener('click', () => { paused = true; setActive(idx); }); });
-      const panel = document.getElementById('hero-panel');
+
+      const pick = (idx) => {
+        setActive(idx);
+        userHold = true; halt(); resetTimer();
+        clearTimeout(resumeTm);
+        resumeTm = setTimeout(() => { userHold = false; schedule(); }, 9000);
+      };
+
+      steps.forEach((st, idx) => {
+        st.setAttribute('role', 'button'); st.setAttribute('tabindex', '0');
+        st.setAttribute('aria-label', 'Step ' + (idx + 1) + ': ' + names[idx]);
+        st.addEventListener('click', () => pick(idx));
+        st.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(idx); }
+          else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const n = (idx + (e.key === 'ArrowRight' ? 1 : names.length - 1)) % names.length;
+            pick(n); steps[n].focus();
+          }
+        });
+      });
+
       if (panel) {
-        panel.addEventListener('mouseenter', () => { paused = true; });
-        panel.addEventListener('mouseleave', () => { paused = false; });
+        panel.setAttribute('role', 'group');
+        panel.setAttribute('aria-label', 'How I work: discover, define, deliver, learn');
+        if (canHover) {
+          panel.addEventListener('mouseenter', () => { hoverHold = true; halt(); });
+          panel.addEventListener('mouseleave', () => { hoverHold = false; schedule(); });
+        }
+        panel.addEventListener('focusin', (e) => { if (e.target.matches && e.target.matches(':focus-visible')) { focusHold = true; halt(); } });
+        panel.addEventListener('focusout', () => { focusHold = false; schedule(); });
       }
-      this._procInt = setInterval(() => { if (!paused) setActive((active + 1) % names.length); }, 3200);
+      if (timer && reduceP) timer.style.display = 'none';
+
+      setActive(0);
+      if ('IntersectionObserver' in window && panel) {
+        this._procIO = new IntersectionObserver((ents) => {
+          inView = ents[0].isIntersecting;
+          if (inView) schedule(); else halt();
+        }, { threshold: 0.25 });
+        this._procIO.observe(panel);
+      } else {
+        schedule();
+      }
+      this._onProcVis = () => { if (document.hidden) halt(); else schedule(); };
+      document.addEventListener('visibilitychange', this._onProcVis);
+      this._procStop = () => { clearTimeout(tm); clearTimeout(resumeTm); };
     }
 
     // ---- Flowing wave header ----
@@ -474,7 +611,9 @@ class Component extends DCLogic {
     this.setState({ navGeos: navGeos });
   }
   componentWillUnmount() {
-    if (this._procInt) clearInterval(this._procInt);
+    if (this._procStop) this._procStop();
+    if (this._procIO) this._procIO.disconnect();
+    if (this._onProcVis) document.removeEventListener('visibilitychange', this._onProcVis);
     if (this._raf) cancelAnimationFrame(this._raf);
     if (this._onNavResize) window.removeEventListener('resize', this._onNavResize);
   }
