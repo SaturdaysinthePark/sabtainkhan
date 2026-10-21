@@ -115,7 +115,8 @@
   .row-alt{position:relative;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#6B7280;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(16,16,18,.3)}
   .row-alt:hover{color:#101012;text-decoration-color:#101012}
   /* Featured work gallery (2x2) */
-  .wgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(26px,3.4vw,46px) clamp(20px,2.6vw,36px)}
+  .wgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(26px,3vw,40px) clamp(18px,2.2vw,32px)}
+  @media(max-width:900px){.wgrid{grid-template-columns:1fr}}
   .wcard{position:relative;transition:transform .3s cubic-bezier(.2,.8,.3,1)}
   .wcard:hover{transform:translateY(-4px)}
   .wcard.rv{opacity:0;translate:0 26px;transition:opacity .6s ease,translate .6s cubic-bezier(.2,.8,.3,1),transform .3s cubic-bezier(.2,.8,.3,1)}
@@ -133,7 +134,7 @@
   @media(hover:none){.whint{display:none}}
   .wbody{padding:16px 2px 0}
   .wmeta{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#6B7280;margin-bottom:8px}
-  .wcard h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(20px,2.2vw,28px);line-height:1.12;letter-spacing:-.03em}
+  .wcard h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(20px,1.8vw,25px);line-height:1.14;letter-spacing:-.03em}
   .wcard p{margin:0 0 14px;color:#444A56;font-size:15px;line-height:1.55;max-width:46ch}
   .wend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
   .wmain{color:inherit}
@@ -378,30 +379,6 @@
             <div class="wend"><span class="row-act">Case study →</span></div>
           </div>
         </article>
-        <article class="wcard" data-vid="uploads/watsonxAssistantnocode.mp4">
-          <div class="wmedia">
-            <img src="uploads/posters/watsonxAssistantnocode-poster.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
-            <span class="wbadge">Gartner Leader · 2021</span><span class="whint">▶ Hover to preview</span>
-          </div>
-          <div class="wbody">
-            <div class="wmeta">watsonx Assistant · IBM · 2021—24</div>
-            <h3><a class="wmain" href="work.html#assistant">A no-code way to build production AI assistants</a></h3>
-            <p>The conversation builder behind IBM’s most adopted AI product, handling millions of conversations a month.</p>
-            <div class="wend"><span class="row-act">Case study →</span></div>
-          </div>
-        </article>
-        <article class="wcard" data-vid="uploads/visinspect2.mp4">
-          <div class="wmedia">
-            <img src="uploads/posters/visinspect2-poster.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
-            <span class="whint">▶ Hover to preview</span>
-          </div>
-          <div class="wbody">
-            <div class="wmeta">Visual Inspection · IBM · 2018—21</div>
-            <h3><a class="wmain" href="work.html#vision">Computer vision that catches defects on the line</a></h3>
-            <p>Train custom detection models, then run them offline on iPhones and Android phones.</p>
-            <div class="wend"><span class="row-act">Case study →</span></div>
-          </div>
-        </article>
         <article class="wcard" data-vid="uploads/bookjumpr-web.mp4">
           <div class="wmedia">
             <img src="uploads/posters/bookjumpr-web-poster.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
@@ -412,6 +389,18 @@
             <h3><a class="wmain" href="https://bookjumpr.com" target="_blank" rel="noopener">Mapping every book mentioned inside other books</a></h3>
             <p>A browsable graph of every explicit book mention across books. Pick a book and jump.</p>
             <div class="wend"><span class="row-act">Visit site ↗</span><a class="row-alt" href="work.html#bookjumpr">Case study →</a></div>
+          </div>
+        </article>
+        <article class="wcard" data-vid="uploads/siab.mp4">
+          <div class="wmedia">
+            <img src="uploads/posters/siab-poster.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
+            <span class="whint">▶ Hover to preview</span>
+          </div>
+          <div class="wbody">
+            <div class="wmeta">Saturdays in a Book · Personal · Ongoing</div>
+            <h3><a class="wmain" href="https://saturdaysinabook.com/" target="_blank" rel="noopener">Saturdays in a Book</a></h3>
+            <p>My book blog: personal reviews and recommendations, and a look at a reading life by the numbers.</p>
+            <div class="wend"><span class="row-act">Visit site ↗</span><a class="row-alt" href="work.html#siab">Case study →</a></div>
           </div>
         </article>
       </div>
@@ -483,7 +472,7 @@ class Component extends DCLogic {
     // Featured gallery: fade cards in on scroll; on fine pointers a hover/keyboard focus plays the clip (one at a time).
     const wcards = Array.from(document.querySelectorAll('.wcard'));
     if ('IntersectionObserver' in window && !reduceW) {
-      wcards.forEach((c, i) => { c.classList.add('rv'); c.style.transitionDelay = ((i % 2) * 90) + 'ms,' + ((i % 2) * 90) + 'ms,0ms'; });
+      wcards.forEach((c, i) => { c.classList.add('rv'); c.style.transitionDelay = (i * 90) + 'ms,' + (i * 90) + 'ms,0ms'; });
       const wio = new IntersectionObserver((ents) => {
         ents.forEach((e) => {
           if (!e.isIntersecting) return;
