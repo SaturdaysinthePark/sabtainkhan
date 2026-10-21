@@ -124,6 +124,41 @@
   #work-peek .pk{width:100%;height:100%;border:1.5px solid #101012;border-radius:12px;overflow:hidden;background:#101012;box-shadow:0 26px 50px -22px rgba(16,16,18,.6);opacity:0;transform:scale(.94) rotate(-1.5deg);transition:opacity .2s ease,transform .25s cubic-bezier(.2,.8,.3,1)}
   #work-peek.on .pk{opacity:1;transform:scale(1) rotate(0)}
   #work-peek img{width:100%;height:100%;object-fit:cover;display:block}
+  /* Featured work gallery (2x2) */
+  .wgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(26px,3.4vw,46px) clamp(20px,2.6vw,36px)}
+  .wcard{position:relative;transition:transform .3s cubic-bezier(.2,.8,.3,1)}
+  .wcard:hover{transform:translateY(-4px)}
+  .wcard.rv{opacity:0;translate:0 26px;transition:opacity .6s ease,translate .6s cubic-bezier(.2,.8,.3,1),transform .3s cubic-bezier(.2,.8,.3,1)}
+  .wcard.rv.in{opacity:1;translate:0 0}
+  .wmedia{position:relative;aspect-ratio:16/9;border:1.5px solid #101012;border-radius:16px;overflow:hidden;background:#101012;box-shadow:0 22px 46px -26px rgba(16,16,18,.45);transition:box-shadow .3s ease}
+  .wcard:hover .wmedia,.wcard:focus-within .wmedia{box-shadow:0 32px 58px -26px rgba(16,16,18,.6)}
+  .wmedia img,.wmedia video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .wmedia img{transition:transform .7s cubic-bezier(.2,.8,.3,1)}
+  .wcard:hover .wmedia img{transform:scale(1.035)}
+  .wmedia video{opacity:0;transition:opacity .35s ease}
+  .wmedia video.live{opacity:1}
+  .wbadge{position:absolute;left:12px;top:12px;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:5px 11px;border-radius:100px}
+  .whint{position:absolute;right:12px;bottom:12px;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#fff;background:rgba(16,16,18,.72);padding:5px 10px;border-radius:100px;opacity:0;translate:0 4px;transition:opacity .25s ease,translate .25s ease}
+  .wcard:hover .whint{opacity:1;translate:0 0}
+  @media(hover:none){.whint{display:none}}
+  .wbody{padding:16px 2px 0}
+  .wmeta{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#6B7280;margin-bottom:8px}
+  .wcard h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(20px,2.2vw,28px);line-height:1.12;letter-spacing:-.03em}
+  .wcard p{margin:0 0 14px;color:#444A56;font-size:15px;line-height:1.55;max-width:46ch}
+  .wend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
+  .wmain{color:inherit}
+  .wmain::after{content:"";position:absolute;inset:0;z-index:1}
+  .wcard .row-alt{z-index:3}
+  .wcard:hover .row-act,.wcard:focus-within .row-act{background-size:100% 42%}
+  .more-head{margin:clamp(34px,6vh,60px) 0 6px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6B7280}
+  /* Appearances: one compact line */
+  .app-strip{max-width:1340px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 30px;padding:20px 6px;border-top:1px solid rgba(16,16,18,.14);border-bottom:1px solid rgba(16,16,18,.14)}
+  .app-lbl{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6B7280}
+  .app-item{font-weight:600;font-size:15.5px;letter-spacing:-.01em;display:inline-flex;gap:8px;align-items:baseline;border-bottom:1.5px solid transparent;transition:border-color .2s}
+  .app-item:hover{border-color:#CDF34E}
+  .app-item i{font-style:normal;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:12px;color:#6B7280}
+  .app-all{margin-left:auto;font-weight:700;font-size:14px;background:linear-gradient(#CDF34E,#CDF34E) 0 92%/0% 42% no-repeat;transition:background-size .3s ease}
+  .app-all:hover{background-size:100% 42%}
   .nav-toggle-checkbox{display:none}
   .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:30px;height:30px;cursor:pointer;flex-shrink:0;background:none;border:none;padding:0}
   .nav-hamburger span{display:block;height:2px;width:100%;background:#101012;border-radius:2px;transition:transform .25s ease,opacity .2s ease}
@@ -143,6 +178,8 @@
     [data-workrow]{grid-template-columns:96px 1fr!important;column-gap:14px!important;row-gap:6px!important;align-items:start!important}
     .row-thumb{display:block;grid-row:1 / span 2;grid-column:1;width:96px;height:54px;object-fit:cover;border-radius:8px;border:1.5px solid #101012;margin-top:3px}
     .row-end{flex-direction:row;align-items:center;gap:14px}
+    .wgrid{grid-template-columns:1fr}
+    .app-all{margin-left:0}
     #work-peek{display:none}
     [data-workrow] div[data-chip]{display:none!important}
     [data-workrow] > div:last-child{text-align:left!important}
@@ -188,7 +225,7 @@
   </div>
 
   <!-- HERO (two-column: statement + live pipeline panel) -->
-  <header data-screen-label="Hero" style="position:relative;overflow:hidden;padding:clamp(52px,9vh,116px) clamp(22px,5vw,80px) clamp(46px,8vh,92px)">
+  <header data-screen-label="Hero" style="position:relative;overflow:hidden;padding:clamp(34px,6vh,76px) clamp(22px,5vw,80px) clamp(30px,5vh,56px)">
     <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;bottom:0;background-image:radial-gradient(rgba(16,16,18,0.05) 1.1px,transparent 1.3px);background-size:22px 22px;z-index:0"></div>
     <svg id="dec-h1" aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1vw,14px);top:clamp(22px,4vh,56px);z-index:1;width:clamp(28px,3vw,44px);height:auto;opacity:0.85;transform:rotate(18deg);pointer-events:none"><g style="animation:decBob 14.0s ease-in-out infinite alternate;animation-delay:-0.0s;transform-box:fill-box;transform-origin:center"><circle cx="46" cy="50" r="26" fill="#CDF34E"/><circle cx="80" cy="30" r="8.5" fill="#CDF34E"/><circle cx="22" cy="18" r="5" fill="#CDF34E"/><circle cx="86" cy="70" r="4" fill="#CDF34E"/><circle cx="34" cy="88" r="6.5" fill="#CDF34E"/><circle cx="8" cy="62" r="3.4" fill="#CDF34E"/></g></svg>
     <svg id="dec-h2" aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;left:clamp(30px,6vw,110px);bottom:clamp(26px,5vh,74px);z-index:1;width:19px;height:auto;opacity:0.5;transform:rotate(-11deg);pointer-events:none"><g style="animation:decTwirl 32s linear infinite;animation-delay:-1.7s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
@@ -336,7 +373,7 @@
   </header>
 
   <!-- SELECTED WORK (index) -->
-  <section id="work" data-screen-label="Selected work" style="position:relative;padding:clamp(44px,7vh,84px) clamp(22px,5vw,80px) clamp(30px,4vh,52px)">
+  <section id="work" data-screen-label="Selected work" style="position:relative;padding:clamp(30px,4.5vh,52px) clamp(22px,5vw,80px) clamp(26px,4vh,44px)">
     <svg aria-hidden="true" viewBox="0 0 90 70" style="position:absolute;left:clamp(2px,1vw,18px);top:clamp(94px,14vh,180px);width:clamp(30px,3.4vw,46px);height:auto;opacity:0.55;transform:rotate(-16deg);pointer-events:none"><g style="animation:decSway 24.5s ease-in-out infinite alternate;animation-delay:-0.1s;transform-box:fill-box;transform-origin:center"><path d="M44 6 C62 2 82 16 80 36 C78 54 62 66 42 64 C22 62 6 48 8 28 C10 12 26 9 44 6 Z" fill="#CDF34E"/></g></svg>
     <svg aria-hidden="true" viewBox="0 0 100 40" style="position:absolute;right:clamp(6px,1.8vw,28px);top:clamp(30px,5vh,74px);width:36px;height:auto;opacity:0.35;transform:rotate(10deg);pointer-events:none"><g style="animation:decBob 13.5s ease-in-out infinite alternate;animation-delay:-1.8s;transform-box:fill-box;transform-origin:center"><circle cx="12" cy="20" r="8" fill="#101012"/><circle cx="46" cy="20" r="6" fill="#101012"/><circle cx="76" cy="20" r="4" fill="#101012"/></g></svg>
     <div style="max-width:1340px;margin:0 auto">
@@ -345,42 +382,58 @@
         <a class="btn-ol" href="/work" style="font-size:14px;padding:11px 22px">All work →</a>
       </div>
 
-      <div data-workrow data-peek="uploads/thumbs/wxo-demo-web.webp" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
-        <img class="row-thumb" src="uploads/thumbs/wxo-demo-web.webp" alt="" width="96" height="54" loading="lazy" decoding="async">
-        <div>
-          <a class="row-main" href="work.html#orchestrate"><h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">AI agent builder with multi-agent orchestration</h3></a>
-          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#6B7280">watsonx Orchestrate</div>
-        </div>
-        <div data-chip style="justify-self:start;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Designed for enterprise control</div>
-        <div class="row-end"><span class="row-act">Case study →</span><span class="row-year">2025—now</span></div>
+      <div class="wgrid">
+        <article class="wcard" data-vid="uploads/wxo-demo-web.mp4">
+          <div class="wmedia">
+            <img src="uploads/posters/wxo-demo-web-poster.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
+            <span class="whint">▶ Hover to preview</span>
+          </div>
+          <div class="wbody">
+            <div class="wmeta">watsonx Orchestrate · IBM · 2025—now</div>
+            <h3><a class="wmain" href="work.html#orchestrate">AI agent builder with multi-agent orchestration</a></h3>
+            <p>Build, govern and observe enterprise AI agents across many agents, tools and knowledge bases.</p>
+            <div class="wend"><span class="row-act">Case study →</span></div>
+          </div>
+        </article>
+        <article class="wcard" data-vid="uploads/watsonxAssistantnocode.mp4">
+          <div class="wmedia">
+            <img src="uploads/posters/watsonxAssistantnocode-poster.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
+            <span class="wbadge">Gartner Leader · 2021</span><span class="whint">▶ Hover to preview</span>
+          </div>
+          <div class="wbody">
+            <div class="wmeta">watsonx Assistant · IBM · 2021—24</div>
+            <h3><a class="wmain" href="work.html#assistant">A no-code way to build production AI assistants</a></h3>
+            <p>The conversation builder behind IBM’s most adopted AI product, handling millions of conversations a month.</p>
+            <div class="wend"><span class="row-act">Case study →</span></div>
+          </div>
+        </article>
+        <article class="wcard" data-vid="uploads/visinspect2.mp4">
+          <div class="wmedia">
+            <img src="uploads/posters/visinspect2-poster.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
+            <span class="whint">▶ Hover to preview</span>
+          </div>
+          <div class="wbody">
+            <div class="wmeta">Visual Inspection · IBM · 2018—21</div>
+            <h3><a class="wmain" href="work.html#vision">Computer vision that catches defects on the line</a></h3>
+            <p>Train custom detection models, then run them offline on iPhones and Android phones.</p>
+            <div class="wend"><span class="row-act">Case study →</span></div>
+          </div>
+        </article>
+        <article class="wcard" data-vid="uploads/bookjumpr-web.mp4">
+          <div class="wmedia">
+            <img src="uploads/posters/bookjumpr-web-poster.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
+            <span class="whint">▶ Hover to preview</span>
+          </div>
+          <div class="wbody">
+            <div class="wmeta">BookJumpr · Personal · Ongoing</div>
+            <h3><a class="wmain" href="https://bookjumpr.com" target="_blank" rel="noopener">Mapping every book mentioned inside other books</a></h3>
+            <p>A browsable graph of every explicit book mention across books. Pick a book and jump.</p>
+            <div class="wend"><span class="row-act">Visit site ↗</span><a class="row-alt" href="work.html#bookjumpr">Case study →</a></div>
+          </div>
+        </article>
       </div>
-      <div data-workrow data-peek="uploads/thumbs/watsonxAssistantnocode.webp" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
-        <img class="row-thumb" src="uploads/thumbs/watsonxAssistantnocode.webp" alt="" width="96" height="54" loading="lazy" decoding="async">
-        <div>
-          <a class="row-main" href="work.html#assistant"><h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">No-code way to build production AI assistants</h3></a>
-          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#6B7280">watsonx Assistant</div>
-        </div>
-        <div data-chip style="justify-self:start;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Millions of convos / mo</div>
-        <div class="row-end"><span class="row-act">Case study →</span><span class="row-year">2021—24</span></div>
-      </div>
-      <div data-workrow data-peek="uploads/thumbs/visinspect2.webp" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
-        <img class="row-thumb" src="uploads/thumbs/visinspect2.webp" alt="" width="96" height="54" loading="lazy" decoding="async">
-        <div>
-          <a class="row-main" href="work.html#vision"><h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">Computer vision that catches defects on the line</h3></a>
-          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#6B7280">Visual Inspection</div>
-        </div>
-        <div data-chip style="justify-self:start;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Runs offline on-device</div>
-        <div class="row-end"><span class="row-act">Case study →</span><span class="row-year">2018—21</span></div>
-      </div>
-      <div data-workrow data-peek="uploads/thumbs/bookjumpr-web.webp" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
-        <img class="row-thumb" src="uploads/thumbs/bookjumpr-web.webp" alt="" width="96" height="54" loading="lazy" decoding="async">
-        <div>
-          <a class="row-main" href="https://bookjumpr.com" target="_blank" rel="noopener"><h3 style="margin:0 0 3px;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(18px,2vw,25px);letter-spacing:-0.025em">Mapping every book mentioned inside other books</h3></a>
-          <div style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:#6B7280">BookJumpr · Personal</div>
-        </div>
-        <div data-chip style="justify-self:start;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;font-weight:600;color:#101012;background:#CDF34E;padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(-6px);transition:opacity .3s ease,transform .3s ease">Side project</div>
-        <div class="row-end"><span class="row-act">Visit site ↗</span><a class="row-alt" href="work.html#bookjumpr">Case study →</a></div>
-      </div>
+
+      <div class="more-head">More projects</div>
       <div data-workrow data-peek="uploads/thumbs/book-giveaways.webp" style="position:relative;display:grid;grid-template-columns:1.4fr 1fr auto;gap:clamp(14px,2vw,28px);align-items:center;padding:clamp(18px,2.4vh,26px) 6px;border-top:1px solid rgba(16,16,18,0.14);transition:padding-left .3s ease">
         <img class="row-thumb" src="uploads/thumbs/book-giveaways.webp" alt="" width="96" height="54" loading="lazy" decoding="async">
         <div>
@@ -403,30 +456,16 @@
   </section>
 
   <!-- APPEARANCES -->
-  <section data-screen-label="Appearances" style="position:relative;padding:clamp(30px,4vh,52px) clamp(22px,5vw,80px) clamp(44px,7vh,84px)">
+  <section data-screen-label="Appearances" style="position:relative;padding:clamp(20px,3vh,36px) clamp(22px,5vw,80px) clamp(34px,5vh,56px)">
     <svg aria-hidden="true" viewBox="0 0 32 32" style="position:absolute;right:clamp(4px,1.4vw,24px);top:clamp(120px,17vh,210px);width:18px;height:auto;opacity:0.5;transform:rotate(14deg);pointer-events:none"><g style="animation:decTwirl 38s linear infinite;animation-delay:-0.2s;transform-box:fill-box;transform-origin:center"><path d="M16 0 C17 10 22 15 32 16 C22 17 17 22 16 32 C15 22 10 17 0 16 C10 15 15 10 16 0 Z" fill="#101012"/></g></svg>
     <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;left:clamp(2px,1vw,18px);bottom:clamp(40px,7vh,110px);width:clamp(28px,3.2vw,42px);height:auto;opacity:0.4;transform:rotate(-22deg);pointer-events:none"><g style="animation:decBob 21.0s ease-in-out infinite alternate;animation-delay:-1.9s;transform-box:fill-box;transform-origin:center"><circle cx="48" cy="52" r="24" fill="none" stroke="#101012" stroke-width="3"/><circle cx="82" cy="26" r="7" fill="#101012"/><circle cx="18" cy="24" r="4.5" fill="#101012"/><circle cx="30" cy="86" r="5.5" fill="#101012"/></g></svg>
     <svg aria-hidden="true" viewBox="0 0 100 100" style="position:absolute;right:clamp(8px,2vw,32px);bottom:clamp(150px,20vh,250px);width:13px;height:auto;opacity:0.8;transform:rotate(-8deg);pointer-events:none"><g style="animation:decPulse 9.0s ease-in-out infinite alternate;animation-delay:-3.6s;transform-box:fill-box;transform-origin:center"><polygon points="50,4 96,50 50,96 4,50" fill="#CDF34E"/></g></svg>
-    <div style="max-width:1340px;margin:0 auto">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(20px,3vh,32px)">
-        <h2 style="margin:0;font-family:&#39;Space Grotesk&#39;,sans-serif;font-weight:700;font-size:clamp(28px,4vw,54px);letter-spacing:-0.04em;line-height:1.0">Recent <span style="color:#B7BAC4">appearances.</span></h2>
-        <a class="btn-ol" href="/talks" style="font-size:14px;padding:11px 22px">All appearances →</a>
-      </div>
-      <a href="https://www.linkedin.com/posts/nikavagner_last-night-i-was-at-elevenlabsbrand-new-activity-7468696127215775744-x2E0" target="_blank" rel="noopener" class="app-row" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
-        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Tech Week @ ElevenLabs</span>
-        <span style="color:#5C6470;font-size:15px">Speaker — building AI agents people actually trust ↗</span>
-        <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2026</span>
-      </a>
-      <a href="/talks" class="app-row" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
-        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">NYU Wagner</span>
-        <span style="color:#5C6470;font-size:15px">Guest lecturer — AI &amp; design thinking (recurring class)</span>
-        <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2022—26</span>
-      </a>
-      <a href="https://qatar.websummit.com/summaries/qat25/work-smarter-not-harder-build-an-ai-agent-in-5-minutes-hosted-by-ibm/" target="_blank" rel="noopener" class="app-row" style="display:grid;grid-template-columns:1fr 1.25fr auto;gap:20px 28px;align-items:baseline;padding:20px 6px;border-top:1px solid rgba(16,16,18,0.12);border-bottom:1px solid rgba(16,16,18,0.12);transition:padding-left .25s ease" style-hover="padding-left:10px">
-        <span style="font-weight:600;font-size:clamp(16px,1.7vw,20px);letter-spacing:-0.01em">Web Summit Qatar</span>
-        <span style="color:#5C6470;font-size:15px">Speaker — build an AI agent in 5 minutes, hosted by IBM ↗</span>
-        <span style="font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:12px;color:#9AA0AB;text-align:right;white-space:nowrap">2025</span>
-      </a>
+    <div class="app-strip">
+      <span class="app-lbl">Recent appearances</span>
+      <a class="app-item" href="https://www.linkedin.com/posts/nikavagner_last-night-i-was-at-elevenlabsbrand-new-activity-7468696127215775744-x2E0" target="_blank" rel="noopener">Tech Week @ ElevenLabs <i>2026 ↗</i></a>
+      <a class="app-item" href="/talks">NYU Wagner <i>2022—26</i></a>
+      <a class="app-item" href="https://qatar.websummit.com/summaries/qat25/work-smarter-not-harder-build-an-ai-agent-in-5-minutes-hosted-by-ibm/" target="_blank" rel="noopener">Web Summit Qatar <i>2025 ↗</i></a>
+      <a class="app-all" href="/talks">See all →</a>
     </div>
   </section>
 
@@ -521,6 +560,41 @@ class Component extends DCLogic {
         peekHide();
       });
     });
+
+    // Featured gallery: fade cards in on scroll; on fine pointers a hover/keyboard focus plays the clip (one at a time).
+    const wcards = Array.from(document.querySelectorAll('.wcard'));
+    if ('IntersectionObserver' in window && !reduceW) {
+      wcards.forEach((c, i) => { c.classList.add('rv'); c.style.transitionDelay = ((i % 2) * 90) + 'ms,' + ((i % 2) * 90) + 'ms,0ms'; });
+      const wio = new IntersectionObserver((ents) => {
+        ents.forEach((e) => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('in'); wio.unobserve(e.target);
+          setTimeout(() => { e.target.style.transitionDelay = ''; }, 1000);
+        });
+      }, { threshold: 0.12 });
+      wcards.forEach((c) => wio.observe(c));
+      this._wio = wio;
+    }
+    if (finePtr && !reduceW) {
+      let playing = null;
+      const stop = (c) => { const v = c && c.querySelector('video'); if (v) { v.classList.remove('live'); v.pause(); } if (playing === c) playing = null; };
+      const play = (c) => {
+        if (playing && playing !== c) stop(playing);
+        playing = c;
+        const media = c.querySelector('.wmedia'); let v = media.querySelector('video');
+        if (!v) {
+          v = document.createElement('video'); v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'auto';
+          v.setAttribute('aria-hidden', 'true'); v.src = c.dataset.vid; media.insertBefore(v, media.querySelector('.wbadge,.whint'));
+        }
+        const r = v.play(); if (r && r.then) r.then(() => { if (playing === c) v.classList.add('live'); }).catch(() => {});
+      };
+      wcards.forEach((c) => {
+        c.addEventListener('mouseenter', () => play(c));
+        c.addEventListener('mouseleave', () => stop(c));
+        c.addEventListener('focusin', (e) => { if (e.target.matches && e.target.matches(':focus-visible')) play(c); });
+        c.addEventListener('focusout', () => stop(c));
+      });
+    }
 
     // ---- Live pipeline panel ----
     // Each scene builds itself in via CSS when it gets the `.on` class. A thin bar along the stage bottom
@@ -663,6 +737,7 @@ class Component extends DCLogic {
     this.setState({ navGeos: navGeos });
   }
   componentWillUnmount() {
+    if (this._wio) this._wio.disconnect();
     if (this._peekEl) this._peekEl.remove();
     if (this._peekHide) window.removeEventListener('blur', this._peekHide);
     if (this._procStop) this._procStop();
