@@ -62,8 +62,8 @@ dates: Pre-2012
 
 ## Side projects I built and launched
 
-- **BookJumpr** · bookjumpr.com — knowledge graph of 8,500+ book mentions across nearly 6,000 titles, built by an AI PDF-extraction pipeline · 150+ users since launch
-- **Saturdays in a Book** · saturdaysinabook.com — 100+ reviews and reading stats across 700 books · ~160 newsletter subscribers, 100+ views a month
+- **BookJumpr** · bookjumpr.com — knowledge graph of 8,500+ mentions across 6,000 titles via AI PDF extraction · 150+ users
+- **Saturdays in a Book** · saturdaysinabook.com — 100+ reviews across 700 books · ~160 newsletter subscribers
 - **Book Giveaways** · sabtainkhan.com/book-giveaways — every open Goodreads giveaway, ranked by odds
 
 ## Toolkit (pills)
