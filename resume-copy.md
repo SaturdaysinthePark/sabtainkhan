@@ -22,15 +22,16 @@ intro: Product leader for enterprise AI agents at IBM. I take zero-to-one platfo
 
 - $350M — ARR
 - 100M+ — Active users
-- 15+ — PMs in my org
+- 30 — PMs directly managed
 
 ## Experience — IBM · New York · 2012 → Present
 
 ### Group Product Manager · watsonx Orchestrate
 dates: 2023 → Present
-- Own vision and technical roadmap for IBM's AI agent portfolio — **$350M ARR**, leading 15+ PMs.
-- Launched the agent platform zero-to-one: multi-agent orchestration, MCP, evals and monitoring.
-- Elevance, CVS, Banco Inter and more customers running customer-service agents — **100M+ messages a month**.
+- Own vision and technical roadmap for IBM's AI agent portfolio — **$350M ARR**, directly managing and leading 30+ PMs.
+- 2026 Gartner Magic Quadrant Leader for both AI Agent Management Platforms and AI Application Development Platforms.
+- Launched the AI agent builder and control plane platform zero-to-one: multi-agent orchestration, agent development lifecycle, agent identity and security, monitoring and optimization.
+- **100M+ messages per month** through agents with customers in banking, healthcare and telco.
 
 ### Principal Product Manager · watsonx Assistant
 dates: 2022 → 2023
@@ -61,8 +62,8 @@ dates: Pre-2012
 
 ## Side projects I built and launched
 
-- **BookJumpr** · bookjumpr.com — knowledge graph of 7,300 book mentions across 5,000 titles, built by an AI PDF-extraction pipeline
-- **Saturdays in a Book** · saturdaysinabook.com — 100+ reviews and reading stats across 700 books
+- **BookJumpr** · bookjumpr.com — knowledge graph of 8,500+ book mentions across nearly 6,000 titles, built by an AI PDF-extraction pipeline · 150+ users since launch
+- **Saturdays in a Book** · saturdaysinabook.com — 100+ reviews and reading stats across 700 books · ~160 newsletter subscribers, 100+ views a month
 - **Book Giveaways** · sabtainkhan.com/book-giveaways — every open Goodreads giveaway, ranked by odds
 
 ## Toolkit (pills)
